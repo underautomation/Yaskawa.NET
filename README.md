@@ -1,5 +1,3 @@
-[![UnderAutomation Yaskawa communication SDK](https://user-images.githubusercontent.com/47540360/136141853-1ec87530-d88e-467f-adb4-ec3c46d26010.png)](https://underautomation.com)
-
 # Yaskawa communication SDK
 
 Quickly create applications that communicate with an [Yaskawa](https://www.universal-robots.com) industrial robot.

@@ -1,0 +1,531 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+UnderAutomation.Yaskawa
+</name>
+</assembly>
+<members>
+<member name="T:UnderAutomation.Yaskawa.Yaskawa">
+ <summary>
+ Main class that represents a connection to a Yaskawa Motoman industrial robot
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.#ctor">
+ <summary>
+ Create a new instance of a robot communication
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.Connect(System.String)">
+ <summary>
+ Connect to a robot
+ </summary>
+ <param name="ip">IP or network name of the robot</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.Connect(System.String,UnderAutomation.Yaskawa.ConnectParameters)">
+ <summary>
+ Connect to a robot
+ </summary>
+ <param name="ip">IP or network name of the robot</param>
+ <param name="parameters">Additional parameters</param>
+</member>
+<member name="P:UnderAutomation.Yaskawa.Yaskawa.Connected">
+ <summary>
+ Indicates if the connection is enabled
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.Close">
+ <summary>
+ Close the connection to the robot
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetAlarm(UnderAutomation.Yaskawa.RobotRecentAlarm)">
+ <summary>
+ Returns information about active alarms
+ </summary>
+ <param name="alarm">Selected alarm you want to get information</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetStatusInformation">
+ <summary>
+ Get robot status
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetExecutingJobInformation">
+ <summary>
+ Get information about current running program
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetConfigurationInformation">
+ <summary>
+ Get default information about robot axes
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetConfigurationInformation(UnderAutomation.Yaskawa.RobotControlGroup)">
+ <summary>
+ Get information about robot axes
+ </summary>
+ <param name="type">Robot control group</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetRobotCartesianPosition">
+ <summary>
+ Get current robot cartesian position
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetRobotJointPosition">
+ <summary>
+ Get current robot joint position
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetRobotPosition(UnderAutomation.Yaskawa.RobotControlGroup)">
+ <summary>
+ Get position of a control group
+ </summary>
+ <param name="type"></param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetPositionError">
+ <summary>
+ Get position error data
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetPositionError(UnderAutomation.Yaskawa.RobotControlGroup)">
+ <summary>
+ Get position error data of a control group
+ </summary>
+ <param name="type">Control group</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetTorque">
+ <summary>
+ Get robot current torque
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetTorque(UnderAutomation.Yaskawa.RobotControlGroup)">
+ <summary>
+ Get control group current torque
+ </summary>
+ <param name="type">Control group</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.AlarmReset(UnderAutomation.Yaskawa.AlarmResetType)">
+ <summary>
+ Acknowledge alarms
+ </summary>
+ <param name="type">Alarm reset type</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.ServoCommand(UnderAutomation.Yaskawa.OnOffCommandType,System.Boolean)">
+ <summary>
+ Servo on / off the robot
+ </summary>
+ <param name="command">Command type</param>
+ <param name="value">true for servo on, false for servo off</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.SwitchingCommand(UnderAutomation.Yaskawa.SwitchingCommand)">
+ <summary>
+ Switch command
+ </summary>
+ <param name="command">Command type</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.Display(System.String)">
+ <summary>
+ Display a popup message on the pendant
+ </summary>
+ <param name="message">Message to display</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.StartJob">
+ <summary>
+ Start selected job
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.SelectJob(System.String,System.Int32)">
+ <summary>
+ Set selected job
+ </summary>
+ <param name="job">job name</param>
+ <param name="line">job line</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetManagementTime(UnderAutomation.Yaskawa.ManagementTimeType,System.Int32)">
+ <summary>
+ Get tasks executing time
+ </summary>
+ <param name="type">Management time type</param>
+ <param name="index">optional index</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetSystemInformation">
+ <summary>
+ Get information about the robot
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetSystemInformation(UnderAutomation.Yaskawa.RobotSystemTypeData)">
+ <summary>
+ Get information about a robot system
+ </summary>
+ <param name="type"></param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadIO(System.Int32,System.Int32)">
+ <summary>
+ Read multiple inputs and outputs by index 
+ </summary>
+ <param name="firstIndex">Index of first IO to read</param>
+ <param name="count">number of bytes to read</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.WriteIO(System.Int32,System.Collections.Generic.IEnumerable{System.Byte})">
+ <summary>
+ 
+ </summary>
+ <param name="firstIndex"></param>
+ <param name="data">Data array to write, should contains a pair number of element</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadRegister(System.Int32,System.Int32)">
+ <summary>
+ Read registers
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.WriteRegister(System.Int32,System.Collections.Generic.IEnumerable{System.Byte})">
+ <summary>
+ Write registers
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadByte(System.Int32,System.Int32)">
+ <summary>
+ Read byte data from index
+ </summary>
+ <param name="firstIndex">Start index to read</param>
+ <param name="count">number of index to read</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.WriteByte(System.Int32,System.Collections.Generic.IEnumerable{System.Byte})">
+ <summary>
+ Write byte data from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadInteger(System.Int32,System.Int32)">
+ <summary>
+ Read integer data from index
+ </summary>
+ <param name="firstIndex">Start index to read</param>
+ <param name="count">number of index to read</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.WriteInteger(System.Int32,System.Collections.Generic.IEnumerable{System.Byte})">
+ <summary>
+ Write integer data from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadDouble(System.Int32,System.Int32)">
+ <summary>
+ Read double data (64 bits) from index
+ </summary>
+ <param name="firstIndex">Start index to read</param>
+ <param name="count">number of index to read</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.WriteDouble(System.Int32,System.Collections.Generic.IEnumerable{System.Double})">
+ <summary>
+ Write double data (float 64 bits) from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadSingle(System.Int32,System.Int32)">
+ <summary>
+ Read single data (float 32 bits) from index
+ </summary>
+ <param name="firstIndex">Start index to read</param>
+ <param name="count">number of index to read</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.WriteSingle(System.Int32,System.Collections.Generic.IEnumerable{System.Single})">
+ <summary>
+ Write single data (float 32 bits) from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.Read16BytesChar(System.Int32,System.Int32)">
+ <summary>
+ Read string data from index
+ </summary>
+ <param name="firstIndex">Start index to read</param>
+ <param name="count">number of index to read</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.Write16BytesChar(System.Int32,System.Collections.Generic.IEnumerable{System.String})">
+ <summary>
+ Write string data from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadPositionVariable(System.Int32,System.Int32)">
+ <summary>
+ Read position variables from index
+ </summary>
+ <param name="firstIndex">Start index to read</param>
+ <param name="count">number of index to read</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.WritePositionVariable(System.Int32,System.Collections.Generic.IEnumerable{UnderAutomation.Yaskawa.RobotPositionData{System.Int32}})">
+ <summary>
+ Write position variable from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadBasePosition(System.Int32,System.Int32)">
+ <summary>
+ Read base position variable from index
+ </summary>
+ <param name="firstIndex">Start index to read</param>
+ <param name="count">number of index to read</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.WriteBasePosition(System.Int32,System.Collections.Generic.IEnumerable{UnderAutomation.Yaskawa.RobotBasePositionData})">
+ <summary>
+ Write base position data from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadExternalPosition(System.Int32,System.Int32)">
+ <summary>
+ Read external positions from index
+ </summary>
+ <param name="firstIndex">Start index to read</param>
+ <param name="count">number of index to read</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.WriteExternalPosition(System.Int32,System.Collections.Generic.IEnumerable{UnderAutomation.Yaskawa.RobotAxisRawData{System.Int32}})">
+ <summary>
+ Write external position data from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetAlarmExtended(UnderAutomation.Yaskawa.RobotRecentAlarm)">
+ <summary>
+ Get extended information about active alarms
+ </summary>
+ <param name="alarm">Index of alarm</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.MoveCartesian(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,UnderAutomation.Yaskawa.PositionCommandClassification,System.Double,UnderAutomation.Yaskawa.PositionCommandOperationCoordinate,UnderAutomation.Yaskawa.RobotPosture,UnderAutomation.Yaskawa.PositionCommandType,System.Int32,System.Int32,System.Int32,System.Int32)">
+ <summary>
+ Move robot to a cartesion position
+ </summary>
+ <param name="x">X coordinate in millimeter</param>
+ <param name="y">Y coordinate in millimeter</param>
+ <param name="z">Z coordinate in millimeter</param>
+ <param name="tx">tx  coordinate in degrees</param>
+ <param name="ty">ty  coordinate in degrees</param>
+ <param name="tz">tz  coordinate in degrees</param>
+ <param name="classification">Classification</param>
+ <param name="speed">move speed in mm/s</param>
+ <param name="coordinate">Frame coordinate</param>
+ <param name="posture">Robot target posture</param>
+ <param name="commandtype">Command type</param>
+ <param name="RobotControlGroup">Control group</param>
+ <param name="StationControlGroup">Station control group</param>
+ <param name="tool">Selected TCP</param>
+ <param name="userCoordinate">User coordinate for User coordinate</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.MoveJoints(System.Int32[],UnderAutomation.Yaskawa.PositionCommandClassification,System.Double,UnderAutomation.Yaskawa.PositionCommandType,System.Int32,System.Int32,System.Int32)">
+ <summary>
+ Move robot to joint position
+ </summary>
+ <param name="axesPulse">Axes position in degrees</param>
+ <param name="classification">Classification</param>
+ <param name="speed">Movement speed in degrees/s</param>
+ <param name="commandtype">Command type</param>
+ <param name="RobotControlGroup">Robot control group</param>
+ <param name="StationControlGroup">Station control group</param>
+ <param name="tool">Selected TCP</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.Read32BytesChar(System.Int32,System.Int32)">
+ <summary>
+ Read string data from index
+ </summary>
+ <param name="firstIndex">Start index to read</param>
+ <param name="count">number of index to read</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.Write32BytesChar(System.Int32,System.Collections.Generic.IEnumerable{System.String})">
+ <summary>
+ Write string data from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.DeleteFile(System.String)">
+ <summary>
+ Delete a file by its name
+ </summary>
+ <param name="name">File name</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.LoadFile(System.String,System.String,UnderAutomation.Yaskawa.Yaskawa.LoadFileProgressDelegate)">
+ <summary>
+ Download file to the robot
+ </summary>
+ <param name="name">File name on the robot</param>
+ <param name="content">File content</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetFileList(System.String)">
+ <summary>
+ Enumerate files
+ </summary>
+ <param name="pattern">File to enumerate, for example *.JBI to list every jobs</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetFile(System.String,UnderAutomation.Yaskawa.Yaskawa.GetFileProgressDelegate)">
+ <summary>
+ Upload file from robot to your program
+ </summary>
+ <param name="name">File to load</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.Yaskawa.RegisterLicense(System.String,System.String)">
+ <summary>
+ If you have a license And a key, please call this static method to register the product And exit the trial period
+ ou can register a product even if the trial period has ended
+ </summary>
+ <param name="Licensee">Your organization name</param>
+ <param name="key">The associated key supplied by UnderAutomation</param>
+ <returns>Information about the supplied license</returns>
+</member>
+<member name="P:UnderAutomation.Yaskawa.Yaskawa.LicenseInfo">
+ <summary>
+ Return information about your license
+ </summary>
+</member>
+<member name="T:UnderAutomation.Yaskawa.LicenseInfo">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.LicenseInfo.#ctor(System.String,System.String)">
+ <summary>
+ Create a new LicenseInfo instance to retrieve informations about a pair of identifier/key
+ This class should not be used to register your product. Please use static function UnderAutomation.UniversalRobot.UniversalRobotInterface.RegisterLicense to register a license.
+ </summary>
+ <param name="licenseIdentifier">The name of your organization (null for trial version)</param>
+ <param name="licenseKey">The key, associated to the identifier, supplied by UnderAutomation (null for trial version)</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.LicenseInfo.AssertIsLicensed">
+ <summary>
+ Throw a InvalidLicenseException if the license is Invalid or Expired
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.LicenseInfo.LicenseKey">
+ <summary>
+ The license key supplied by UnderAutomation (null for trial period)
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.LicenseInfo.Product">
+ <summary>
+ Commercial name of this .NET Software library
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.LicenseInfo.EvaluationDaysLeft">
+ <summary>
+ Remaining days of the trial period. Null if the product is licensed. It could be negative if the trial period is ended since several days.
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.LicenseInfo.EvaluationStartDate">
+ <summary>
+ The date the trial period starts. If the product is licensed, the date of the library first use.
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.LicenseInfo.Licensee">
+ <summary>
+ Name of your organisation
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.LicenseInfo.TrialPeriodExpirationDate">
+ <summary>
+ The date the product will expire. Null if the product is licensed.
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.LicenseInfo.State">
+ <summary>
+ The current license state
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.LicenseInfo.ProductReleaseDate">
+ <summary>
+ The date this version of the product was released.
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.LicenseInfo.MaintenanceYears">
+ <summary>
+ Number of maintenance years included in your license
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.LicenseInfo.LicenseIssuedDate">
+ <summary>
+ The date you get the license
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.LicenseInfo.MaintenanceExpirationDate">
+ <summary>
+ The date your maintenance contract end and you no longer can use this license with newer versions.
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.LicenseInfo.ToString">
+ <summary>
+ A human description of the license
+ </summary>
+</member>
+<member name="T:UnderAutomation.Yaskawa.LicenseState">
+ <summary>
+ States that can take a license
+ </summary>
+</member>
+<member name="F:UnderAutomation.Yaskawa.LicenseState.Invalid">
+ <summary>
+ The pair License Identifier and License Key are incompatible, you cannot use the library
+ </summary>
+</member>
+<member name="F:UnderAutomation.Yaskawa.LicenseState.Trial">
+ <summary>
+ The library is in a trial period, you can use the library
+ </summary>
+</member>
+<member name="F:UnderAutomation.Yaskawa.LicenseState.ExtraTrial">
+ <summary>
+ The library is in an extra trial period, you can use the library
+ </summary>
+</member>
+<member name="F:UnderAutomation.Yaskawa.LicenseState.Expired">
+ <summary>
+ The trial period as expired, you no more can use the library
+ </summary>
+</member>
+<member name="F:UnderAutomation.Yaskawa.LicenseState.MaintenanceNeeded">
+ <summary>
+ Your license does not allow you to use such a recent release. Please buy maintenance to use this version
+ </summary>
+</member>
+<member name="F:UnderAutomation.Yaskawa.LicenseState.Licensed">
+ <summary>
+ Congratulations, the library is licensed.
+ </summary>
+</member>
+<member name="T:UnderAutomation.Yaskawa.InvalidLicenseException">
+ <summary>
+ Exception thrown while using the product if the license is not valid.
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.InvalidLicenseException.LicenseInfo">
+ <summary>
+ The license that causes this exception
+ </summary>
+</member>
+</members>
+</doc>

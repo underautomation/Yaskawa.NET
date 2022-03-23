@@ -5,9 +5,9 @@ using UnderAutomation.Yaskawa;
 
 public partial class ConnectControl : UserControl, IUserControl
 {
-    Yaskawa _robot;
+    YaskawaRobot _robot;
 
-    public ConnectControl(Yaskawa Yaskawa)
+    public ConnectControl(YaskawaRobot Yaskawa)
     {
         _robot = Yaskawa;
         InitializeComponent();
@@ -17,7 +17,7 @@ public partial class ConnectControl : UserControl, IUserControl
     }
 
     #region IUserControl
-    public bool FeatureEnabled => _robot.Connected;
+    public bool FeatureEnabled => _robot.HighSpeedEServer.Connected;
 
     public string Title => "Connection";
 
@@ -41,7 +41,7 @@ public partial class ConnectControl : UserControl, IUserControl
         if (e is KeyEventArgs && ((KeyEventArgs)e).KeyCode != Keys.Enter) return;
 
         // Connect to the robot
-        _robot.Connect(txtIP.Text);
+        _robot.HighSpeedEServer.Connect(txtIP.Text);
 
         // Store information
         Config.Current.IP = txtIP.Text;
@@ -51,6 +51,6 @@ public partial class ConnectControl : UserControl, IUserControl
     private void btnDisconnect_Click(object sender, EventArgs e)
     {
         // Disconnect all services
-        _robot.Close();
+        _robot.HighSpeedEServer.Close();
     }
 }

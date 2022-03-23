@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using UnderAutomation.Yaskawa;
+using UnderAutomation.Yaskawa.HighSpeedEServer;
 
 public partial class StatusControl : UserControl, IUserControl
 {
@@ -15,17 +16,17 @@ public partial class StatusControl : UserControl, IUserControl
     }
 
 
-    Yaskawa _robot;
+    YaskawaRobot _robot;
 
 
-    public StatusControl(Yaskawa Yaskawa)
+    public StatusControl(YaskawaRobot Yaskawa)
     {
         _robot = Yaskawa;
         InitializeComponent();
     }
 
     #region IUserControl
-    public bool FeatureEnabled => _robot.Connected;
+    public bool FeatureEnabled => _robot.HighSpeedEServer.Connected;
 
     public string Title => "Status";
 
@@ -40,7 +41,7 @@ public partial class StatusControl : UserControl, IUserControl
 
         if (!worker.CancellationPending) worker.RunWorkerAsync();
 
-        gridInfo.SelectedObject = _robot.GetSystemInformation();
+        gridInfo.SelectedObject = _robot.HighSpeedEServer.GetSystemInformation();
     }
 
     public void PeriodicUpdate()
@@ -55,8 +56,8 @@ public partial class StatusControl : UserControl, IUserControl
         {
             try
             {
-                var jobInformation = _robot.GetExecutingJobInformation();
-                var status = _robot.GetStatusInformation();
+                var jobInformation = _robot.HighSpeedEServer.GetExecutingJobInformation();
+                var status = _robot.HighSpeedEServer.GetStatusInformation();
 
                 var time = new ManagementTime();
 
@@ -90,7 +91,7 @@ public partial class StatusControl : UserControl, IUserControl
     {
         try
         {
-            return _robot.GetManagementTime(time);
+            return _robot.HighSpeedEServer.GetManagementTime(time);
         }
         catch
         {

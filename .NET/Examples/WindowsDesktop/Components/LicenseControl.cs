@@ -15,7 +15,7 @@ public partial class LicenseControl : UserControl, IUserControl
         txtKey.Text = Config.Current.Key;
 
         // Register license at startup
-        Yaskawa.RegisterLicense(Config.Current.Licensee, Config.Current.Key);
+        YaskawaRobot.RegisterLicense(Config.Current.Licensee, Config.Current.Key);
 
         UpdateLicenseControls();
     }
@@ -35,7 +35,7 @@ public partial class LicenseControl : UserControl, IUserControl
     private void UpdateLicenseControls()
     {
         // Display license data
-        var info = Yaskawa.LicenseInfo;
+        var info = YaskawaRobot.LicenseInfo;
         txtLicenseInfo.Text = info.ToString();
         gridLicense.SelectedObject = info;
         _licenseValid = info.State != LicenseState.Invalid && info.State != LicenseState.Expired;
@@ -44,7 +44,7 @@ public partial class LicenseControl : UserControl, IUserControl
     private void btnSetLicense_Click(object sender, System.EventArgs e)
     {
         // Register license with provided information
-        Yaskawa.RegisterLicense(txtLicensee.Text, txtKey.Text);
+        YaskawaRobot.RegisterLicense(txtLicensee.Text, txtKey.Text);
 
         UpdateLicenseControls();
 

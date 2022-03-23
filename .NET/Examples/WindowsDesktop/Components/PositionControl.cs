@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Forms;
 using UnderAutomation.Yaskawa;
+using UnderAutomation.Yaskawa.HighSpeedEServer;
 
 public partial class PositionControl : UserControl, IUserControl
 {
@@ -12,21 +13,22 @@ public partial class PositionControl : UserControl, IUserControl
         TypeDescriptor.AddAttributes(typeof(RobotPosture), new TypeConverterAttribute(typeof(ExpandableObjectConverter)));
     }
 
-    Yaskawa _robot;
+    YaskawaRobot _robot;
 
 
-    public PositionControl(Yaskawa Yaskawa)
+    public PositionControl(YaskawaRobot Yaskawa)
     {
         _robot = Yaskawa;
         InitializeComponent();
     }
 
     #region IUserControl
-    public bool FeatureEnabled => _robot.Connected;
+    public bool FeatureEnabled => _robot.HighSpeedEServer.Connected;
 
     public string Title => "Current position";
 
-    public void OnClose() {
+    public void OnClose()
+    {
         worker.CancelAsync();
     }
 
@@ -34,7 +36,7 @@ public partial class PositionControl : UserControl, IUserControl
     {
         if (!FeatureEnabled) return;
 
-       if(!worker.CancellationPending) worker.RunWorkerAsync();
+        if (!worker.CancellationPending) worker.RunWorkerAsync();
     }
 
     public void PeriodicUpdate()
@@ -48,11 +50,11 @@ public partial class PositionControl : UserControl, IUserControl
         {
             try
             {
-               var error = _robot.GetPositionError();
+                var error = _robot.HighSpeedEServer.GetPositionError();
 
-               var cartesian= _robot.GetRobotCartesianPosition();
+                var cartesian = _robot.HighSpeedEServer.GetRobotCartesianPosition();
 
-             var joints=   _robot.GetRobotJointPosition();
+                var joints = _robot.HighSpeedEServer.GetRobotJointPosition();
 
                 this.Invoke(new Action(() =>
                 {

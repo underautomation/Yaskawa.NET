@@ -6,16 +6,16 @@ using UnderAutomation.Yaskawa;
 
 public partial class FileControl : UserControl, IUserControl
 {
-    Yaskawa _robot;
+    YaskawaRobot _robot;
 
-    public FileControl(Yaskawa Yaskawa)
+    public FileControl(YaskawaRobot Yaskawa)
     {
         _robot = Yaskawa;
         InitializeComponent();
     }
 
     #region IUserControl
-    public bool FeatureEnabled => _robot.Connected;
+    public bool FeatureEnabled => _robot.HighSpeedEServer.Connected;
 
     public string Title => "Files";
 
@@ -35,9 +35,9 @@ public partial class FileControl : UserControl, IUserControl
 
             lstFolder.Items.Clear();
 
-            if (!_robot.Connected) return;
+            if (!_robot.HighSpeedEServer.Connected) return;
 
-            var files = _robot.GetFileList(cbPattern.Text);
+            var files = _robot.HighSpeedEServer.GetFileList(cbPattern.Text);
 
             ListViewItem selectedItem = null;
 
@@ -79,7 +79,7 @@ public partial class FileControl : UserControl, IUserControl
         {
             Cursor = Cursors.WaitCursor;
 
-            _robot.LoadFile(fileName, content, (progress) =>
+            _robot.HighSpeedEServer.LoadFile(fileName, content, (progress) =>
             {
                 lblProgress.Visible = true;
                 lblProgress.Text = $"Sending {progress.FileName} ...\r\nSent bytes : {progress.LoadedBytes} out of {progress.TotalBytes}";
@@ -110,7 +110,7 @@ public partial class FileControl : UserControl, IUserControl
             return;
         }
 
-        _robot.DeleteFile(file);
+        _robot.HighSpeedEServer.DeleteFile(file);
 
         UpdateList();
     }
@@ -135,7 +135,7 @@ public partial class FileControl : UserControl, IUserControl
             Cursor = Cursors.WaitCursor;
 
 
-            var content = _robot.GetFile(file, (progress) =>
+            var content = _robot.HighSpeedEServer.GetFile(file, (progress) =>
             {
                 lblProgress.Visible = true;
                 lblProgress.Text = $"Downloading {progress.FileName} ...\r\nReceived bytes : {progress.DownloadedBytes}";

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using UnderAutomation.Yaskawa;
+using UnderAutomation.Yaskawa.HighSpeedEServer;
 
 public partial class AlarmControl : UserControl, IUserControl
 {
@@ -13,16 +14,16 @@ public partial class AlarmControl : UserControl, IUserControl
         TypeDescriptor.AddAttributes(typeof(RobotSystemInformation), new ReadOnlyAttribute(true));
     }
 
-    Yaskawa _robot;
+    YaskawaRobot _robot;
 
-    public AlarmControl(Yaskawa Yaskawa)
+    public AlarmControl(YaskawaRobot Yaskawa)
     {
         _robot = Yaskawa;
         InitializeComponent();
     }
 
     #region IUserControl
-    public bool FeatureEnabled => _robot.Connected;
+    public bool FeatureEnabled => _robot.HighSpeedEServer.Connected;
 
     public string Title => "Alarms and system info";
 
@@ -36,7 +37,7 @@ public partial class AlarmControl : UserControl, IUserControl
         var alarms = new List<RobotAlarmData>();
         for (var i = RobotRecentAlarm.Latest; i <= RobotRecentAlarm.FourthLatest; i++)
         {
-            var alarm = _robot.GetAlarm(i);
+            var alarm = _robot.HighSpeedEServer.GetAlarm(i);
             alarms.Add(alarm);
         }
 
@@ -59,7 +60,7 @@ public partial class AlarmControl : UserControl, IUserControl
 
     private void btnReset_Click(object sender, EventArgs e)
     {
-        _robot.AlarmReset(AlarmResetType.Reset);
+        _robot.HighSpeedEServer.AlarmReset(AlarmResetType.Reset);
     }
 
     private void btnRefresh_Click(object sender, EventArgs e)

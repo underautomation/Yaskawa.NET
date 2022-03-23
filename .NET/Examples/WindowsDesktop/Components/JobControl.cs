@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 using UnderAutomation.Yaskawa;
+using UnderAutomation.Yaskawa.HighSpeedEServer;
 
 public partial class JobControl : UserControl, IUserControl
 {
@@ -12,16 +13,16 @@ public partial class JobControl : UserControl, IUserControl
         TypeDescriptor.AddAttributes(typeof(RobotStatusData), new ReadOnlyAttribute(true));
     }
 
-    Yaskawa _robot;
+    YaskawaRobot _robot;
 
-    public JobControl(Yaskawa Yaskawa)
+    public JobControl(YaskawaRobot Yaskawa)
     {
         _robot = Yaskawa;
         InitializeComponent();
     }
 
     #region IUserControl
-    public bool FeatureEnabled => _robot.Connected;
+    public bool FeatureEnabled => _robot.HighSpeedEServer.Connected;
 
     public string Title => "Job";
 
@@ -38,15 +39,15 @@ public partial class JobControl : UserControl, IUserControl
     public void PeriodicUpdate()
     {
         if (!FeatureEnabled) return;
-        gridExecuting.SelectedObject = _robot.GetExecutingJobInformation();
-        gridStatus.SelectedObject = _robot.GetStatusInformation();
+        gridExecuting.SelectedObject = _robot.HighSpeedEServer.GetExecutingJobInformation();
+        gridStatus.SelectedObject = _robot.HighSpeedEServer.GetStatusInformation();
     }
 
     #endregion
 
     private void btnSelect_Click(object sender, EventArgs e)
     {
-        _robot.SelectJob(cbJobs.Text, (int)udJobLine.Value);
+        _robot.HighSpeedEServer.SelectJob(cbJobs.Text, (int)udJobLine.Value);
     }
 
     private void btnRefresh_Click(object sender, EventArgs e)
@@ -58,13 +59,13 @@ public partial class JobControl : UserControl, IUserControl
     {
         if (!FeatureEnabled) return;
 
-        var files = _robot.GetFileList("*.JBI")?.Files;
+        var files = _robot.HighSpeedEServer.GetFileList("*.JBI")?.Files;
 
         if (files is null) return;
 
         cbJobs.Items.Clear();
 
-        foreach(var file in files)
+        foreach (var file in files)
         {
             cbJobs.Items.Add(Path.GetFileNameWithoutExtension(file));
         }
@@ -72,17 +73,17 @@ public partial class JobControl : UserControl, IUserControl
 
     private void btnStart_Click(object sender, EventArgs e)
     {
-        _robot.StartJob();
+        _robot.HighSpeedEServer.StartJob();
     }
 
     private void btnServoOff_Click(object sender, EventArgs e)
     {
-        _robot.ServoCommand(OnOffCommandType.Servo, false);
+        _robot.HighSpeedEServer.ServoCommand(OnOffCommandType.Servo, false);
     }
 
     private void btnServoOn_Click(object sender, EventArgs e)
     {
-        _robot.ServoCommand(OnOffCommandType.Servo, true);
+        _robot.HighSpeedEServer.ServoCommand(OnOffCommandType.Servo, true);
     }
 
 }

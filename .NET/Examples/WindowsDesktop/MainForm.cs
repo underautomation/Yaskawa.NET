@@ -7,7 +7,7 @@ using UnderAutomation.Yaskawa;
 public partial class MainForm : Form
 {
     // Yaskawa instance that handles connection to the robot
-    private readonly Yaskawa _robot = new Yaskawa();
+    private readonly YaskawaRobot _robot = new YaskawaRobot();
 
     private static MainForm Instance;
 

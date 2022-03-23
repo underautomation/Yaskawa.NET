@@ -7,9 +7,9 @@ public partial class FileControlPopup : Form
 {
     private string _file;
 
-    private Yaskawa _robot;
+    private YaskawaRobot _robot;
 
-    public FileControlPopup(string file, string content, Yaskawa yaskawa, bool showSaveDialog)
+    public FileControlPopup(string file, string content, YaskawaRobot yaskawa, bool showSaveDialog)
     {
         _robot = yaskawa;
 
@@ -30,7 +30,7 @@ public partial class FileControlPopup : Form
 
     private void btnSend_Click(object sender, EventArgs e)
     {
-        _robot.LoadFile(_file, txtContent.Text);
+        _robot.HighSpeedEServer.LoadFile(_file, txtContent.Text);
         this.Text = _file;
     }
 

@@ -29,7 +29,7 @@ public partial class PositionControl : UserControl, IUserControl
 
     public void OnClose()
     {
-        worker.CancelAsync();
+        if (worker.IsBusy) worker.CancelAsync();
     }
 
     public void OnOpen()

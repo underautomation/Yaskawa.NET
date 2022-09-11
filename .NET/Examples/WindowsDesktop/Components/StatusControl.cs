@@ -32,7 +32,7 @@ public partial class StatusControl : UserControl, IUserControl
 
     public void OnClose()
     {
-        worker.CancelAsync();
+        if (worker.IsBusy) worker.CancelAsync();
     }
 
     public void OnOpen()

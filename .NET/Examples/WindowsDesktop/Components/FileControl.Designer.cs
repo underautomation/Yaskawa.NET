@@ -29,6 +29,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileControl));
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("<", 1);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("abcdefghijklmno", 0);
             this.lstFolderImageList = new System.Windows.Forms.ImageList(this.components);
             this.dlgOpen = new System.Windows.Forms.OpenFileDialog();
             this.lstFolder = new System.Windows.Forms.ListView();
@@ -65,6 +67,9 @@
             this.lstFolder.Activation = System.Windows.Forms.ItemActivation.TwoClick;
             this.lstFolder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstFolder.HideSelection = false;
+            this.lstFolder.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem3,
+            listViewItem4});
             this.lstFolder.LabelEdit = true;
             this.lstFolder.LargeImageList = this.lstFolderImageList;
             this.lstFolder.Location = new System.Drawing.Point(0, 50);
@@ -72,6 +77,7 @@
             this.lstFolder.Size = new System.Drawing.Size(980, 612);
             this.lstFolder.TabIndex = 4;
             this.lstFolder.UseCompatibleStateImageBehavior = false;
+            this.lstFolder.View = System.Windows.Forms.View.Tile;
             this.lstFolder.ItemActivate += new System.EventHandler(this.lstFolder_ItemActivate);
             // 
             // ToolStrip1
@@ -108,6 +114,7 @@
             this.cbPattern.Name = "cbPattern";
             this.cbPattern.Size = new System.Drawing.Size(121, 25);
             this.cbPattern.Text = "*.JBI";
+            this.cbPattern.SelectedIndexChanged += new System.EventHandler(this.btnOpenPath_Click);
             // 
             // btnOpenPath
             // 

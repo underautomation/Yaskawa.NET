@@ -28,8 +28,10 @@ jobs:
       run: |
         cd "$Env:GITHUB_WORKSPACE\.NET\Examples\WindowsDesktop\bin\Release\"
         7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\YaskawaSDK_DesktopExample.zip *
+    - name: zip LABView example
+      run: 7z a -tzip -mx=9 YaskawaSDK_LABView.zip LabVIEW\
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: "YaskawaSDK_Full.zip,YaskawaSDK_DesktopExample.zip,YaskawaSDK.zip"
+        artifacts: "YaskawaSDK_Full.zip,YaskawaSDK_DesktopExample.zip,YaskawaSDK.zip,YaskawaSDK_LABView.zip"
         bodyFile: "whatsNew.md"
         token: ${{ secrets.GITHUB_TOKEN }}

@@ -87,7 +87,7 @@ partial class StatusControl
             this.gridTime.Location = new System.Drawing.Point(323, 29);
             this.gridTime.Name = "gridTime";
             this.gridTime.PropertySort = System.Windows.Forms.PropertySort.Alphabetical;
-            this.gridTime.Size = new System.Drawing.Size(316, 487);
+            this.gridTime.Size = new System.Drawing.Size(455, 487);
             this.gridTime.TabIndex = 26;
             this.gridTime.ToolbarVisible = false;
             // 

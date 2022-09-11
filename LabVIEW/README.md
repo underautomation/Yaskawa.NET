@@ -1,0 +1,1 @@
+Read the documentation : https://underautomation.com/yaskawa/documentation/get-started-labview

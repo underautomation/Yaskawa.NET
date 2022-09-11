@@ -61,6 +61,7 @@ public partial class AlarmControl : UserControl, IUserControl
     private void btnReset_Click(object sender, EventArgs e)
     {
         _robot.HighSpeedEServer.AlarmReset(AlarmResetType.Reset);
+        OnOpen();
     }
 
     private void btnRefresh_Click(object sender, EventArgs e)

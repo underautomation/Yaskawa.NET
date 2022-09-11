@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using UnderAutomation.Yaskawa;
+using UnderAutomation.Yaskawa.License;
 
 public partial class LicenseControl : UserControl, IUserControl
 {

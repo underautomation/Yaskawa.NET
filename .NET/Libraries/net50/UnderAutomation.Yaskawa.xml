@@ -6,113 +6,155 @@ UnderAutomation.Yaskawa
 </name>
 </assembly>
 <members>
-<member name="T:UnderAutomation.Yaskawa.Yaskawa">
+<member name="T:UnderAutomation.Yaskawa.Common.HighSpeedEServerConnectParameters">
+ <summary>
+ Represents a set of High Speed Ethernet Server connection parameters
+ </summary>
+</member>
+<member name="T:UnderAutomation.Yaskawa.ConnectParameters">
+ <summary>
+ Contains a set of connection parameters
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.ConnectParameters.#ctor">
+ <summary>
+ Creates a new set of connect parameters
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.ConnectParameters.#ctor(System.String)">
+ <summary>
+ Creates a new set of connect parameters and defines IP property
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.ConnectParameters.PingBeforeConnect">
+ <summary>
+ Send a ping command before connecting 
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:UnderAutomation.Yaskawa.ConnectParameters.IP">
+ <summary>
+ IP Adress or robot host name
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.ConnectParameters.HighSpeedEServer">
+ <summary>
+ High Speed Ethernet Server connect parameters
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:UnderAutomation.Yaskawa.HighSpeedEServer.HighSpeedEServerClient">
  <summary>
  Main class that represents a connection to a Yaskawa Motoman industrial robot
  </summary>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.#ctor">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.HighSpeedEServerClient.#ctor">
  <summary>
  Create a new instance of a robot communication
  </summary>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.Connect(System.String)">
+<member name="P:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.IP">
+ <summary>
+ Connect robot IP address or host name
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.Connect(System.String)">
  <summary>
  Connect to a robot
  </summary>
  <param name="ip">IP or network name of the robot</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.Connect(System.String,UnderAutomation.Yaskawa.ConnectParameters)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.Connect(System.String,UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerConnectParametersBase)">
  <summary>
  Connect to a robot
  </summary>
  <param name="ip">IP or network name of the robot</param>
  <param name="parameters">Additional parameters</param>
 </member>
-<member name="P:UnderAutomation.Yaskawa.Yaskawa.Connected">
+<member name="P:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.Connected">
  <summary>
  Indicates if the connection is enabled
  </summary>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.Close">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.Close">
  <summary>
  Close the connection to the robot
  </summary>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetAlarm(UnderAutomation.Yaskawa.RobotRecentAlarm)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetAlarm(UnderAutomation.Yaskawa.HighSpeedEServer.RobotRecentAlarm)">
  <summary>
  Returns information about active alarms
  </summary>
  <param name="alarm">Selected alarm you want to get information</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetStatusInformation">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetStatusInformation">
  <summary>
  Get robot status
  </summary>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetExecutingJobInformation">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetExecutingJobInformation">
  <summary>
  Get information about current running program
  </summary>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetConfigurationInformation">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetConfigurationInformation">
  <summary>
  Get default information about robot axes
  </summary>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetConfigurationInformation(UnderAutomation.Yaskawa.RobotControlGroup)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetConfigurationInformation(UnderAutomation.Yaskawa.HighSpeedEServer.RobotControlGroup)">
  <summary>
  Get information about robot axes
  </summary>
  <param name="type">Robot control group</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetRobotCartesianPosition">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetRobotCartesianPosition">
  <summary>
  Get current robot cartesian position
  </summary>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetRobotJointPosition">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetRobotJointPosition">
  <summary>
  Get current robot joint position
  </summary>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetRobotPosition(UnderAutomation.Yaskawa.RobotControlGroup)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetRobotPosition(UnderAutomation.Yaskawa.HighSpeedEServer.RobotControlGroup)">
  <summary>
  Get position of a control group
  </summary>
  <param name="type"></param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetPositionError">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetPositionError">
  <summary>
  Get position error data
  </summary>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetPositionError(UnderAutomation.Yaskawa.RobotControlGroup)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetPositionError(UnderAutomation.Yaskawa.HighSpeedEServer.RobotControlGroup)">
  <summary>
  Get position error data of a control group
  </summary>
  <param name="type">Control group</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetTorque">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetTorque">
  <summary>
  Get robot current torque
  </summary>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetTorque(UnderAutomation.Yaskawa.RobotControlGroup)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetTorque(UnderAutomation.Yaskawa.HighSpeedEServer.RobotControlGroup)">
  <summary>
  Get control group current torque
  </summary>
  <param name="type">Control group</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.AlarmReset(UnderAutomation.Yaskawa.AlarmResetType)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.AlarmReset(UnderAutomation.Yaskawa.HighSpeedEServer.AlarmResetType)">
  <summary>
  Acknowledge alarms
  </summary>
  <param name="type">Alarm reset type</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.ServoCommand(UnderAutomation.Yaskawa.OnOffCommandType,System.Boolean)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.ServoCommand(UnderAutomation.Yaskawa.HighSpeedEServer.OnOffCommandType,System.Boolean)">
  <summary>
  Servo on / off the robot
  </summary>
@@ -120,31 +162,31 @@ UnderAutomation.Yaskawa
  <param name="value">true for servo on, false for servo off</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.SwitchingCommand(UnderAutomation.Yaskawa.SwitchingCommand)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.SwitchingCommand(UnderAutomation.Yaskawa.HighSpeedEServer.SwitchingCommand)">
  <summary>
  Switch command
  </summary>
  <param name="command">Command type</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.Display(System.String)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.Display(System.String)">
  <summary>
  Display a popup message on the pendant
  </summary>
  <param name="message">Message to display</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.StartJob">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.StartJob">
  <summary>
  Start selected job
  </summary>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.SelectJob(System.String,System.Int32)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.SelectJob(System.String,System.Int32)">
  <summary>
  Set selected job
  </summary>
  <param name="job">job name</param>
  <param name="line">job line</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetManagementTime(UnderAutomation.Yaskawa.ManagementTimeType,System.Int32)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetManagementTime(UnderAutomation.Yaskawa.HighSpeedEServer.ManagementTimeType,System.Int32)">
  <summary>
  Get tasks executing time
  </summary>
@@ -152,19 +194,19 @@ UnderAutomation.Yaskawa
  <param name="index">optional index</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetSystemInformation">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetSystemInformation">
  <summary>
  Get information about the robot
  </summary>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetSystemInformation(UnderAutomation.Yaskawa.RobotSystemTypeData)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetSystemInformation(UnderAutomation.Yaskawa.HighSpeedEServer.RobotSystemTypeData)">
  <summary>
  Get information about a robot system
  </summary>
  <param name="type"></param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadIO(System.Int32,System.Int32)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.ReadIO(System.Int32,System.Int32)">
  <summary>
  Read multiple inputs and outputs by index 
  </summary>
@@ -172,7 +214,7 @@ UnderAutomation.Yaskawa
  <param name="count">number of bytes to read</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.WriteIO(System.Int32,System.Collections.Generic.IEnumerable{System.Byte})">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteIO(System.Int32,System.Collections.Generic.IEnumerable{System.Byte})">
  <summary>
  
  </summary>
@@ -180,24 +222,24 @@ UnderAutomation.Yaskawa
  <param name="data">Data array to write, should contains a pair number of element</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadRegister(System.Int32,System.Int32)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.ReadRegister(System.Int32,System.Int32)">
  <summary>
  Read registers
  </summary>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.WriteRegister(System.Int32,System.Collections.Generic.IEnumerable{System.Byte})">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteRegister(System.Int32,System.Collections.Generic.IEnumerable{System.Byte})">
  <summary>
  Write registers
  </summary>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadByte(System.Int32,System.Int32)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.ReadByte(System.Int32,System.Int32)">
  <summary>
  Read byte data from index
  </summary>
  <param name="firstIndex">Start index to read</param>
  <param name="count">number of index to read</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.WriteByte(System.Int32,System.Collections.Generic.IEnumerable{System.Byte})">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteByte(System.Int32,System.Collections.Generic.IEnumerable{System.Byte})">
  <summary>
  Write byte data from index. Array should contain a pair number of value
  </summary>
@@ -205,14 +247,14 @@ UnderAutomation.Yaskawa
  <param name="data">Data to write, should contain a multiple of 2 elements</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadInteger(System.Int32,System.Int32)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.ReadInteger(System.Int32,System.Int32)">
  <summary>
  Read integer data from index
  </summary>
  <param name="firstIndex">Start index to read</param>
  <param name="count">number of index to read</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.WriteInteger(System.Int32,System.Collections.Generic.IEnumerable{System.Byte})">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteInteger(System.Int32,System.Collections.Generic.IEnumerable{System.Byte})">
  <summary>
  Write integer data from index. Array should contain a pair number of value
  </summary>
@@ -220,14 +262,14 @@ UnderAutomation.Yaskawa
  <param name="data">Data to write, should contain a multiple of 2 elements</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadDouble(System.Int32,System.Int32)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.ReadDouble(System.Int32,System.Int32)">
  <summary>
  Read double data (64 bits) from index
  </summary>
  <param name="firstIndex">Start index to read</param>
  <param name="count">number of index to read</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.WriteDouble(System.Int32,System.Collections.Generic.IEnumerable{System.Double})">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteDouble(System.Int32,System.Collections.Generic.IEnumerable{System.Double})">
  <summary>
  Write double data (float 64 bits) from index. Array should contain a pair number of value
  </summary>
@@ -235,14 +277,14 @@ UnderAutomation.Yaskawa
  <param name="data">Data to write, should contain a multiple of 2 elements</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadSingle(System.Int32,System.Int32)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.ReadSingle(System.Int32,System.Int32)">
  <summary>
  Read single data (float 32 bits) from index
  </summary>
  <param name="firstIndex">Start index to read</param>
  <param name="count">number of index to read</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.WriteSingle(System.Int32,System.Collections.Generic.IEnumerable{System.Single})">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteSingle(System.Int32,System.Collections.Generic.IEnumerable{System.Single})">
  <summary>
  Write single data (float 32 bits) from index. Array should contain a pair number of value
  </summary>
@@ -250,14 +292,14 @@ UnderAutomation.Yaskawa
  <param name="data">Data to write, should contain a multiple of 2 elements</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.Read16BytesChar(System.Int32,System.Int32)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.Read16BytesChar(System.Int32,System.Int32)">
  <summary>
  Read string data from index
  </summary>
  <param name="firstIndex">Start index to read</param>
  <param name="count">number of index to read</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.Write16BytesChar(System.Int32,System.Collections.Generic.IEnumerable{System.String})">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.Write16BytesChar(System.Int32,System.Collections.Generic.IEnumerable{System.String})">
  <summary>
  Write string data from index. Array should contain a pair number of value
  </summary>
@@ -265,14 +307,14 @@ UnderAutomation.Yaskawa
  <param name="data">Data to write, should contain a multiple of 2 elements</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadPositionVariable(System.Int32,System.Int32)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.ReadPositionVariable(System.Int32,System.Int32)">
  <summary>
  Read position variables from index
  </summary>
  <param name="firstIndex">Start index to read</param>
  <param name="count">number of index to read</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.WritePositionVariable(System.Int32,System.Collections.Generic.IEnumerable{UnderAutomation.Yaskawa.RobotPositionData{System.Int32}})">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WritePositionVariable(System.Int32,System.Collections.Generic.IEnumerable{UnderAutomation.Yaskawa.HighSpeedEServer.RobotPositionData{System.Int32}})">
  <summary>
  Write position variable from index. Array should contain a pair number of value
  </summary>
@@ -280,14 +322,14 @@ UnderAutomation.Yaskawa
  <param name="data">Data to write, should contain a multiple of 2 elements</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadBasePosition(System.Int32,System.Int32)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.ReadBasePosition(System.Int32,System.Int32)">
  <summary>
  Read base position variable from index
  </summary>
  <param name="firstIndex">Start index to read</param>
  <param name="count">number of index to read</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.WriteBasePosition(System.Int32,System.Collections.Generic.IEnumerable{UnderAutomation.Yaskawa.RobotBasePositionData})">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteBasePosition(System.Int32,System.Collections.Generic.IEnumerable{UnderAutomation.Yaskawa.HighSpeedEServer.RobotBasePositionData})">
  <summary>
  Write base position data from index. Array should contain a pair number of value
  </summary>
@@ -295,14 +337,14 @@ UnderAutomation.Yaskawa
  <param name="data">Data to write, should contain a multiple of 2 elements</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.ReadExternalPosition(System.Int32,System.Int32)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.ReadExternalPosition(System.Int32,System.Int32)">
  <summary>
  Read external positions from index
  </summary>
  <param name="firstIndex">Start index to read</param>
  <param name="count">number of index to read</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.WriteExternalPosition(System.Int32,System.Collections.Generic.IEnumerable{UnderAutomation.Yaskawa.RobotAxisRawData{System.Int32}})">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteExternalPosition(System.Int32,System.Collections.Generic.IEnumerable{UnderAutomation.Yaskawa.HighSpeedEServer.RobotAxisRawData{System.Int32}})">
  <summary>
  Write external position data from index. Array should contain a pair number of value
  </summary>
@@ -310,13 +352,13 @@ UnderAutomation.Yaskawa
  <param name="data">Data to write, should contain a multiple of 2 elements</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetAlarmExtended(UnderAutomation.Yaskawa.RobotRecentAlarm)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetAlarmExtended(UnderAutomation.Yaskawa.HighSpeedEServer.RobotRecentAlarm)">
  <summary>
  Get extended information about active alarms
  </summary>
  <param name="alarm">Index of alarm</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.MoveCartesian(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,UnderAutomation.Yaskawa.PositionCommandClassification,System.Double,UnderAutomation.Yaskawa.PositionCommandOperationCoordinate,UnderAutomation.Yaskawa.RobotPosture,UnderAutomation.Yaskawa.PositionCommandType,System.Int32,System.Int32,System.Int32,System.Int32)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.MoveCartesian(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,UnderAutomation.Yaskawa.HighSpeedEServer.PositionCommandClassification,System.Double,UnderAutomation.Yaskawa.HighSpeedEServer.PositionCommandOperationCoordinate,UnderAutomation.Yaskawa.HighSpeedEServer.RobotPosture,UnderAutomation.Yaskawa.HighSpeedEServer.PositionCommandType,System.Int32,System.Int32,System.Int32,System.Int32)">
  <summary>
  Move robot to a cartesion position
  </summary>
@@ -336,7 +378,7 @@ UnderAutomation.Yaskawa
  <param name="tool">Selected TCP</param>
  <param name="userCoordinate">User coordinate for User coordinate</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.MoveJoints(System.Int32[],UnderAutomation.Yaskawa.PositionCommandClassification,System.Double,UnderAutomation.Yaskawa.PositionCommandType,System.Int32,System.Int32,System.Int32)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.MoveJoints(System.Int32[],UnderAutomation.Yaskawa.HighSpeedEServer.PositionCommandClassification,System.Double,UnderAutomation.Yaskawa.HighSpeedEServer.PositionCommandType,System.Int32,System.Int32,System.Int32)">
  <summary>
  Move robot to joint position
  </summary>
@@ -349,14 +391,14 @@ UnderAutomation.Yaskawa
  <param name="tool">Selected TCP</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.Read32BytesChar(System.Int32,System.Int32)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.Read32BytesChar(System.Int32,System.Int32)">
  <summary>
  Read string data from index
  </summary>
  <param name="firstIndex">Start index to read</param>
  <param name="count">number of index to read</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.Write32BytesChar(System.Int32,System.Collections.Generic.IEnumerable{System.String})">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.Write32BytesChar(System.Int32,System.Collections.Generic.IEnumerable{System.String})">
  <summary>
  Write string data from index. Array should contain a pair number of value
  </summary>
@@ -364,13 +406,13 @@ UnderAutomation.Yaskawa
  <param name="data">Data to write, should contain a multiple of 2 elements</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.DeleteFile(System.String)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.DeleteFile(System.String)">
  <summary>
  Delete a file by its name
  </summary>
  <param name="name">File name</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.LoadFile(System.String,System.String,UnderAutomation.Yaskawa.Yaskawa.LoadFileProgressDelegate)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.LoadFile(System.String,System.String,UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.LoadFileProgressDelegate)">
  <summary>
  Download file to the robot
  </summary>
@@ -378,19 +420,71 @@ UnderAutomation.Yaskawa
  <param name="content">File content</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetFileList(System.String)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetFileList(System.String)">
  <summary>
  Enumerate files
  </summary>
  <param name="pattern">File to enumerate, for example *.JBI to list every jobs</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.GetFile(System.String,UnderAutomation.Yaskawa.Yaskawa.GetFileProgressDelegate)">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetFile(System.String,UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.GetFileProgressDelegate)">
  <summary>
  Upload file from robot to your program
  </summary>
  <param name="name">File to load</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.Yaskawa.RegisterLicense(System.String,System.String)">
+<member name="T:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerConnectParametersBase">
+ <summary>
+ Represents a set of High Speed Ethernet Server connection parameters
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerConnectParametersBase.DataTimeoutMilliseconds">
+ <summary>
+ Maximum time between sending a command and receiving a response (default : 1500ms)
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerConnectParametersBase.PowerOnTimeoutMilliseconds">
+ <summary>
+ Maximum time between sending the PowerOn() command and its response (default : 8000ms)
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerConnectParametersBase.FileTimeoutMilliseconds">
+ <summary>
+ Maximum time between sending a file command and receiving a response (default : 4000ms)
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerConnectParametersBase.DataPort">
+ <summary>
+ UDP port of High Speed EServer data port (default: 10040)
+ </summary>
+</member>
+<member name="P:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerConnectParametersBase.FilePort">
+ <summary>
+ UDP port of High Speed EServer file port (default: 10041)
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.YaskawaRobot.#ctor">
+ <summary>
+ Creates a new Yaskawa robot instance
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.YaskawaRobot.Connect(System.String)">
+ <summary>
+ Connects to the robot by its IP adress
+ </summary>
+ <param name="ip">IP or robot host name</param>
+</member>
+<member name="M:UnderAutomation.Yaskawa.YaskawaRobot.Connect(UnderAutomation.Yaskawa.ConnectParameters)">
+ <summary>
+ Connects to the robot
+ </summary>
+ <param name="parameters">Connection parameters</param>
+</member>
+<member name="P:UnderAutomation.Yaskawa.YaskawaRobot.HighSpeedEServer">
+ <summary>
+ Access High Speed Ethernet Server features
+ </summary>
+</member>
+<member name="M:UnderAutomation.Yaskawa.YaskawaRobot.RegisterLicense(System.String,System.String)">
  <summary>
  If you have a license And a key, please call this static method to register the product And exit the trial period
  ou can register a product even if the trial period has ended
@@ -399,7 +493,7 @@ UnderAutomation.Yaskawa
  <param name="key">The associated key supplied by UnderAutomation</param>
  <returns>Information about the supplied license</returns>
 </member>
-<member name="P:UnderAutomation.Yaskawa.Yaskawa.LicenseInfo">
+<member name="P:UnderAutomation.Yaskawa.YaskawaRobot.LicenseInfo">
  <summary>
  Return information about your license
  </summary>

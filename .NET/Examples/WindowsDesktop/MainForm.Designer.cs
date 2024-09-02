@@ -69,7 +69,7 @@ partial class MainForm
             // horizontalSplitContainer.Panel2
             // 
             this.horizontalSplitContainer.Panel2.Controls.Add(this.verticalSplitContainer);
-            this.horizontalSplitContainer.Size = new System.Drawing.Size(1043, 744);
+            this.horizontalSplitContainer.Size = new System.Drawing.Size(1055, 744);
             this.horizontalSplitContainer.SplitterDistance = 79;
             this.horizontalSplitContainer.TabIndex = 0;
             // 
@@ -78,7 +78,7 @@ partial class MainForm
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblLink);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(656, 0);
+            this.panel1.Location = new System.Drawing.Point(668, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(385, 77);
             this.panel1.TabIndex = 3;
@@ -102,7 +102,7 @@ partial class MainForm
             this.lblLink.Size = new System.Drawing.Size(385, 20);
             this.lblLink.TabIndex = 2;
             this.lblLink.TabStop = true;
-            this.lblLink.Text = "https://underautomation.com/Yaskawa/documentation";
+            this.lblLink.Text = "https://github.com/underautomation/Yaskawa";
             this.lblLink.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblLink_LinkClicked);
             // 
@@ -145,7 +145,7 @@ partial class MainForm
             // 
             this.verticalSplitContainer.Panel2.Controls.Add(this.mainPanel);
             this.verticalSplitContainer.Panel2.Controls.Add(this.panelTitle);
-            this.verticalSplitContainer.Size = new System.Drawing.Size(1043, 661);
+            this.verticalSplitContainer.Size = new System.Drawing.Size(1055, 661);
             this.verticalSplitContainer.SplitterDistance = 281;
             this.verticalSplitContainer.TabIndex = 0;
             // 
@@ -174,7 +174,7 @@ partial class MainForm
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 31);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(756, 628);
+            this.mainPanel.Size = new System.Drawing.Size(768, 628);
             this.mainPanel.TabIndex = 1;
             // 
             // panelTitle
@@ -183,7 +183,7 @@ partial class MainForm
             this.panelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTitle.Location = new System.Drawing.Point(0, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(756, 31);
+            this.panelTitle.Size = new System.Drawing.Size(768, 31);
             this.panelTitle.TabIndex = 0;
             this.panelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -202,7 +202,7 @@ partial class MainForm
             this.Controls.Add(this.horizontalSplitContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "UnderAutomation - Universal Robots communication SDK";
+            this.Text = "UnderAutomation - Yaskawa communication SDK";
             this.horizontalSplitContainer.Panel1.ResumeLayout(false);
             this.horizontalSplitContainer.Panel2.ResumeLayout(false);
             this.horizontalSplitContainer.ResumeLayout(false);

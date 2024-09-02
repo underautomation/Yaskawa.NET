@@ -119,7 +119,7 @@ public partial class MainForm : Form
     // Open browser to documentation page
     private void lblLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-        System.Diagnostics.Process.Start("https://underautomation.com/yaskawa/documentation?f");
+        System.Diagnostics.Process.Start(" https://github.com/underautomation/Yaskawa");
     }
     #endregion
 

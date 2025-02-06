@@ -63,7 +63,7 @@
             // btnSend
             // 
             this.btnSend.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSend.Image = global::UnderAutomation.Yaskawa.Sample.WindowsDesktop.Properties.Resources.download_2_line;
+            this.btnSend.Image = global::UnderAutomation.Yaskawa.Showcase.Forms.Properties.Resources.download_2_line;
             this.btnSend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSend.Location = new System.Drawing.Point(267, 17);
             this.btnSend.Name = "btnSend";
@@ -86,7 +86,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Image = global::UnderAutomation.Yaskawa.Sample.WindowsDesktop.Properties.Resources.save_3_fill;
+            this.btnSave.Image = global::UnderAutomation.Yaskawa.Showcase.Forms.Properties.Resources.save_3_fill;
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(74, 22);

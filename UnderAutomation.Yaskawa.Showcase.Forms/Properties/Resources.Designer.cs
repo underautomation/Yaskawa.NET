@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UnderAutomation.Yaskawa.Sample.WindowsDesktop.Properties {
+namespace UnderAutomation.Yaskawa.Showcase.Forms.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace UnderAutomation.Yaskawa.Sample.WindowsDesktop.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("UnderAutomation.Yaskawa.Sample.WindowsDesktop.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("UnderAutomation.Yaskawa.Showcase.Forms.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

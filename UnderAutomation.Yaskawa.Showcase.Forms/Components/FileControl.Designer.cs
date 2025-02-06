@@ -119,7 +119,7 @@
             // btnOpenPath
             // 
             this.btnOpenPath.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnOpenPath.Image = global::UnderAutomation.Yaskawa.Sample.WindowsDesktop.Properties.Resources.arrow_right_line;
+            this.btnOpenPath.Image = global::UnderAutomation.Yaskawa.Showcase.Forms.Properties.Resources.arrow_right_line;
             this.btnOpenPath.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnOpenPath.Name = "btnOpenPath";
             this.btnOpenPath.Size = new System.Drawing.Size(23, 22);
@@ -142,7 +142,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Image = global::UnderAutomation.Yaskawa.Sample.WindowsDesktop.Properties.Resources.refresh_line;
+            this.btnRefresh.Image = global::UnderAutomation.Yaskawa.Showcase.Forms.Properties.Resources.refresh_line;
             this.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(66, 22);
@@ -151,7 +151,7 @@
             // 
             // btnOpen
             // 
-            this.btnOpen.Image = global::UnderAutomation.Yaskawa.Sample.WindowsDesktop.Properties.Resources.file_edit_line;
+            this.btnOpen.Image = global::UnderAutomation.Yaskawa.Showcase.Forms.Properties.Resources.file_edit_line;
             this.btnOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(47, 22);
@@ -160,7 +160,7 @@
             // 
             // btnDownload
             // 
-            this.btnDownload.Image = global::UnderAutomation.Yaskawa.Sample.WindowsDesktop.Properties.Resources.save_3_fill;
+            this.btnDownload.Image = global::UnderAutomation.Yaskawa.Showcase.Forms.Properties.Resources.save_3_fill;
             this.btnDownload.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(102, 22);
@@ -169,7 +169,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Image = global::UnderAutomation.Yaskawa.Sample.WindowsDesktop.Properties.Resources.delete_bin_5_line;
+            this.btnDelete.Image = global::UnderAutomation.Yaskawa.Showcase.Forms.Properties.Resources.delete_bin_5_line;
             this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(60, 22);
@@ -178,7 +178,7 @@
             // 
             // btnUpload
             // 
-            this.btnUpload.Image = global::UnderAutomation.Yaskawa.Sample.WindowsDesktop.Properties.Resources.upload_2_line;
+            this.btnUpload.Image = global::UnderAutomation.Yaskawa.Showcase.Forms.Properties.Resources.upload_2_line;
             this.btnUpload.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(84, 22);

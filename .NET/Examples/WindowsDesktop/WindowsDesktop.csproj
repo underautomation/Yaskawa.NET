@@ -203,12 +203,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Yaskawa\Yaskawa.vbproj">
-      <Project>{7c1069e0-bdbe-4bda-bc2e-1d1b0b2810b7}</Project>
-      <Name>Yaskawa</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\arrow-right-line.png" />
   </ItemGroup>
   <ItemGroup>
@@ -248,7 +242,14 @@
     <None Include="Resources\upload-2-line.png" />
   </ItemGroup>
   <Choose>
-    <When Condition="$(SolutionName.EndsWith(`Dev`))" />
+    <When Condition="$(SolutionName.EndsWith(`Dev`))">
+      <ItemGroup>
+      <ProjectReference Include="..\..\..\..\..\Yaskawa\Yaskawa.vbproj">
+      <Project>{7c1069e0-bdbe-4bda-bc2e-1d1b0b2810b7}</Project>
+      <Name>Yaskawa</Name>
+    </ProjectReference>
+  </ItemGroup>
+</When>
     <Otherwise>
       <ItemGroup>
         <Reference Include="UnderAutomation.Yaskawa">

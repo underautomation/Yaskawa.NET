@@ -14,11 +14,11 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="$(SolutionName.EndsWith(`Dev`))">
-		<ProjectReference Include="..\..\..\Fanuc\Fanuc.csproj" />
+		<ProjectReference Include="..\..\..\Yaskawa\Yaskawa.vbproj" />
 	</ItemGroup>
 	<ItemGroup Condition="!$(SolutionName.EndsWith(`Dev`))">
-		<Reference Include="UnderAutomation.Fanuc">
-			<HintPath>..\Libraries\net8.0\UnderAutomation.Fanuc.dll</HintPath>
+		<Reference Include="UnderAutomation.Yaskawa">
+			<HintPath>..\Libraries\net8.0\UnderAutomation.Yaskawa.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 </Project>

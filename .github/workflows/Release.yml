@@ -25,6 +25,6 @@ jobs:
       with:
         artifacts: |
           UnderAutomation.Yaskawa.zip
-          **/publish/**/UnderAutomation.Yaskawa.Showcase.*.exe
+          **/bin/publish/UnderAutomation.Yaskawa.Showcase.Forms.exe
         bodyFile: "whatsNew.md"
         token: ${{ secrets.GITHUB_TOKEN }}

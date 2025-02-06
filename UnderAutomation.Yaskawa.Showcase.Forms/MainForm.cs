@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -33,6 +34,7 @@ public partial class MainForm : Form
         AddNode(new PendantControl(_robot));
         AddNode(new StatusControl(_robot));
         AddNode(new PositionControl(_robot));
+        AddNode(new ContactControl());
         AddNode(new LicenseControl());
 
         // Select first node at startup
@@ -65,7 +67,14 @@ public partial class MainForm : Form
             return;
         }
 
-        MessageBox.Show(e?.Message, "An error occurred", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        if (MessageBox.Show($"{e?.Message}\r\n\r\nWould you like to report this error?", "An error occurred", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Error) == DialogResult.Yes)
+        {
+            SelectNode<ContactControl>()?.SetMessage($@"Hi,
+
+I have this exception that prevents me from using the full capabilities of the SDK. Could you take a look at it and help me out?
+
+{e}");
+        }
     }
     #endregion
 
@@ -73,6 +82,14 @@ public partial class MainForm : Form
     private void leftTreeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
     {
         SelectNode(e.Node);
+    }
+
+    internal T SelectNode<T>() where T : class, IUserControl
+    {
+        var node = Instance.leftTreeView.Nodes.OfType<TreeNode>().FirstOrDefault(n => n.Tag is T);
+        var control = node?.Tag as T;
+        SelectNode(node);
+        return control;
     }
 
     // Open right control associated to a node
@@ -119,7 +136,16 @@ public partial class MainForm : Form
     // Open browser to documentation page
     private void lblLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-        System.Diagnostics.Process.Start(" https://github.com/underautomation/Yaskawa");
+        try
+        {
+            var ps = new ProcessStartInfo("https://underautomation.com/yaskawa")
+            {
+                UseShellExecute = true,
+                Verb = "open"
+            };
+            Process.Start(ps);
+        }
+        catch { }
     }
     #endregion
 

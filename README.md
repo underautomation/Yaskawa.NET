@@ -684,12 +684,12 @@ using UnderAutomation.Yaskawa;
 
 ```csharp
 var robot = new YaskawaRobot();
-robot.Connect(new ConnectParameters("192.168.0.1"));
+robot.Connect("192.168.0.1");
 ```
 
 ## 🔍 Compatibility
 
-✅ **Supported Robots:**
+✅ **Supported Robots:** DX200, YRC1000, YRC1000 Micro
 ✅ **Operating Systems:** Windows, Linux, macOS  
 ✅ **.NET Versions:** .NET Framework (≥3.5), .NET Standard, .NET Core, .NET 5/6/8/9
 

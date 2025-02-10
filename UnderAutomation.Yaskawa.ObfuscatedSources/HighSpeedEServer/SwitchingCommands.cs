@@ -5,7 +5,7 @@
 
 namespace HighSpeedEServer {
 
-	public enum SwitchingCommand {
+	public enum SwitchingCommands {
 
 
 		Cycle = 1,

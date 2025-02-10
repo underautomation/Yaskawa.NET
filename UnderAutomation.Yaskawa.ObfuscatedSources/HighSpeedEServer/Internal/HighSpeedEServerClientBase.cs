@@ -16,10 +16,11 @@ namespace HighSpeedEServer.Internal {
 
 		public delegate void LoadFileProgressDelegate(LoadFileProgress progress);
 
-		/// <summary>
-		/// Connect robot IP address or host name
-		/// </summary>
-		public string IP { get; }
+
+		protected HighSpeedEServerClientBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
 
 		/// <summary>
 		/// Connect to a robot
@@ -39,11 +40,6 @@ namespace HighSpeedEServer.Internal {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
-
-		/// <summary>
-		/// Indicates if the connection is enabled
-		/// </summary>
-		public bool Connected { get; }
 
 		/// <summary>
 		/// Close the connection to the robot
@@ -190,7 +186,7 @@ namespace HighSpeedEServer.Internal {
 		/// Switch command
 		/// </summary>
 		/// <param name="command">Command type</param>
-		public RobotDataHeader SwitchingCommand(SwitchingCommand command)
+		public RobotDataHeader SwitchingCommand(SwitchingCommands command)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
@@ -478,24 +474,24 @@ namespace HighSpeedEServer.Internal {
 		}
 
 		/// <summary>
-		/// Move robot to a cartesion position
+		/// Move robot to a cartesian position
 		/// </summary>
 		/// <param name="x">X coordinate in millimeter</param>
 		/// <param name="y">Y coordinate in millimeter</param>
 		/// <param name="z">Z coordinate in millimeter</param>
-		/// <param name="tx">tx  coordinate in degrees</param>
-		/// <param name="ty">ty  coordinate in degrees</param>
-		/// <param name="tz">tz  coordinate in degrees</param>
-		/// <param name="classification">Classification</param>
-		/// <param name="speed">move speed in mm/s</param>
+		/// <param name="rx">Rx  coordinate in degrees</param>
+		/// <param name="ry">Ry  coordinate in degrees</param>
+		/// <param name="rz">Rz  coordinate in degrees</param>
+		/// <param name="classification">Unit for speed</param>
+		/// <param name="speed">Move speed</param>
 		/// <param name="coordinate">Frame coordinate</param>
-		/// <param name="posture">Robot target posture</param>
+		/// <param name="posture">Robot target posture (RCONF)</param>
 		/// <param name="commandtype">Command type</param>
 		/// <param name="RobotControlGroup">Control group</param>
 		/// <param name="StationControlGroup">Station control group</param>
 		/// <param name="tool">Selected TCP</param>
 		/// <param name="userCoordinate">User coordinate for User coordinate</param>
-		public RobotDataHeader MoveCartesian(double x, double y, double z, double tx, double ty, double tz, PositionCommandClassification classification, double speed, PositionCommandOperationCoordinate coordinate, RobotPosture posture = null, PositionCommandType commandtype = PositionCommandType.StraightIncrement, int RobotControlGroup = 1, int StationControlGroup = 0, int tool = 0, int userCoordinate = 0)
+		public RobotDataHeader MoveCartesian(double x, double y, double z, double rx, double ry, double rz, PositionCommandClassification classification, double speed, PositionCommandOperationCoordinate coordinate, RobotPosture posture = null, PositionCommandType commandtype = PositionCommandType.StraightIncrement, int RobotControlGroup = 1, int StationControlGroup = 0, int tool = 0, int userCoordinate = 0)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
@@ -579,5 +575,15 @@ namespace HighSpeedEServer.Internal {
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
+
+		/// <summary>
+		/// Connect robot IP address or host name
+		/// </summary>
+		public string IP { get; }
+
+		/// <summary>
+		/// Indicates if the connection is enabled
+		/// </summary>
+		public bool Connected { get; }
 	}
 }

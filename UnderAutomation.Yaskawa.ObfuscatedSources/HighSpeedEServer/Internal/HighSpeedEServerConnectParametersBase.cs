@@ -9,6 +9,12 @@ namespace HighSpeedEServer.Internal {
 	/// </summary>
 	public class HighSpeedEServerConnectParametersBase {
 
+
+		public HighSpeedEServerConnectParametersBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Maximum time between sending a command and receiving a response (default : 1500ms)
 		/// </summary>

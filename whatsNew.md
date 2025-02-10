@@ -1,1 +1,1 @@
-Add support for .NET 8 and 9
+Publish to Nuget

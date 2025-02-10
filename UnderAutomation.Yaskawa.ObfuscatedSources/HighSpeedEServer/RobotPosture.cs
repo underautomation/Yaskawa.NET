@@ -17,16 +17,30 @@ namespace HighSpeedEServer {
 		}
 
 
-		public int Form { get; set; }
-
-
-		public int ExtendedForm { get; set; }
-
-
 		public RobotPosture(int form, int extendedForm)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+
+		public int ToInteger()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+
+		public static RobotPosture FromInteger(int value)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+
+		public int Form { get; set; }
+
+
+		public int ExtendedForm { get; set; }
 
 
 		public OrientationFlipInformation Orientation { get; }
@@ -66,19 +80,5 @@ namespace HighSpeedEServer {
 
 
 		public AxisFlipInformation WAxis { get; }
-
-
-		public int ToInteger()
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-			return default;
-		}
-
-
-		public static RobotPosture FromInteger(int value)
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-			return default;
-		}
 	}
 }

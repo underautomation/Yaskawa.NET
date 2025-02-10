@@ -9,5 +9,11 @@ namespace Common {
 	/// Represents a set of High Speed Ethernet Server connection parameters
 	/// </summary>
 	public class HighSpeedEServerConnectParameters : HighSpeedEServerConnectParametersBase {
+
+
+		public HighSpeedEServerConnectParameters()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
 	}
 }

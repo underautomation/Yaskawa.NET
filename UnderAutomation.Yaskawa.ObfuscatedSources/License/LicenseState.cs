@@ -3,11 +3,16 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace UnderAutomation.Yaskawa {
+namespace License {
 	/// <summary>
 	/// States that can take a license
 	/// </summary>
 	public enum LicenseState {
+
+		/// <summary>
+		/// No license has been provided
+		/// </summary>
+		None = -1,
 
 		/// <summary>
 		/// The pair License Identifier and License Key are incompatible, you cannot use the library
@@ -25,7 +30,7 @@ namespace UnderAutomation.Yaskawa {
 		ExtraTrial = 2,
 
 		/// <summary>
-		/// The trial period as expired, you no more can use the library
+		/// The trial period has expired, you can no longer use the library
 		/// </summary>
 		Expired = 3,
 

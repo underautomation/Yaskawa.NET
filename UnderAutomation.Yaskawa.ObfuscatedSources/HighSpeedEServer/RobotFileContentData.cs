@@ -9,6 +9,13 @@ namespace HighSpeedEServer {
 	public class RobotFileContentData : RobotData {
 
 
+		public int GetParam(string section, int parameterLine, int parameterColumn)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+
 		public List<RobotDataHeader> Headers { get; set; }
 
 
@@ -16,12 +23,5 @@ namespace HighSpeedEServer {
 
 
 		public string FileName { get; set; }
-
-
-		public int GetParam(string section, int parameterLine, int parameterColumn)
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-			return default;
-		}
 	}
 }

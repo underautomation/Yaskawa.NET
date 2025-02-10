@@ -8,6 +8,13 @@ namespace HighSpeedEServer {
 	public class RobotSystemInformation : RobotData {
 
 
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+
 		public string SoftwareVersion { get; set; }
 
 
@@ -15,12 +22,5 @@ namespace HighSpeedEServer {
 
 
 		public string Parameter { get; set; }
-
-
-		public override string ToString()
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-			return default;
-		}
 	}
 }

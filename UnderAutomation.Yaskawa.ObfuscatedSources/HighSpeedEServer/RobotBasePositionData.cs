@@ -9,12 +9,12 @@ namespace HighSpeedEServer {
 	public class RobotBasePositionData : RobotAxisRawData<int> {
 
 
-		public RobotBasePositionType DataType { get; set; }
-
-
 		public RobotBasePositionData(RobotDataHeader header)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+
+		public RobotBasePositionType DataType { get; set; }
 	}
 }

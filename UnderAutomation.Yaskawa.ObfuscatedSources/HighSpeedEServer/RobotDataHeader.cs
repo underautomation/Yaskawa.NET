@@ -9,6 +9,12 @@ namespace HighSpeedEServer {
 	public class RobotDataHeader {
 
 
+		public RobotDataHeader()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+
 		public IPEndPoint IP { get; set; }
 
 

@@ -41,7 +41,7 @@ public partial class ConnectControl : UserControl, IUserControl
         if (e is KeyEventArgs && ((KeyEventArgs)e).KeyCode != Keys.Enter) return;
 
         // Connect to the robot
-        _robot.HighSpeedEServer.Connect(txtIP.Text);
+        _robot.Connect(txtIP.Text);
 
         // Store information
         Config.Current.IP = txtIP.Text;

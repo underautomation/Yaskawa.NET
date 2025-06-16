@@ -262,8 +262,21 @@ namespace HighSpeedEServer.Internal {
 			return default;
 		}
 
-
+		/// <summary>
+		/// Write IO
+		/// </summary>
+		/// <param name="data">Data array to write, should contains a pair number of element</param>
 		public RobotDataHeader WriteIO(int firstIndex, IEnumerable<byte> data)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Write IO
+		/// </summary>
+		/// <param name="data">Data array to write, should contains a pair number of element</param>
+		public RobotDataHeader WriteIO(int firstIndex, byte[] data)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
@@ -310,6 +323,17 @@ namespace HighSpeedEServer.Internal {
 		}
 
 		/// <summary>
+		/// Write byte data from index. Array should contain a pair number of value
+		/// </summary>
+		/// <param name="firstIndex">First index to write data</param>
+		/// <param name="data">Data to write, should contain a multiple of 2 elements</param>
+		public RobotDataHeader WriteByte(int firstIndex, byte[] data)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
 		/// Read integer data from index
 		/// </summary>
 		/// <param name="firstIndex">Start index to read</param>
@@ -326,6 +350,17 @@ namespace HighSpeedEServer.Internal {
 		/// <param name="firstIndex">First index to write data</param>
 		/// <param name="data">Data to write, should contain a multiple of 2 elements</param>
 		public RobotDataHeader WriteInteger(int firstIndex, IEnumerable<byte> data)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Write integer data from index. Array should contain a pair number of value
+		/// </summary>
+		/// <param name="firstIndex">First index to write data</param>
+		/// <param name="data">Data to write, should contain a multiple of 2 elements</param>
+		public RobotDataHeader WriteInteger(int firstIndex, byte[] data)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
@@ -354,6 +389,17 @@ namespace HighSpeedEServer.Internal {
 		}
 
 		/// <summary>
+		/// Write double data (float 64 bits) from index. Array should contain a pair number of value
+		/// </summary>
+		/// <param name="firstIndex">First index to write data</param>
+		/// <param name="data">Data to write, should contain a multiple of 2 elements</param>
+		public RobotDataHeader WriteDouble(int firstIndex, double[] data)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
 		/// Read single data (float 32 bits) from index
 		/// </summary>
 		/// <param name="firstIndex">Start index to read</param>
@@ -370,6 +416,17 @@ namespace HighSpeedEServer.Internal {
 		/// <param name="firstIndex">First index to write data</param>
 		/// <param name="data">Data to write, should contain a multiple of 2 elements</param>
 		public RobotDataHeader WriteSingle(int firstIndex, IEnumerable<float> data)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Write single data (float 32 bits) from index. Array should contain a pair number of value
+		/// </summary>
+		/// <param name="firstIndex">First index to write data</param>
+		/// <param name="data">Data to write, should contain a multiple of 2 elements</param>
+		public RobotDataHeader WriteSingle(int firstIndex, float[] data)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
@@ -398,6 +455,17 @@ namespace HighSpeedEServer.Internal {
 		}
 
 		/// <summary>
+		/// Write string data from index. Array should contain a pair number of value
+		/// </summary>
+		/// <param name="firstIndex">First index to write data</param>
+		/// <param name="data">Data to write, should contain a multiple of 2 elements</param>
+		public RobotDataHeader Write16BytesChar(int firstIndex, string[] data)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
 		/// Read position variables from index
 		/// </summary>
 		/// <param name="firstIndex">Start index to read</param>
@@ -414,6 +482,17 @@ namespace HighSpeedEServer.Internal {
 		/// <param name="firstIndex">First index to write data</param>
 		/// <param name="data">Data to write, should contain a multiple of 2 elements</param>
 		public RobotDataHeader WritePositionVariable(int firstIndex, IEnumerable<RobotPositionData<int>> data)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Write position variable from index. Array should contain a pair number of value
+		/// </summary>
+		/// <param name="firstIndex">First index to write data</param>
+		/// <param name="data">Data to write, should contain a multiple of 2 elements</param>
+		public RobotDataHeader WritePositionVariable(int firstIndex, RobotPositionData<int>[] data)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
@@ -442,6 +521,17 @@ namespace HighSpeedEServer.Internal {
 		}
 
 		/// <summary>
+		/// Write base position data from index. Array should contain a pair number of value
+		/// </summary>
+		/// <param name="firstIndex">First index to write data</param>
+		/// <param name="data">Data to write, should contain a multiple of 2 elements</param>
+		public RobotDataHeader WriteBasePosition(int firstIndex, RobotBasePositionData[] data)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
 		/// Read external positions from index
 		/// </summary>
 		/// <param name="firstIndex">Start index to read</param>
@@ -458,6 +548,17 @@ namespace HighSpeedEServer.Internal {
 		/// <param name="firstIndex">First index to write data</param>
 		/// <param name="data">Data to write, should contain a multiple of 2 elements</param>
 		public RobotDataHeader WriteExternalPosition(int firstIndex, IEnumerable<RobotAxisRawData<int>> data)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Write external position data from index. Array should contain a pair number of value
+		/// </summary>
+		/// <param name="firstIndex">First index to write data</param>
+		/// <param name="data">Data to write, should contain a multiple of 2 elements</param>
+		public RobotDataHeader WriteExternalPosition(int firstIndex, RobotAxisRawData<int>[] data)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
@@ -530,6 +631,17 @@ namespace HighSpeedEServer.Internal {
 		/// <param name="firstIndex">First index to write data</param>
 		/// <param name="data">Data to write, should contain a multiple of 2 elements</param>
 		public RobotDataHeader Write32BytesChar(int firstIndex, IEnumerable<string> data)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Write string data from index. Array should contain a pair number of value
+		/// </summary>
+		/// <param name="firstIndex">First index to write data</param>
+		/// <param name="data">Data to write, should contain a multiple of 2 elements</param>
+		public RobotDataHeader Write32BytesChar(int firstIndex, string[] data)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;

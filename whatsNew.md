@@ -1,1 +1,1 @@
-Fix the "GetTorque" function for six-axis robots
+Additional methods for writing and reading data via High Speed Ethernet Server

@@ -216,7 +216,15 @@ UnderAutomation.Yaskawa
 </member>
 <member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteIO(System.Int32,System.Collections.Generic.IEnumerable{System.Byte})">
  <summary>
- 
+ Write IO
+ </summary>
+ <param name="firstIndex"></param>
+ <param name="data">Data array to write, should contains a pair number of element</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteIO(System.Int32,System.Byte[])">
+ <summary>
+ Write IO
  </summary>
  <param name="firstIndex"></param>
  <param name="data">Data array to write, should contains a pair number of element</param>
@@ -247,6 +255,14 @@ UnderAutomation.Yaskawa
  <param name="data">Data to write, should contain a multiple of 2 elements</param>
  <returns></returns>
 </member>
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteByte(System.Int32,System.Byte[])">
+ <summary>
+ Write byte data from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
 <member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.ReadInteger(System.Int32,System.Int32)">
  <summary>
  Read integer data from index
@@ -255,6 +271,14 @@ UnderAutomation.Yaskawa
  <param name="count">number of index to read</param>
 </member>
 <member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteInteger(System.Int32,System.Collections.Generic.IEnumerable{System.Byte})">
+ <summary>
+ Write integer data from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteInteger(System.Int32,System.Byte[])">
  <summary>
  Write integer data from index. Array should contain a pair number of value
  </summary>
@@ -277,6 +301,14 @@ UnderAutomation.Yaskawa
  <param name="data">Data to write, should contain a multiple of 2 elements</param>
  <returns></returns>
 </member>
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteDouble(System.Int32,System.Double[])">
+ <summary>
+ Write double data (float 64 bits) from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
 <member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.ReadSingle(System.Int32,System.Int32)">
  <summary>
  Read single data (float 32 bits) from index
@@ -285,6 +317,14 @@ UnderAutomation.Yaskawa
  <param name="count">number of index to read</param>
 </member>
 <member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteSingle(System.Int32,System.Collections.Generic.IEnumerable{System.Single})">
+ <summary>
+ Write single data (float 32 bits) from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteSingle(System.Int32,System.Single[])">
  <summary>
  Write single data (float 32 bits) from index. Array should contain a pair number of value
  </summary>
@@ -307,6 +347,14 @@ UnderAutomation.Yaskawa
  <param name="data">Data to write, should contain a multiple of 2 elements</param>
  <returns></returns>
 </member>
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.Write16BytesChar(System.Int32,System.String[])">
+ <summary>
+ Write string data from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
 <member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.ReadPositionVariable(System.Int32,System.Int32)">
  <summary>
  Read position variables from index
@@ -315,6 +363,14 @@ UnderAutomation.Yaskawa
  <param name="count">number of index to read</param>
 </member>
 <member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WritePositionVariable(System.Int32,System.Collections.Generic.IEnumerable{UnderAutomation.Yaskawa.HighSpeedEServer.RobotPositionData{System.Int32}})">
+ <summary>
+ Write position variable from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WritePositionVariable(System.Int32,UnderAutomation.Yaskawa.HighSpeedEServer.RobotPositionData{System.Int32}[])">
  <summary>
  Write position variable from index. Array should contain a pair number of value
  </summary>
@@ -337,6 +393,14 @@ UnderAutomation.Yaskawa
  <param name="data">Data to write, should contain a multiple of 2 elements</param>
  <returns></returns>
 </member>
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteBasePosition(System.Int32,UnderAutomation.Yaskawa.HighSpeedEServer.RobotBasePositionData[])">
+ <summary>
+ Write base position data from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
 <member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.ReadExternalPosition(System.Int32,System.Int32)">
  <summary>
  Read external positions from index
@@ -345,6 +409,14 @@ UnderAutomation.Yaskawa
  <param name="count">number of index to read</param>
 </member>
 <member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteExternalPosition(System.Int32,System.Collections.Generic.IEnumerable{UnderAutomation.Yaskawa.HighSpeedEServer.RobotAxisRawData{System.Int32}})">
+ <summary>
+ Write external position data from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteExternalPosition(System.Int32,UnderAutomation.Yaskawa.HighSpeedEServer.RobotAxisRawData{System.Int32}[])">
  <summary>
  Write external position data from index. Array should contain a pair number of value
  </summary>
@@ -399,6 +471,14 @@ UnderAutomation.Yaskawa
  <param name="count">number of index to read</param>
 </member>
 <member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.Write32BytesChar(System.Int32,System.Collections.Generic.IEnumerable{System.String})">
+ <summary>
+ Write string data from index. Array should contain a pair number of value
+ </summary>
+ <param name="firstIndex">First index to write data</param>
+ <param name="data">Data to write, should contain a multiple of 2 elements</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.Write32BytesChar(System.Int32,System.String[])">
  <summary>
  Write string data from index. Array should contain a pair number of value
  </summary>

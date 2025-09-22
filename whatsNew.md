@@ -1,1 +1,1 @@
-Additional methods for writing and reading data via High Speed Ethernet Server
+- Fixed a stack overflow exception when writing to I/O, variables, and registers

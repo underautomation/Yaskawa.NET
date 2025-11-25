@@ -1,1 +1,1 @@
-- Fixed a stack overflow exception when writing to I/O, variables, and registers
+- Remove the Write methods with the IEnumerable argument. You should now use the prototype with the array argument.

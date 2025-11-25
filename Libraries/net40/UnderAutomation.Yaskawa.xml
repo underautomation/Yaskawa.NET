@@ -235,7 +235,7 @@ UnderAutomation.Yaskawa
  Read registers
  </summary>
 </member>
-<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteRegister(System.Int32,System.Collections.Generic.IEnumerable{System.Byte})">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteRegister(System.Int32,System.Byte[])">
  <summary>
  Write registers
  </summary>

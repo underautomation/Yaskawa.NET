@@ -1,1 +1,1 @@
-- Remove the Write methods with the IEnumerable argument. You should now use the prototype with the array argument.
+- Read data from the 8 axes (position, error, ..)

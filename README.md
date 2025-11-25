@@ -348,7 +348,7 @@ Console.WriteLine("Register Data: " + string.Join(", ", registerData.Values));
 
 ```csharp
 int firstIndex = 10; // Starting register index
-ushort[] dataToWrite = new ushort[] { 1234, 5678 };
+ushort[] dataToWrite = new ushort[] { 12, 62 };
 robot.HighSpeedEServer.WriteRegister(firstIndex, dataToWrite);
 Console.WriteLine("Register Data written successfully.");
 ```

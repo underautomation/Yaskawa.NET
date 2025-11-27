@@ -270,7 +270,7 @@ UnderAutomation.Yaskawa
  <param name="firstIndex">Start index to read</param>
  <param name="count">number of index to read</param>
 </member>
-<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteInteger(System.Int32,System.Collections.Generic.IEnumerable{System.Byte})">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteInteger(System.Int32,System.Collections.Generic.IEnumerable{System.Int16})">
  <summary>
  Write integer data from index. Array should contain a pair number of value
  </summary>
@@ -278,7 +278,7 @@ UnderAutomation.Yaskawa
  <param name="data">Data to write, should contain a multiple of 2 elements</param>
  <returns></returns>
 </member>
-<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteInteger(System.Int32,System.Byte[])">
+<member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WriteInteger(System.Int32,System.Int16[])">
  <summary>
  Write integer data from index. Array should contain a pair number of value
  </summary>

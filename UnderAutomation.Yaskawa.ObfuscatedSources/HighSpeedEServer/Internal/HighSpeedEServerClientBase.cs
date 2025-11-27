@@ -327,7 +327,7 @@ namespace HighSpeedEServer.Internal {
 		/// </summary>
 		/// <param name="firstIndex">First index to write data</param>
 		/// <param name="data">Data to write, should contain a multiple of 2 elements</param>
-		public RobotDataHeader WriteInteger(int firstIndex, byte[] data)
+		public RobotDataHeader WriteInteger(int firstIndex, short[] data)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;

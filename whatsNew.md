@@ -1,1 +1,2 @@
-- Read data from the 8 axes (position, error, ..)
+- Fix WriteInteger to write Int16 and not byte values
+- Fix Write32BytesChar stack overflow exception

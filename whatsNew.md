@@ -1,2 +1,1 @@
-- Fix WriteInteger to write Int16 and not byte values
-- Fix Write32BytesChar stack overflow exception
+- Fix read and write Int16 registers

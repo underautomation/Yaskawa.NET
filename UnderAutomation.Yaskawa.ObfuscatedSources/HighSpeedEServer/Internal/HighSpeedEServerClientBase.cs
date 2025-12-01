@@ -274,7 +274,7 @@ namespace HighSpeedEServer.Internal {
 		/// <summary>
 		/// Read registers
 		/// </summary>
-		public RobotPluralData<ushort> ReadRegister(int firstIndex, int count)
+		public RobotPluralData<short> ReadRegister(int firstIndex, int count)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
@@ -283,7 +283,7 @@ namespace HighSpeedEServer.Internal {
 		/// <summary>
 		/// Write registers
 		/// </summary>
-		public RobotDataHeader WriteRegister(int firstIndex, byte[] data)
+		public RobotDataHeader WriteRegister(int firstIndex, short[] data)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;

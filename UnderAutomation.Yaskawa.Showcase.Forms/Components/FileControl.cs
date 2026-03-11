@@ -1,8 +1,5 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Windows.Forms;
-using UnderAutomation.Yaskawa;
+﻿using UnderAutomation.Yaskawa;
+using UnderAutomation.Yaskawa.HighSpeedEServer;
 
 public partial class FileControl : UserControl, IUserControl
 {
@@ -165,5 +162,42 @@ public partial class FileControl : UserControl, IUserControl
     private void btnOpenPath_Click(object sender, EventArgs e)
     {
         UpdateList();
+    }
+
+    private void btnBackup_Click(object sender, EventArgs e)
+    {
+        _robot.HighSpeedEServer.BatchDataBackup();
+        btnDownloadCmos.Enabled = true;
+    }
+
+    private void btnDownloadCmos_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Cursor = Cursors.WaitCursor;
+
+            
+            var content = _robot.HighSpeedEServer.GetFile("/SPDRV/CMOSBK.BIN", (progress) =>
+            {
+                lblProgress.Visible = true;
+                lblProgress.Text = $"Downloading CMOS.BIN ...\r\nReceived bytes : {progress.DownloadedBytes}";
+                Application.DoEvents();
+            });
+
+            if(dlgSaveCMOS.ShowDialog() == DialogResult.OK)
+            {
+                File.WriteAllBytes(dlgSaveCMOS.FileName, content.ContentRaw); 
+                Explorer.RevealFile(dlgSaveCMOS.FileName);
+            }
+        }
+        catch(InvalidDataAnswerException ex) when (ex.AddedStatus == 0x0000e444)
+        {
+            throw new Exception("Backup of CMOS.BIN is in progress, please wait...", ex);
+        }
+        finally
+        {
+            lblProgress.Visible = false;
+            Cursor = Cursors.Default;
+        }
     }
 }

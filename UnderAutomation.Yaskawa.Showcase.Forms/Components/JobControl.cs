@@ -86,4 +86,10 @@ public partial class JobControl : UserControl, IUserControl
         _robot.HighSpeedEServer.ServoCommand(OnOffCommandType.Servo, true);
     }
 
+    private void btnGetCallStack_Click(object sender, EventArgs e)
+    {
+        RobotJobStackData stack = _robot.HighSpeedEServer.GetJobStack((int)udTaskId.Value);
+
+        txtCallStack.Text = string.Join(Environment.NewLine, stack.Jobs);
+    }
 }

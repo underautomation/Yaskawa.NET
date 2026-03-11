@@ -10,7 +10,7 @@ public partial class MainForm : Form
     // Yaskawa instance that handles connection to the robot
     private readonly YaskawaRobot _robot = new YaskawaRobot();
 
-    private static MainForm Instance;
+    internal static MainForm Instance;
 
     #region Initialisation
     public MainForm()
@@ -26,14 +26,17 @@ public partial class MainForm : Form
 
         InitializeComponent();
 
-        // Add nodes in left menu and instanciate associated control 
+        // Add nodes in left menu and instantiate associated control 
         AddNode(new ConnectControl(_robot));
         AddNode(new JobControl(_robot));
         AddNode(new AlarmControl(_robot));
         AddNode(new FileControl(_robot));
         AddNode(new PendantControl(_robot));
         AddNode(new StatusControl(_robot));
+        AddNode(new VariableControl(_robot));
+        AddNode(new ParametersControl(_robot));
         AddNode(new PositionControl(_robot));
+        AddNode(new MoveControl(_robot));
         AddNode(new ContactControl());
         AddNode(new LicenseControl());
 
@@ -113,6 +116,8 @@ I have this exception that prevents me from using the full capabilities of the S
             return;
         }
 
+        lnkSource.Text = $"View C# page source\n{control.GetType().Name}.cs";
+
         panelTitle.Text = (node.Tag as IUserControl)?.Title;
 
         mainPanel.Controls.Add(control);
@@ -133,12 +138,13 @@ I have this exception that prevents me from using the full capabilities of the S
         }
     }
 
-    // Open browser to documentation page
-    private void lblLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+    internal void OpenUrl(string url)
     {
+        if (string.IsNullOrEmpty(url)) return;
         try
         {
-            var ps = new ProcessStartInfo("https://underautomation.com/yaskawa")
+            var ps = new ProcessStartInfo(url)
             {
                 UseShellExecute = true,
                 Verb = "open"
@@ -191,5 +197,16 @@ I have this exception that prevents me from using the full capabilities of the S
     private void titlePictureBox_MouseDoubleClick(object sender, MouseEventArgs e)
     {
         ScreenshotsGenerator.Generate(this);
+    }
+
+    private void LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        OpenUrl((sender as LinkLabel)?.Text);
+    }
+
+    private void lnkSource_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        var name = mainPanel.Controls.OfType<IUserControl>().FirstOrDefault().GetType().Name;
+        OpenUrl($"https://github.com/underautomation/Yaskawa.NET/blob/main/UnderAutomation.Yaskawa.Showcase.Forms/Components/{name}.cs");
     }
 }

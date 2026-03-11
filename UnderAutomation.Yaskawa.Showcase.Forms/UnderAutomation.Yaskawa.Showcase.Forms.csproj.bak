@@ -14,25 +14,11 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="$(SolutionName.EndsWith(`Dev`))">
-		<ProjectReference Include="..\..\..\Yaskawa\Yaskawa.csproj" />
+		<ProjectReference Include="..\..\..\Yaskawa\Yaskawa.vbproj" />
 	</ItemGroup>
 	<ItemGroup Condition="!$(SolutionName.EndsWith(`Dev`))">
 		<Reference Include="UnderAutomation.Yaskawa">
 			<HintPath>..\Libraries\net8.0\UnderAutomation.Yaskawa.dll</HintPath>
 		</Reference>
-	</ItemGroup>
-	<ItemGroup>
-	  <PackageReference Include="System.IO.Ports" Version="10.0.3" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Compile Update="Components\MoveControl.cs">
-	    <SubType>UserControl</SubType>
-	  </Compile>
-	  <Compile Update="Components\ParametersControl.cs">
-	    <SubType>UserControl</SubType>
-	  </Compile>
-	  <Compile Update="Components\VariableControl.cs">
-	    <SubType>UserControl</SubType>
-	  </Compile>
 	</ItemGroup>
 </Project>

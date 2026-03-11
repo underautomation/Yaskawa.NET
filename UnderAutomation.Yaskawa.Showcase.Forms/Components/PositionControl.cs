@@ -8,7 +8,6 @@ public partial class PositionControl : UserControl, IUserControl
 {
     static PositionControl()
     {
-        TypeDescriptor.AddAttributes(typeof(RobotPositionData<int>), new ReadOnlyAttribute(true));
         TypeDescriptor.AddAttributes(typeof(RobotPositionCartesianData), new ReadOnlyAttribute(true));
         TypeDescriptor.AddAttributes(typeof(RobotPosture), new TypeConverterAttribute(typeof(ExpandableObjectConverter)));
     }

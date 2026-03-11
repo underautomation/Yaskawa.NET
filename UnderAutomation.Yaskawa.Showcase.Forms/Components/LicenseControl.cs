@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Windows.Forms;
 using UnderAutomation.Yaskawa;
 using UnderAutomation.Yaskawa.License;
 
@@ -31,7 +30,9 @@ public partial class LicenseControl : UserControl, IUserControl
 
     public void OnClose() { }
 
-    public void OnOpen() { }
+    public void OnOpen()
+    {
+    }
     #endregion
 
     private void UpdateLicenseControls()
@@ -40,7 +41,7 @@ public partial class LicenseControl : UserControl, IUserControl
         var info = YaskawaRobot.LicenseInfo;
         txtLicenseInfo.Text = info.ToString();
         gridLicense.SelectedObject = info;
-        _licenseValid = info.State != LicenseState.Invalid && info.State != LicenseState.Expired;
+        _licenseValid = info.IsLicensed;
     }
 
     private void btnSetLicense_Click(object sender, System.EventArgs e)
@@ -58,15 +59,11 @@ public partial class LicenseControl : UserControl, IUserControl
 
     private void txtLicenseInfo_LinkClicked(object sender, LinkClickedEventArgs e)
     {
-        try
-        {
-            var ps = new ProcessStartInfo(e.LinkText)
-            {
-                UseShellExecute = true,
-                Verb = "open"
-            };
-            Process.Start(ps);
-        }
-        catch { }
+        MainForm.Instance.OpenUrl(e.LinkText);
+    }
+
+    private void lnkOrder_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        MainForm.Instance.OpenUrl($"{(sender as Control).Text}?sdk=yaskawa");
     }
 }

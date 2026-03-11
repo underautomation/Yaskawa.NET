@@ -27,180 +27,254 @@ partial class JobControl
     /// </summary>
     private void InitializeComponent()
     {
-            this.gridExecuting = new System.Windows.Forms.PropertyGrid();
-            this.label3 = new System.Windows.Forms.Label();
-            this.gridStatus = new System.Windows.Forms.PropertyGrid();
-            this.udJobLine = new System.Windows.Forms.NumericUpDown();
-            this.btnSelect = new System.Windows.Forms.Button();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.cbJobs = new System.Windows.Forms.ComboBox();
-            this.txtJobLine = new System.Windows.Forms.Label();
-            this.txtJobList = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnServoOff = new System.Windows.Forms.Button();
-            this.btnServoOn = new System.Windows.Forms.Button();
-            this.btnStart = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            ((System.ComponentModel.ISupportInitialize)(this.udJobLine)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // gridExecuting
-            // 
-            this.gridExecuting.HelpVisible = false;
-            this.gridExecuting.Location = new System.Drawing.Point(28, 314);
-            this.gridExecuting.Name = "gridExecuting";
-            this.gridExecuting.Size = new System.Drawing.Size(276, 93);
-            this.gridExecuting.TabIndex = 18;
-            this.gridExecuting.ToolbarVisible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 298);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Executing job :";
-            // 
-            // gridStatus
-            // 
-            this.gridStatus.HelpVisible = false;
-            this.gridStatus.Location = new System.Drawing.Point(28, 32);
-            this.gridStatus.Name = "gridStatus";
-            this.gridStatus.PropertySort = System.Windows.Forms.PropertySort.Alphabetical;
-            this.gridStatus.Size = new System.Drawing.Size(276, 247);
-            this.gridStatus.TabIndex = 19;
-            this.gridStatus.ToolbarVisible = false;
-            // 
-            // udJobLine
-            // 
-            this.udJobLine.Location = new System.Drawing.Point(94, 148);
-            this.udJobLine.Name = "udJobLine";
-            this.udJobLine.Size = new System.Drawing.Size(55, 20);
-            this.udJobLine.TabIndex = 11;
-            // 
-            // btnSelect
-            // 
-            this.btnSelect.Location = new System.Drawing.Point(19, 193);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(266, 35);
-            this.btnSelect.TabIndex = 10;
-            this.btnSelect.Text = "Select job";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(218, 107);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(67, 23);
-            this.btnRefresh.TabIndex = 10;
-            this.btnRefresh.Text = "Refresh list";
-            this.btnRefresh.UseVisualStyleBackColor = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // cbJobs
-            // 
-            this.cbJobs.FormattingEnabled = true;
-            this.cbJobs.Location = new System.Drawing.Point(19, 109);
-            this.cbJobs.Name = "cbJobs";
-            this.cbJobs.Size = new System.Drawing.Size(192, 21);
-            this.cbJobs.TabIndex = 0;
-            // 
-            // txtJobLine
-            // 
-            this.txtJobLine.AutoSize = true;
-            this.txtJobLine.Location = new System.Drawing.Point(16, 150);
-            this.txtJobLine.Name = "txtJobLine";
-            this.txtJobLine.Size = new System.Drawing.Size(72, 13);
-            this.txtJobLine.TabIndex = 9;
-            this.txtJobLine.Text = "Job start line :";
-            // 
-            // txtJobList
-            // 
-            this.txtJobList.AutoSize = true;
-            this.txtJobList.Location = new System.Drawing.Point(16, 93);
-            this.txtJobList.Name = "txtJobList";
-            this.txtJobList.Size = new System.Drawing.Size(69, 13);
-            this.txtJobList.TabIndex = 9;
-            this.txtJobList.Text = "Select a job :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "System status :";
-            // 
-            // btnServoOff
-            // 
-            this.btnServoOff.Location = new System.Drawing.Point(155, 23);
-            this.btnServoOff.Name = "btnServoOff";
-            this.btnServoOff.Size = new System.Drawing.Size(130, 35);
-            this.btnServoOff.TabIndex = 11;
-            this.btnServoOff.Text = "Servo OFF";
-            this.btnServoOff.UseVisualStyleBackColor = true;
-            this.btnServoOff.Click += new System.EventHandler(this.btnServoOff_Click);
-            // 
-            // btnServoOn
-            // 
-            this.btnServoOn.Location = new System.Drawing.Point(19, 23);
-            this.btnServoOn.Name = "btnServoOn";
-            this.btnServoOn.Size = new System.Drawing.Size(130, 35);
-            this.btnServoOn.TabIndex = 11;
-            this.btnServoOn.Text = "Servo ON";
-            this.btnServoOn.UseVisualStyleBackColor = true;
-            this.btnServoOn.Click += new System.EventHandler(this.btnServoOn_Click);
-            // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(19, 260);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(265, 35);
-            this.btnStart.TabIndex = 11;
-            this.btnStart.Text = "Start selected job";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.btnServoOn);
-            this.panel1.Controls.Add(this.btnStart);
-            this.panel1.Controls.Add(this.txtJobList);
-            this.panel1.Controls.Add(this.udJobLine);
-            this.panel1.Controls.Add(this.txtJobLine);
-            this.panel1.Controls.Add(this.btnServoOff);
-            this.panel1.Controls.Add(this.cbJobs);
-            this.panel1.Controls.Add(this.btnSelect);
-            this.panel1.Controls.Add(this.btnRefresh);
-            this.panel1.Location = new System.Drawing.Point(340, 32);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(301, 375);
-            this.panel1.TabIndex = 20;
-            // 
-            // JobControl
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.gridExecuting);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.gridStatus);
-            this.Controls.Add(this.label2);
-            this.Name = "JobControl";
-            this.Size = new System.Drawing.Size(910, 743);
-            ((System.ComponentModel.ISupportInitialize)(this.udJobLine)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+        gridExecuting = new PropertyGrid();
+        label3 = new Label();
+        gridStatus = new PropertyGrid();
+        udJobLine = new NumericUpDown();
+        btnSelect = new Button();
+        btnRefresh = new Button();
+        cbJobs = new ComboBox();
+        txtJobLine = new Label();
+        txtJobList = new Label();
+        label2 = new Label();
+        btnServoOff = new Button();
+        btnServoOn = new Button();
+        btnStart = new Button();
+        panel1 = new Panel();
+        backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+        groupBox1 = new GroupBox();
+        txtCallStack = new TextBox();
+        btnGetCallStack = new Button();
+        label1 = new Label();
+        udTaskId = new NumericUpDown();
+        ((System.ComponentModel.ISupportInitialize)udJobLine).BeginInit();
+        panel1.SuspendLayout();
+        groupBox1.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)udTaskId).BeginInit();
+        SuspendLayout();
+        // 
+        // gridExecuting
+        // 
+        gridExecuting.HelpVisible = false;
+        gridExecuting.Location = new Point(33, 362);
+        gridExecuting.Margin = new Padding(4, 3, 4, 3);
+        gridExecuting.Name = "gridExecuting";
+        gridExecuting.Size = new Size(322, 107);
+        gridExecuting.TabIndex = 18;
+        gridExecuting.ToolbarVisible = false;
+        // 
+        // label3
+        // 
+        label3.AutoSize = true;
+        label3.Location = new Point(29, 344);
+        label3.Margin = new Padding(4, 0, 4, 0);
+        label3.Name = "label3";
+        label3.Size = new Size(84, 15);
+        label3.TabIndex = 16;
+        label3.Text = "Executing job :";
+        // 
+        // gridStatus
+        // 
+        gridStatus.HelpVisible = false;
+        gridStatus.Location = new Point(33, 37);
+        gridStatus.Margin = new Padding(4, 3, 4, 3);
+        gridStatus.Name = "gridStatus";
+        gridStatus.PropertySort = PropertySort.Alphabetical;
+        gridStatus.Size = new Size(322, 285);
+        gridStatus.TabIndex = 19;
+        gridStatus.ToolbarVisible = false;
+        // 
+        // udJobLine
+        // 
+        udJobLine.Location = new Point(110, 171);
+        udJobLine.Margin = new Padding(4, 3, 4, 3);
+        udJobLine.Name = "udJobLine";
+        udJobLine.Size = new Size(64, 23);
+        udJobLine.TabIndex = 11;
+        // 
+        // btnSelect
+        // 
+        btnSelect.Location = new Point(22, 223);
+        btnSelect.Margin = new Padding(4, 3, 4, 3);
+        btnSelect.Name = "btnSelect";
+        btnSelect.Size = new Size(310, 40);
+        btnSelect.TabIndex = 10;
+        btnSelect.Text = "Select job";
+        btnSelect.UseVisualStyleBackColor = true;
+        btnSelect.Click += btnSelect_Click;
+        // 
+        // btnRefresh
+        // 
+        btnRefresh.Location = new Point(254, 123);
+        btnRefresh.Margin = new Padding(4, 3, 4, 3);
+        btnRefresh.Name = "btnRefresh";
+        btnRefresh.Size = new Size(78, 27);
+        btnRefresh.TabIndex = 10;
+        btnRefresh.Text = "Refresh list";
+        btnRefresh.UseVisualStyleBackColor = true;
+        btnRefresh.Click += btnRefresh_Click;
+        // 
+        // cbJobs
+        // 
+        cbJobs.FormattingEnabled = true;
+        cbJobs.Location = new Point(22, 126);
+        cbJobs.Margin = new Padding(4, 3, 4, 3);
+        cbJobs.Name = "cbJobs";
+        cbJobs.Size = new Size(223, 23);
+        cbJobs.TabIndex = 0;
+        // 
+        // txtJobLine
+        // 
+        txtJobLine.AutoSize = true;
+        txtJobLine.Location = new Point(19, 173);
+        txtJobLine.Margin = new Padding(4, 0, 4, 0);
+        txtJobLine.Name = "txtJobLine";
+        txtJobLine.Size = new Size(79, 15);
+        txtJobLine.TabIndex = 9;
+        txtJobLine.Text = "Job start line :";
+        // 
+        // txtJobList
+        // 
+        txtJobList.AutoSize = true;
+        txtJobList.Location = new Point(19, 107);
+        txtJobList.Margin = new Padding(4, 0, 4, 0);
+        txtJobList.Name = "txtJobList";
+        txtJobList.Size = new Size(73, 15);
+        txtJobList.TabIndex = 9;
+        txtJobList.Text = "Select a job :";
+        // 
+        // label2
+        // 
+        label2.AutoSize = true;
+        label2.Location = new Point(29, 18);
+        label2.Margin = new Padding(4, 0, 4, 0);
+        label2.Name = "label2";
+        label2.Size = new Size(85, 15);
+        label2.TabIndex = 17;
+        label2.Text = "System status :";
+        // 
+        // btnServoOff
+        // 
+        btnServoOff.Location = new Point(181, 27);
+        btnServoOff.Margin = new Padding(4, 3, 4, 3);
+        btnServoOff.Name = "btnServoOff";
+        btnServoOff.Size = new Size(152, 40);
+        btnServoOff.TabIndex = 11;
+        btnServoOff.Text = "Servo OFF";
+        btnServoOff.UseVisualStyleBackColor = true;
+        btnServoOff.Click += btnServoOff_Click;
+        // 
+        // btnServoOn
+        // 
+        btnServoOn.Location = new Point(22, 27);
+        btnServoOn.Margin = new Padding(4, 3, 4, 3);
+        btnServoOn.Name = "btnServoOn";
+        btnServoOn.Size = new Size(152, 40);
+        btnServoOn.TabIndex = 11;
+        btnServoOn.Text = "Servo ON";
+        btnServoOn.UseVisualStyleBackColor = true;
+        btnServoOn.Click += btnServoOn_Click;
+        // 
+        // btnStart
+        // 
+        btnStart.Location = new Point(22, 300);
+        btnStart.Margin = new Padding(4, 3, 4, 3);
+        btnStart.Name = "btnStart";
+        btnStart.Size = new Size(309, 40);
+        btnStart.TabIndex = 11;
+        btnStart.Text = "Start selected job";
+        btnStart.UseVisualStyleBackColor = true;
+        btnStart.Click += btnStart_Click;
+        // 
+        // panel1
+        // 
+        panel1.BorderStyle = BorderStyle.FixedSingle;
+        panel1.Controls.Add(btnServoOn);
+        panel1.Controls.Add(btnStart);
+        panel1.Controls.Add(txtJobList);
+        panel1.Controls.Add(udJobLine);
+        panel1.Controls.Add(txtJobLine);
+        panel1.Controls.Add(btnServoOff);
+        panel1.Controls.Add(cbJobs);
+        panel1.Controls.Add(btnSelect);
+        panel1.Controls.Add(btnRefresh);
+        panel1.Location = new Point(397, 37);
+        panel1.Margin = new Padding(4, 3, 4, 3);
+        panel1.Name = "panel1";
+        panel1.Size = new Size(351, 432);
+        panel1.TabIndex = 20;
+        // 
+        // groupBox1
+        // 
+        groupBox1.Controls.Add(txtCallStack);
+        groupBox1.Controls.Add(btnGetCallStack);
+        groupBox1.Controls.Add(label1);
+        groupBox1.Controls.Add(udTaskId);
+        groupBox1.Location = new Point(33, 497);
+        groupBox1.Name = "groupBox1";
+        groupBox1.Size = new Size(337, 238);
+        groupBox1.TabIndex = 21;
+        groupBox1.TabStop = false;
+        groupBox1.Text = "Call stack";
+        // 
+        // txtCallStack
+        // 
+        txtCallStack.Location = new Point(32, 83);
+        txtCallStack.Multiline = true;
+        txtCallStack.Name = "txtCallStack";
+        txtCallStack.ReadOnly = true;
+        txtCallStack.ScrollBars = ScrollBars.Both;
+        txtCallStack.Size = new Size(290, 149);
+        txtCallStack.TabIndex = 3;
+        // 
+        // btnGetCallStack
+        // 
+        btnGetCallStack.Location = new Point(158, 43);
+        btnGetCallStack.Name = "btnGetCallStack";
+        btnGetCallStack.Size = new Size(164, 23);
+        btnGetCallStack.TabIndex = 2;
+        btnGetCallStack.Text = "Get call stack";
+        btnGetCallStack.UseVisualStyleBackColor = true;
+        btnGetCallStack.Click += btnGetCallStack_Click;
+        // 
+        // label1
+        // 
+        label1.AutoSize = true;
+        label1.Location = new Point(6, 25);
+        label1.Name = "label1";
+        label1.Size = new Size(49, 15);
+        label1.TabIndex = 1;
+        label1.Text = "Task id :";
+        // 
+        // udTaskId
+        // 
+        udTaskId.Location = new Point(32, 43);
+        udTaskId.Name = "udTaskId";
+        udTaskId.Size = new Size(120, 23);
+        udTaskId.TabIndex = 0;
+        // 
+        // JobControl
+        // 
+        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleMode = AutoScaleMode.Font;
+        AutoScroll = true;
+        Controls.Add(groupBox1);
+        Controls.Add(panel1);
+        Controls.Add(gridExecuting);
+        Controls.Add(label3);
+        Controls.Add(gridStatus);
+        Controls.Add(label2);
+        Margin = new Padding(4, 3, 4, 3);
+        Name = "JobControl";
+        Size = new Size(1062, 857);
+        ((System.ComponentModel.ISupportInitialize)udJobLine).EndInit();
+        panel1.ResumeLayout(false);
+        panel1.PerformLayout();
+        groupBox1.ResumeLayout(false);
+        groupBox1.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize)udTaskId).EndInit();
+        ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
@@ -219,4 +293,9 @@ partial class JobControl
     private System.Windows.Forms.Button btnStart;
     private System.Windows.Forms.Panel panel1;
     private System.ComponentModel.BackgroundWorker backgroundWorker1;
+    private GroupBox groupBox1;
+    private TextBox txtCallStack;
+    private Button btnGetCallStack;
+    private Label label1;
+    private NumericUpDown udTaskId;
 }

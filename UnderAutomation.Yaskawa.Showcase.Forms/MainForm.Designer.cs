@@ -31,6 +31,7 @@ partial class MainForm
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
         horizontalSplitContainer = new SplitContainer();
         panel1 = new Panel();
+        lblGithub = new LinkLabel();
         label1 = new Label();
         lblLink = new LinkLabel();
         lblTitle = new Label();
@@ -39,7 +40,9 @@ partial class MainForm
         leftTreeView = new TreeView();
         imgLst = new ImageList(components);
         mainPanel = new Panel();
+        panel2 = new Panel();
         panelTitle = new Label();
+        lnkSource = new LinkLabel();
         tmrPeriodicUpdate = new System.Windows.Forms.Timer(components);
         ((System.ComponentModel.ISupportInitialize)horizontalSplitContainer).BeginInit();
         horizontalSplitContainer.Panel1.SuspendLayout();
@@ -51,6 +54,7 @@ partial class MainForm
         verticalSplitContainer.Panel1.SuspendLayout();
         verticalSplitContainer.Panel2.SuspendLayout();
         verticalSplitContainer.SuspendLayout();
+        panel2.SuspendLayout();
         SuspendLayout();
         // 
         // horizontalSplitContainer
@@ -79,6 +83,7 @@ partial class MainForm
         // 
         // panel1
         // 
+        panel1.Controls.Add(lblGithub);
         panel1.Controls.Add(label1);
         panel1.Controls.Add(lblLink);
         panel1.Dock = DockStyle.Right;
@@ -87,6 +92,19 @@ partial class MainForm
         panel1.Name = "panel1";
         panel1.Size = new Size(449, 89);
         panel1.TabIndex = 3;
+        // 
+        // lblGithub
+        // 
+        lblGithub.Dock = DockStyle.Bottom;
+        lblGithub.Location = new Point(0, 43);
+        lblGithub.Margin = new Padding(4, 0, 4, 0);
+        lblGithub.Name = "lblGithub";
+        lblGithub.Size = new Size(449, 23);
+        lblGithub.TabIndex = 4;
+        lblGithub.TabStop = true;
+        lblGithub.Text = "https://github.com/underautomation/Yaskawa.NET";
+        lblGithub.TextAlign = ContentAlignment.MiddleCenter;
+        lblGithub.LinkClicked += LinkClicked;
         // 
         // label1
         // 
@@ -111,7 +129,7 @@ partial class MainForm
         lblLink.TabStop = true;
         lblLink.Text = "https://underautomation.com/yaskawa";
         lblLink.TextAlign = ContentAlignment.MiddleCenter;
-        lblLink.LinkClicked += lblLink_LinkClicked;
+        lblLink.LinkClicked += LinkClicked;
         // 
         // lblTitle
         // 
@@ -154,7 +172,7 @@ partial class MainForm
         // verticalSplitContainer.Panel2
         // 
         verticalSplitContainer.Panel2.Controls.Add(mainPanel);
-        verticalSplitContainer.Panel2.Controls.Add(panelTitle);
+        verticalSplitContainer.Panel2.Controls.Add(panel2);
         verticalSplitContainer.Size = new Size(1231, 762);
         verticalSplitContainer.SplitterDistance = 328;
         verticalSplitContainer.SplitterWidth = 5;
@@ -185,22 +203,46 @@ partial class MainForm
         // mainPanel
         // 
         mainPanel.Dock = DockStyle.Fill;
-        mainPanel.Location = new Point(0, 36);
+        mainPanel.Location = new Point(0, 59);
         mainPanel.Margin = new Padding(4, 3, 4, 3);
         mainPanel.Name = "mainPanel";
-        mainPanel.Size = new Size(896, 724);
+        mainPanel.Size = new Size(896, 701);
         mainPanel.TabIndex = 1;
+        // 
+        // panel2
+        // 
+        panel2.Controls.Add(panelTitle);
+        panel2.Controls.Add(lnkSource);
+        panel2.Dock = DockStyle.Top;
+        panel2.Location = new Point(0, 0);
+        panel2.Name = "panel2";
+        panel2.Size = new Size(896, 59);
+        panel2.TabIndex = 4;
         // 
         // panelTitle
         // 
-        panelTitle.Dock = DockStyle.Top;
+        panelTitle.Dock = DockStyle.Fill;
         panelTitle.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
         panelTitle.Location = new Point(0, 0);
         panelTitle.Margin = new Padding(4, 0, 4, 0);
         panelTitle.Name = "panelTitle";
-        panelTitle.Size = new Size(896, 36);
+        panelTitle.Size = new Size(766, 59);
         panelTitle.TabIndex = 0;
+        panelTitle.Text = "...";
         panelTitle.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // lnkSource
+        // 
+        lnkSource.Cursor = Cursors.Hand;
+        lnkSource.Dock = DockStyle.Right;
+        lnkSource.Location = new Point(766, 0);
+        lnkSource.Name = "lnkSource";
+        lnkSource.Size = new Size(130, 59);
+        lnkSource.TabIndex = 2;
+        lnkSource.TabStop = true;
+        lnkSource.Text = "View C# page source\r\naaa.cs";
+        lnkSource.TextAlign = ContentAlignment.MiddleCenter;
+        lnkSource.LinkClicked += lnkSource_LinkClicked;
         // 
         // tmrPeriodicUpdate
         // 
@@ -229,6 +271,7 @@ partial class MainForm
         verticalSplitContainer.Panel2.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)verticalSplitContainer).EndInit();
         verticalSplitContainer.ResumeLayout(false);
+        panel2.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -246,5 +289,8 @@ partial class MainForm
     private System.Windows.Forms.LinkLabel lblLink;
     private System.Windows.Forms.Label label1;
     internal System.Windows.Forms.TreeView leftTreeView;
+    private LinkLabel lblGithub;
+    private Panel panel2;
+    private LinkLabel lnkSource;
 }
 

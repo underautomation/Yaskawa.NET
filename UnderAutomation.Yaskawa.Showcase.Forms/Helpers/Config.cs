@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
+using UnderAutomation.Yaskawa;
 
 // Save user information in a file next to the main executable
 public class Config
@@ -41,8 +42,9 @@ public class Config
         catch { }
     }
 
+    public ConnectParameters ConnectParameters { get; set; } = new ConnectParameters();
+
     #region Properties
-    public string IP { get; set; }
     public string Licensee { get; set; }
     public string Key { get; set; }
 

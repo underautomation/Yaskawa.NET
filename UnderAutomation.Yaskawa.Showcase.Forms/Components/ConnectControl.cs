@@ -1,29 +1,38 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-using UnderAutomation.Yaskawa;
+﻿using UnderAutomation.Yaskawa;
+using UnderAutomation.Yaskawa.HostControl;
+using UnderAutomation.Yaskawa.License;
 
 public partial class ConnectControl : UserControl, IUserControl
 {
     YaskawaRobot _robot;
 
-    public ConnectControl(YaskawaRobot Yaskawa)
+    public ConnectControl(YaskawaRobot robot)
     {
-        _robot = Yaskawa;
+        _robot = robot;
         InitializeComponent();
 
+        var parameters = Config.Current.ConnectParameters ?? new ConnectParameters();
+
         // Use stored information or set to default
-        txtIP.Text = Config.Current.IP ?? "192.168.0.1";
+        txtIP.Text = parameters.IP ?? "192.168.0.1";
+
+        chkHSES.Checked = parameters.HighSpeedEServer.Enable;
+
+        chkHostControlEthernet.Checked = parameters.HostControlEthernet.Enable;
+        chkHostControlSerial.Checked = parameters.HostControlSerial.Enable;
+
+        cbComPorts.Text = parameters.HostControlSerial.PortName;
     }
 
+
     #region IUserControl
-    public bool FeatureEnabled => _robot.HighSpeedEServer.Connected;
+    public bool FeatureEnabled => _robot.Connected;
 
     public string Title => "Connection";
 
     public void OnClose() { }
 
-    public void OnOpen() { }
+    public void OnOpen() { ValidateLicense(); }
 
     public void PeriodicUpdate()
     {
@@ -36,21 +45,71 @@ public partial class ConnectControl : UserControl, IUserControl
     }
     #endregion
 
+    public void ValidateLicense()
+    {
+        var licenseInfo = YaskawaRobot.LicenseInfo;
+        var isActiveLicense = licenseInfo.State == LicenseState.Licensed || licenseInfo.State == LicenseState.Trial || licenseInfo.State == LicenseState.ExtraTrial;
+
+        lblLicense.Text = "License state : " + YaskawaRobot.LicenseInfo.State;
+        lblLicense.ForeColor = isActiveLicense ? Color.Green : Color.Black;
+    }
+
     private void btnConnect_Click(object sender, EventArgs e)
     {
         if (e is KeyEventArgs && ((KeyEventArgs)e).KeyCode != Keys.Enter) return;
-
-        // Connect to the robot
-        _robot.Connect(txtIP.Text);
+        var parameters = new ConnectParameters();
+        
+        parameters.IP = txtIP.Text;
+        parameters.HighSpeedEServer.Enable = chkHSES.Checked;
+        parameters.HostControlEthernet.Enable = chkHostControlEthernet.Checked;
+        parameters.HostControlSerial.Enable = chkHostControlSerial.Checked;
+        parameters.HostControlSerial.PortName = cbComPorts.Text;
 
         // Store information
-        Config.Current.IP = txtIP.Text;
+        Config.Current.ConnectParameters = parameters;
         Config.Save();
+
+        try
+        {
+            // Connect to the robot
+            _robot.Connect(parameters);
+        }
+        catch (InvalidLicenseException)
+        {
+            MessageBox.Show("Your licence is invalid. Please obtain a Trial Licence or enter the licence key you receive after purchasing the SDK", "License error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MainForm.Instance.SelectNode<LicenseControl>();
+        }
     }
 
     private void btnDisconnect_Click(object sender, EventArgs e)
     {
         // Disconnect all services
-        _robot.HighSpeedEServer.Close();
+        _robot.Disconnect();
+    }
+
+
+    private void cbComPorts_DropDown(object sender, EventArgs e)
+    {
+        string selected = cbComPorts.Text;
+
+        string[] ports = HostControlSerialClient.GetPortNames();
+        cbComPorts.Items.Clear();
+
+        if (!string.IsNullOrWhiteSpace(selected) && !ports.Contains(selected))
+            cbComPorts.Items.Add(selected);
+
+        cbComPorts.Items.AddRange(ports);
+
+        cbComPorts.Text = selected;
+    }
+
+    private void lnkConfigureHSES_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        MainForm.Instance.OpenUrl("https://underautomation.com/yaskawa/documentation/");
+    }
+
+    private void lnkConfigureHC_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        MainForm.Instance.OpenUrl("https://underautomation.com/yaskawa/documentation/");
     }
 }

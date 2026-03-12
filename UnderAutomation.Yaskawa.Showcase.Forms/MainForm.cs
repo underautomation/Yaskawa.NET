@@ -34,6 +34,7 @@ public partial class MainForm : Form
         AddNode(new PendantControl(_robot));
         AddNode(new StatusControl(_robot));
         AddNode(new VariableControl(_robot));
+        AddNode(new IoControl(_robot));
         AddNode(new ParametersControl(_robot));
         AddNode(new PositionControl(_robot));
         AddNode(new MoveControl(_robot));

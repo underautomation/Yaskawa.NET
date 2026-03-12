@@ -31,6 +31,9 @@
 	  <Compile Update="Components\ParametersControl.cs">
 	    <SubType>UserControl</SubType>
 	  </Compile>
+	  <Compile Update="Components\IoControl.cs">
+	    <SubType>UserControl</SubType>
+	  </Compile>
 	  <Compile Update="Components\VariableControl.cs">
 	    <SubType>UserControl</SubType>
 	  </Compile>

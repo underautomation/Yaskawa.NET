@@ -4,13 +4,19 @@
 
 
 namespace HighSpeedEServer {
-
+	/// <summary>
+	/// Specifies the arm configuration (upper/lower) based on L and U axis positions.
+	/// </summary>
 	public enum ArmFlipInformation {
 
-
+		/// <summary>
+		/// Upper arm configuration - elbow is above the line between shoulder and wrist.
+		/// </summary>
 		Upper = 0,
 
-
+		/// <summary>
+		/// Lower arm configuration - elbow is below the line between shoulder and wrist.
+		/// </summary>
 		Lower = 1,
 	}
 }

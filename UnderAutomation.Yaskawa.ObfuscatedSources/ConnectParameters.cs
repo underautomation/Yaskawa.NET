@@ -2,11 +2,11 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Common;
+using HighSpeedEServer.Internal;
 
 namespace UnderAutomation.Yaskawa {
 	/// <summary>
-	/// Contains a set of connection parameters
+	/// Contains a set of connection parameters for robot communication.
 	/// </summary>
 	public class ConnectParameters {
 
@@ -39,6 +39,6 @@ namespace UnderAutomation.Yaskawa {
 		/// <summary>
 		/// High Speed Ethernet Server connect parameters
 		/// </summary>
-		public HighSpeedEServerConnectParameters HighSpeedEServer { get; set; }
+		public HighSpeedEServerConnectParametersInternal HighSpeedEServer { get; set; }
 	}
 }

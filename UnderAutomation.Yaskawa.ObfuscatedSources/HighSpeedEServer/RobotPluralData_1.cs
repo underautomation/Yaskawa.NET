@@ -4,10 +4,16 @@
 
 
 namespace HighSpeedEServer {
-
+	/// <summary>
+	/// Represents a collection of data values returned from plural (batch) read operations.
+	/// Used for reading multiple variables, registers, or I/O points in a single request.
+	/// </summary>
 	public class RobotPluralData<T> : RobotData {
 
-
-		public T[] Value { get; set; }
+		/// <summary>
+		/// Gets the array of values read from the robot controller.
+		/// The array length corresponds to the number of values successfully read.
+		/// </summary>
+		public T[] Value { get; }
 	}
 }

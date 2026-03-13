@@ -4,16 +4,25 @@
 
 
 namespace HighSpeedEServer {
-
+	/// <summary>
+	/// Contains progress information for file download (GetFile) operations.
+	/// Used with the GetFileProgressDelegate callback to track download progress.
+	/// </summary>
 	public class GetFileProgress {
 
+		/// <summary>
+		/// Gets whether the file download has completed successfully.
+		/// </summary>
+		public bool Completed { get; }
 
-		public bool Completed;
+		/// <summary>
+		/// Gets the name of the file being downloaded.
+		/// </summary>
+		public string FileName { get; }
 
-
-		public string FileName;
-
-
-		public int DownloadedBytes;
+		/// <summary>
+		/// Gets the number of bytes downloaded so far.
+		/// </summary>
+		public int DownloadedBytes { get; }
 	}
 }

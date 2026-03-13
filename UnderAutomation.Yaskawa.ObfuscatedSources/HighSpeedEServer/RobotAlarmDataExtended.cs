@@ -4,16 +4,28 @@
 
 
 namespace HighSpeedEServer {
-
+	/// <summary>
+	/// Contains extended information about a robot alarm, including sub-code details.
+	/// Provides more detailed diagnostic information than the basic RobotAlarmData.
+	/// </summary>
 	public class RobotAlarmDataExtended : RobotAlarmData {
 
+		/// <summary>
+		/// Gets additional information about the alarm condition.
+		/// Maximum 16 characters.
+		/// </summary>
+		public string AdditionnalInformation { get; }
 
-		public string AdditionnalInformation { get; set; }
+		/// <summary>
+		/// Gets the sub-code data providing detailed error context.
+		/// Maximum 96 characters.
+		/// </summary>
+		public string SubData { get; }
 
-
-		public string SubData { get; set; }
-
-
-		public string SubDataReverse { get; set; }
+		/// <summary>
+		/// Gets the reversed sub-code data.
+		/// Maximum 96 characters.
+		/// </summary>
+		public string SubDataReverse { get; }
 	}
 }

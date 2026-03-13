@@ -4,13 +4,19 @@
 
 
 namespace HighSpeedEServer {
-
+	/// <summary>
+	/// Specifies how to handle position in reverse direction scenarios.
+	/// </summary>
 	public enum RegardedReversePositionSpecified {
 
-
+		/// <summary>
+		/// Use the previous position as reference.
+		/// </summary>
 		Previous = 0,
 
-
+		/// <summary>
+		/// Use the specified form/posture as reference.
+		/// </summary>
 		Form = 1,
 	}
 }

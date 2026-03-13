@@ -6,13 +6,13 @@ using System.Runtime.Serialization;
 
 namespace License {
 	/// <summary>
-	/// Exception thrown while using the product if the license is not valid
+	/// Exception thrown while using the product if the license is not valid.
 	/// </summary>
 	public class InvalidLicenseException : Exception, ISerializable {
 
 		/// <summary>
 		/// The license that causes this exception
 		/// </summary>
-		public LicenseInfo LicenseInfo { get; set; }
+		public LicenseInfo LicenseInfo { get; }
 	}
 }

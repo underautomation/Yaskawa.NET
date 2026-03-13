@@ -30,7 +30,7 @@ namespace License {
 		ExtraTrial = 2,
 
 		/// <summary>
-		/// The trial period has expired, you can no longer use the library
+		/// The trial period as expired, you no more can use the library
 		/// </summary>
 		Expired = 3,
 

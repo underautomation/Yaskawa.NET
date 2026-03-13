@@ -4,13 +4,19 @@
 
 
 namespace HighSpeedEServer {
-
+	/// <summary>
+	/// Defines the type of base position data representation.
+	/// </summary>
 	public enum RobotBasePositionType : byte {
 
-
+		/// <summary>
+		/// Position is represented as encoder pulse values.
+		/// </summary>
 		PulseValue = 0,
 
-
+		/// <summary>
+		/// Position is represented in base coordinate system values.
+		/// </summary>
 		BaseCoordinateValue = 16,
 	}
 }

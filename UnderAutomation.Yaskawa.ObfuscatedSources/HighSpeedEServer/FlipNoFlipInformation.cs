@@ -4,13 +4,19 @@
 
 
 namespace HighSpeedEServer {
-
+	/// <summary>
+	/// Specifies the flip/no-flip wrist configuration.
+	/// </summary>
 	public enum FlipNoFlipInformation {
 
-
+		/// <summary>
+		/// Flip configuration - wrist is in flipped orientation.
+		/// </summary>
 		Flip = 0,
 
-
+		/// <summary>
+		/// No-flip configuration - wrist is in standard orientation.
+		/// </summary>
 		NoFlip = 1,
 	}
 }

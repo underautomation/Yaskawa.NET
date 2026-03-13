@@ -6,7 +6,11 @@ using License;
 using HighSpeedEServer.Internal;
 
 namespace UnderAutomation.Yaskawa {
-
+	/// <summary>
+	/// Main entry point for communicating with Yaskawa Motoman robots.
+	/// This class provides methods to connect, monitor, and control the robot through multiple interfaces:
+	/// High Speed Ethernet Server
+	/// </summary>
 	public class YaskawaRobot {
 
 		/// <summary>
@@ -18,7 +22,8 @@ namespace UnderAutomation.Yaskawa {
 		}
 
 		/// <summary>
-		/// Connects to the robot by its IP adress
+		/// Connects to the robot by its IP address.
+		/// Establishes connections for High Speed Ethernet Server.
 		/// </summary>
 		/// <param name="ip">IP or robot host name</param>
 		public void Connect(string ip)
@@ -27,10 +32,19 @@ namespace UnderAutomation.Yaskawa {
 		}
 
 		/// <summary>
-		/// Connects to the robot
+		/// Connects to the robot using the specified parameters.
+		/// Establishes connections for High Speed Ethernet Server.
 		/// </summary>
 		/// <param name="parameters">Connection parameters</param>
 		public void Connect(ConnectParameters parameters)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// Disconnects all active connections to the robot controller.
+		/// </summary>
+		public void Disconnect()
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
@@ -49,7 +63,13 @@ namespace UnderAutomation.Yaskawa {
 		}
 
 		/// <summary>
-		/// Access High Speed Ethernet Server features
+		/// Indicates whether the High Speed Ethernet Server is currently connected and enabled.
+		/// </summary>
+		public bool Connected { get; }
+
+		/// <summary>
+		/// Access High Speed Ethernet Server features.
+		/// Provides high-speed UDP-based communication for real-time robot monitoring and control.
 		/// </summary>
 		public HighSpeedEServerClientInternal HighSpeedEServer { get; }
 

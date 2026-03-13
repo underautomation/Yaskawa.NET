@@ -4,7 +4,10 @@
 
 
 namespace HighSpeedEServer.Internal {
-
+	/// <summary>
+	/// Internal implementation of the High Speed Ethernet Server client.
+	/// This class provides the concrete implementation used internally by the SDK.
+	/// </summary>
 	public class HighSpeedEServerClientInternal : HighSpeedEServerClientBase {
 	}
 }

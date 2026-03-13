@@ -5,7 +5,10 @@
 using System.Collections.Generic;
 
 namespace HighSpeedEServer {
-
+	/// <summary>
+	/// Contains the content of a file downloaded from the robot controller.
+	/// Provides methods for parsing structured file content such as job files and parameter files.
+	/// </summary>
 	public class RobotFileContentData : RobotData {
 
 
@@ -15,13 +18,25 @@ namespace HighSpeedEServer {
 			return default;
 		}
 
+		/// <summary>
+		/// Gets the list of response headers from multi-block transfers.
+		/// Large files are transferred in multiple UDP packets.
+		/// </summary>
+		public List<RobotDataHeader> Headers { get; }
 
-		public List<RobotDataHeader> Headers { get; set; }
+		/// <summary>
+		/// Gets the text content of the downloaded file.
+		/// </summary>
+		public string Content { get; }
 
+		/// <summary>
+		/// Gets the text content of the downloaded file.
+		/// </summary>
+		public byte[] ContentRaw { get; }
 
-		public string Content { get; set; }
-
-
-		public string FileName { get; set; }
+		/// <summary>
+		/// Gets the name of the downloaded file.
+		/// </summary>
+		public string FileName { get; }
 	}
 }

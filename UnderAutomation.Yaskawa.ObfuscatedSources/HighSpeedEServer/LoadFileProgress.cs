@@ -4,19 +4,30 @@
 
 
 namespace HighSpeedEServer {
-
+	/// <summary>
+	/// Contains progress information for file upload (LoadFile) operations.
+	/// Used with the LoadFileProgressDelegate callback to track upload progress.
+	/// </summary>
 	public class LoadFileProgress {
 
+		/// <summary>
+		/// Gets whether the file upload has completed successfully.
+		/// </summary>
+		public bool Completed { get; }
 
-		public bool Completed;
+		/// <summary>
+		/// Gets the name of the file being uploaded.
+		/// </summary>
+		public string FileName { get; }
 
+		/// <summary>
+		/// Gets the total size of the file in bytes.
+		/// </summary>
+		public int TotalBytes { get; }
 
-		public string FileName;
-
-
-		public int TotalBytes;
-
-
-		public int LoadedBytes;
+		/// <summary>
+		/// Gets the number of bytes uploaded so far.
+		/// </summary>
+		public int LoadedBytes { get; }
 	}
 }

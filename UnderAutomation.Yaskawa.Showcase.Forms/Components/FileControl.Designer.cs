@@ -29,8 +29,8 @@
     {
         components = new System.ComponentModel.Container();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FileControl));
-        ListViewItem listViewItem1 = new ListViewItem("<", 1);
-        ListViewItem listViewItem2 = new ListViewItem("abcdefghijklmno", 0);
+        ListViewItem listViewItem3 = new ListViewItem("<", 1);
+        ListViewItem listViewItem4 = new ListViewItem("abcdefghijklmno", 0);
         lstFolderImageList = new ImageList(components);
         dlgOpen = new OpenFileDialog();
         lstFolder = new ListView();
@@ -43,7 +43,7 @@
         btnOpen = new ToolStripButton();
         btnDownload = new ToolStripButton();
         btnDelete = new ToolStripButton();
-        toolStripButton1 = new ToolStripButton();
+        btnUpload = new ToolStripButton();
         toolStripSeparator1 = new ToolStripSeparator();
         btnBackup = new ToolStripButton();
         btnDownloadCmos = new ToolStripButton();
@@ -71,7 +71,7 @@
         // 
         lstFolder.Activation = ItemActivation.TwoClick;
         lstFolder.Dock = DockStyle.Fill;
-        lstFolder.Items.AddRange(new ListViewItem[] { listViewItem1, listViewItem2 });
+        lstFolder.Items.AddRange(new ListViewItem[] { listViewItem3, listViewItem4 });
         lstFolder.LabelEdit = true;
         lstFolder.LargeImageList = lstFolderImageList;
         lstFolder.Location = new Point(0, 50);
@@ -118,7 +118,7 @@
         // 
         // tsFolder
         // 
-        tsFolder.Items.AddRange(new ToolStripItem[] { btnRefresh, btnOpen, btnDownload, btnDelete, toolStripButton1, toolStripSeparator1, btnBackup, btnDownloadCmos });
+        tsFolder.Items.AddRange(new ToolStripItem[] { btnRefresh, btnOpen, btnDownload, btnDelete, btnUpload, toolStripSeparator1, btnBackup, btnDownloadCmos });
         tsFolder.Location = new Point(0, 0);
         tsFolder.Name = "tsFolder";
         tsFolder.Size = new Size(1143, 25);
@@ -161,13 +161,14 @@
         btnDelete.Text = "Delete";
         btnDelete.Click += btnDelete_Click;
         // 
-        // toolStripButton1
+        // btnUpload
         // 
-        toolStripButton1.Image = UnderAutomation.Yaskawa.Showcase.Forms.Properties.Resources.upload_2_line;
-        toolStripButton1.ImageTransparentColor = Color.Magenta;
-        toolStripButton1.Name = "toolStripButton1";
-        toolStripButton1.Size = new Size(84, 22);
-        toolStripButton1.Text = "Upload file";
+        btnUpload.Image = UnderAutomation.Yaskawa.Showcase.Forms.Properties.Resources.upload_2_line;
+        btnUpload.ImageTransparentColor = Color.Magenta;
+        btnUpload.Name = "btnUpload";
+        btnUpload.Size = new Size(84, 22);
+        btnUpload.Text = "Upload file";
+        btnUpload.Click += btnUpload_Click;
         // 
         // toolStripSeparator1
         // 
@@ -248,7 +249,7 @@
     internal System.Windows.Forms.ToolStripButton btnBackup;
     internal System.Windows.Forms.ToolStripButton btnDownload;
     private System.Windows.Forms.Label lblProgress;
-    internal ToolStripButton toolStripButton1;
+    internal ToolStripButton btnUpload;
     private ToolStripSeparator toolStripSeparator1;
     internal ToolStripButton btnDownloadCmos;
     private SaveFileDialog dlgSaveCMOS;

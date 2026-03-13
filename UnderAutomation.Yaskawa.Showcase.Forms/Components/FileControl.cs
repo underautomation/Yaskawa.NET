@@ -176,7 +176,7 @@ public partial class FileControl : UserControl, IUserControl
         {
             Cursor = Cursors.WaitCursor;
 
-            
+
             var content = _robot.HighSpeedEServer.GetFile("/SPDRV/CMOSBK.BIN", (progress) =>
             {
                 lblProgress.Visible = true;
@@ -184,13 +184,13 @@ public partial class FileControl : UserControl, IUserControl
                 Application.DoEvents();
             });
 
-            if(dlgSaveCMOS.ShowDialog() == DialogResult.OK)
+            if (dlgSaveCMOS.ShowDialog() == DialogResult.OK)
             {
-                File.WriteAllBytes(dlgSaveCMOS.FileName, content.ContentRaw); 
+                File.WriteAllBytes(dlgSaveCMOS.FileName, content.ContentRaw);
                 Explorer.RevealFile(dlgSaveCMOS.FileName);
             }
         }
-        catch(InvalidDataAnswerException ex) when (ex.AddedStatus == 0x0000e444)
+        catch (InvalidDataAnswerException ex) when (ex.AddedStatus == 0x0000e444)
         {
             throw new Exception("Backup of CMOS.BIN is in progress, please wait...", ex);
         }

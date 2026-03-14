@@ -1371,18 +1371,16 @@
             Axis values are in pulse units (encoder counts) or scaled coordinate values.
             </summary>
         </member>
+        <member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.RobotPositionIntData.#ctor">
+            <summary>
+            Creates a blank instance of RobotPositionIntData
+            </summary>
+        </member>
         <member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.RobotPositionIntData.#ctor(UnderAutomation.Yaskawa.HighSpeedEServer.RobotDataHeader)">
             <summary>
             Creates a new instance of RobotPositionIntData with the specified header information.
             </summary>
             <param name="header">Response header containing metadata about the communication.</param>
-        </member>
-        <member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.RobotPositionIntData.#ctor(UnderAutomation.Yaskawa.HighSpeedEServer.RobotPositionData{System.Int32})">
-            <summary>
-            Creates a new instance of RobotPositionIntData from a generic RobotPositionData.
-            Used for conversion from generic types to specific types.
-            </summary>
-            <param name="source">Source position data to copy from.</param>
         </member>
         <member name="T:UnderAutomation.Yaskawa.HighSpeedEServer.RobotBasePositionType">
             <summary>
@@ -2595,15 +2593,6 @@
         <member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WritePositionVariable(System.Int32,UnderAutomation.Yaskawa.HighSpeedEServer.RobotPositionIntData[])">
             <summary>
             Writes position variables (P variables) to the robot controller.
-            </summary>
-            <param name="firstIndex">Starting position variable index.</param>
-            <param name="data">Array of position data to write.</param>
-            <returns>Response header indicating success.</returns>
-        </member>
-        <member name="M:UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.WritePositionVariable(System.Int32,UnderAutomation.Yaskawa.HighSpeedEServer.RobotPositionData{System.Int32}[])">
-            <summary>
-            Writes position variables (P variables) to the robot controller using generic type.
-            Provided for backward compatibility with existing code.
             </summary>
             <param name="firstIndex">Starting position variable index.</param>
             <param name="data">Array of position data to write.</param>

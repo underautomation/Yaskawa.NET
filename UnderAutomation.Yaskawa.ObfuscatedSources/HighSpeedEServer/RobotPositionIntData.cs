@@ -13,20 +13,18 @@ namespace HighSpeedEServer {
 	public class RobotPositionIntData : RobotPositionData<int> {
 
 		/// <summary>
-		/// Creates a new instance of RobotPositionIntData with the specified header information.
+		/// Creates a blank instance of RobotPositionIntData
 		/// </summary>
-		/// <param name="header">Response header containing metadata about the communication.</param>
-		public RobotPositionIntData(RobotDataHeader header) : base(default)
+		public RobotPositionIntData() : base(default)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
 
 		/// <summary>
-		/// Creates a new instance of RobotPositionIntData from a generic RobotPositionData.
-		/// Used for conversion from generic types to specific types.
+		/// Creates a new instance of RobotPositionIntData with the specified header information.
 		/// </summary>
-		/// <param name="source">Source position data to copy from.</param>
-		public RobotPositionIntData(RobotPositionData<int> source) : base(default)
+		/// <param name="header">Response header containing metadata about the communication.</param>
+		public RobotPositionIntData(RobotDataHeader header) : base(default)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}

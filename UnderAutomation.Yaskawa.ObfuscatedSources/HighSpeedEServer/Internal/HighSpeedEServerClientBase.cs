@@ -553,19 +553,6 @@ namespace HighSpeedEServer.Internal {
 		}
 
 		/// <summary>
-		/// Writes position variables (P variables) to the robot controller using generic type.
-		/// Provided for backward compatibility with existing code.
-		/// </summary>
-		/// <param name="firstIndex">Starting position variable index.</param>
-		/// <param name="data">Array of position data to write.</param>
-		/// <returns>Response header indicating success.</returns>
-		public RobotDataHeader WritePositionVariable(int firstIndex, RobotPositionData<int>[] data)
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-			return default;
-		}
-
-		/// <summary>
 		/// Reads multiple base position variables (BP variables) from the robot controller.
 		/// Base position variables define reference coordinate frames for robot operations.
 		/// </summary>

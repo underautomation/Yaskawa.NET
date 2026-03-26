@@ -25,13 +25,13 @@ namespace HighSpeedEServer {
 		RobotCoordinateValue = 17,
 
 		/// <summary>
-		/// Position in user-defined coordinate system (value 18).
+		/// Position in tool coordinate system (value 18).
 		/// </summary>
-		UserCoordinateValue = 18,
+		ToolCoordinateValue = 18,
 
 		/// <summary>
-		/// Position in tool coordinate system (value 19).
+		/// Position in user-defined coordinate system (value 19).
 		/// </summary>
-		ToolCoordinateValue = 19,
+		UserCoordinateValue = 19,
 	}
 }

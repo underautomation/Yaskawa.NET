@@ -1,4 +1,4 @@
-partial class KinematicsControl
+partial class OnlineKinematicsControl
 {
     /// <summary> 
     /// Variable nécessaire au concepteur.

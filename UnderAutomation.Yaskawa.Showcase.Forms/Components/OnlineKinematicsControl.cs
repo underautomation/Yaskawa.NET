@@ -2,9 +2,9 @@ using System.ComponentModel;
 using UnderAutomation.Yaskawa;
 using UnderAutomation.Yaskawa.HighSpeedEServer;
 
-public partial class KinematicsControl : UserControl, IUserControl
+public partial class OnlineKinematicsControl : UserControl, IUserControl
 {
-    static KinematicsControl()
+    static OnlineKinematicsControl()
     {
         TypeDescriptor.AddAttributes(typeof(RobotKinematicsCartesianData), new ReadOnlyAttribute(true));
         TypeDescriptor.AddAttributes(typeof(RobotKinematicsJointData), new ReadOnlyAttribute(true));
@@ -14,7 +14,7 @@ public partial class KinematicsControl : UserControl, IUserControl
 
     private readonly YaskawaRobot _robot;
 
-    public KinematicsControl(YaskawaRobot robot)
+    public OnlineKinematicsControl(YaskawaRobot robot)
     {
         _robot = robot;
         InitializeComponent();
@@ -23,7 +23,7 @@ public partial class KinematicsControl : UserControl, IUserControl
 
     #region IUserControl
     public bool FeatureEnabled => _robot.HighSpeedEServer.Connected;
-    public string Title => "Kinematics";
+    public string Title => "Online Kinematics";
     public void OnClose() { }
     public void OnOpen() { }
     public void PeriodicUpdate() { }

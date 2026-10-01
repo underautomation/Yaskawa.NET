@@ -81,7 +81,7 @@ public partial class ConnectControl : UserControl, IUserControl
 
     private void lnkConfigureHSES_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-        MainForm.Instance.OpenUrl("https://underautomation.com/yaskawa/documentation/");
+        MainForm.Instance.OpenUrl("https://underautomation.com/yaskawa/documentation/connect#prepare_the_controller");
     }
 
 }

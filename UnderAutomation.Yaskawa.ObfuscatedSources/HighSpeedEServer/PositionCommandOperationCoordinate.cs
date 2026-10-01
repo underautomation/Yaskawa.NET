@@ -23,15 +23,15 @@ namespace HighSpeedEServer {
 		Robot = 17,
 
 		/// <summary>
-		/// User-defined coordinate system.
-		/// Custom reference frame defined for specific workpiece or fixture.
-		/// </summary>
-		User = 18,
-
-		/// <summary>
 		/// Tool coordinate system.
 		/// Reference frame at the tool center point (TCP).
 		/// </summary>
-		Tool = 19,
+		Tool = 18,
+
+		/// <summary>
+		/// User-defined coordinate system.
+		/// Custom reference frame defined for specific workpiece or fixture.
+		/// </summary>
+		User = 19,
 	}
 }

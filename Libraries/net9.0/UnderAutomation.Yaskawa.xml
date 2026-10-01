@@ -555,16 +555,16 @@
             Reference frame at the robot's origin point.
             </summary>
         </member>
-        <member name="F:UnderAutomation.Yaskawa.HighSpeedEServer.PositionCommandOperationCoordinate.User">
-            <summary>
-            User-defined coordinate system.
-            Custom reference frame defined for specific workpiece or fixture.
-            </summary>
-        </member>
         <member name="F:UnderAutomation.Yaskawa.HighSpeedEServer.PositionCommandOperationCoordinate.Tool">
             <summary>
             Tool coordinate system.
             Reference frame at the tool center point (TCP).
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.Yaskawa.HighSpeedEServer.PositionCommandOperationCoordinate.User">
+            <summary>
+            User-defined coordinate system.
+            Custom reference frame defined for specific workpiece or fixture.
             </summary>
         </member>
         <member name="T:UnderAutomation.Yaskawa.HighSpeedEServer.RobotRecentAlarm">
@@ -1604,14 +1604,14 @@
             Position in robot coordinate system (robot base frame, value 17).
             </summary>
         </member>
-        <member name="F:UnderAutomation.Yaskawa.HighSpeedEServer.RobotPositionDataType.UserCoordinateValue">
-            <summary>
-            Position in user-defined coordinate system (value 18).
-            </summary>
-        </member>
         <member name="F:UnderAutomation.Yaskawa.HighSpeedEServer.RobotPositionDataType.ToolCoordinateValue">
             <summary>
-            Position in tool coordinate system (value 19).
+            Position in tool coordinate system (value 18).
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.Yaskawa.HighSpeedEServer.RobotPositionDataType.UserCoordinateValue">
+            <summary>
+            Position in user-defined coordinate system (value 19).
             </summary>
         </member>
         <member name="T:UnderAutomation.Yaskawa.HighSpeedEServer.ControlGroup">

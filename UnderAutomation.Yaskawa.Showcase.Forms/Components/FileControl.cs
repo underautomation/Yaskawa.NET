@@ -217,10 +217,10 @@ public partial class FileControl : UserControl, IUserControl, ISelectableControl
             {
                 Cursor = Cursors.WaitCursor;
 
-                Robot.Ftp.UploadFilesToController(dlg.FileNames, "/", progress =>
+                Robot.Ftp.UploadFilesFromLocal(dlg.FileNames, progress =>
                 {
                     lblProgress.Visible = true;
-                    lblProgress.Text = $"Uploading... {progress * 100:0.0} %";
+                    lblProgress.Text = $"Uploading... {progress:0.0} %";
                     Application.DoEvents();
                 });
 
@@ -251,10 +251,10 @@ public partial class FileControl : UserControl, IUserControl, ISelectableControl
             {
                 Cursor = Cursors.WaitCursor;
 
-                var written = Robot.Ftp.DownloadFilesFromController(dlg.SelectedPath, selected, progress =>
+                var written = Robot.Ftp.DownloadFilesToLocal(selected, dlg.SelectedPath, progress =>
                 {
                     lblProgress.Visible = true;
-                    lblProgress.Text = $"Downloading... {progress * 100:0.0} %";
+                    lblProgress.Text = $"Downloading... {progress:0.0} %";
                     Application.DoEvents();
                 });
 

@@ -36,13 +36,11 @@ partial class AlarmControl
         panel1 = new Panel();
         label1 = new Label();
         panel2 = new Panel();
+        btnGetAlarmExtended = new Button();
+        btnGetAlarm = new Button();
+        cbRecentAlarm = new ComboBox();
         btnRefresh = new Button();
         btnReset = new Button();
-        cbRecentAlarm = new ComboBox();
-        btnGetAlarm = new Button();
-        btnGetAlarmExtended = new Button();
-        btnGetAlarmWithMessages = new Button();
-        btnErrorCancel = new Button();
         gridAlarm = new PropertyGrid();
         lblAlarmDetails = new Label();
         protocolSelector = new ProtocolSelector();
@@ -107,8 +105,6 @@ partial class AlarmControl
         // 
         // panel2
         // 
-        panel2.Controls.Add(btnErrorCancel);
-        panel2.Controls.Add(btnGetAlarmWithMessages);
         panel2.Controls.Add(btnGetAlarmExtended);
         panel2.Controls.Add(btnGetAlarm);
         panel2.Controls.Add(cbRecentAlarm);
@@ -120,6 +116,35 @@ partial class AlarmControl
         panel2.Name = "panel2";
         panel2.Size = new Size(819, 110);
         panel2.TabIndex = 2;
+        // 
+        // btnGetAlarmExtended
+        // 
+        btnGetAlarmExtended.Location = new Point(316, 44);
+        btnGetAlarmExtended.Name = "btnGetAlarmExtended";
+        btnGetAlarmExtended.Size = new Size(160, 25);
+        btnGetAlarmExtended.TabIndex = 9;
+        btnGetAlarmExtended.Text = "Get alarm extended (HSES)";
+        btnGetAlarmExtended.UseVisualStyleBackColor = true;
+        btnGetAlarmExtended.Click += btnGetAlarmExtended_Click;
+        // 
+        // btnGetAlarm
+        // 
+        btnGetAlarm.Location = new Point(150, 44);
+        btnGetAlarm.Name = "btnGetAlarm";
+        btnGetAlarm.Size = new Size(160, 25);
+        btnGetAlarm.TabIndex = 8;
+        btnGetAlarm.Text = "Get alarm (HSES)";
+        btnGetAlarm.UseVisualStyleBackColor = true;
+        btnGetAlarm.Click += btnGetAlarm_Click;
+        // 
+        // cbRecentAlarm
+        // 
+        cbRecentAlarm.DropDownStyle = ComboBoxStyle.DropDownList;
+        cbRecentAlarm.FormattingEnabled = true;
+        cbRecentAlarm.Location = new Point(4, 45);
+        cbRecentAlarm.Name = "cbRecentAlarm";
+        cbRecentAlarm.Size = new Size(140, 23);
+        cbRecentAlarm.TabIndex = 7;
         // 
         // btnRefresh
         // 
@@ -143,65 +168,6 @@ partial class AlarmControl
         btnReset.UseVisualStyleBackColor = true;
         btnReset.Click += btnReset_Click;
         // 
-        // cbRecentAlarm
-        // 
-        cbRecentAlarm.DropDownStyle = ComboBoxStyle.DropDownList;
-        cbRecentAlarm.FormattingEnabled = true;
-        cbRecentAlarm.Location = new Point(4, 45);
-        cbRecentAlarm.Name = "cbRecentAlarm";
-        cbRecentAlarm.Size = new Size(140, 23);
-        cbRecentAlarm.TabIndex = 7;
-        // 
-        // btnGetAlarm
-        // 
-        btnGetAlarm.Location = new Point(150, 44);
-        btnGetAlarm.Name = "btnGetAlarm";
-        btnGetAlarm.Size = new Size(160, 25);
-        btnGetAlarm.TabIndex = 8;
-        btnGetAlarm.Text = "Get alarm (HSES)";
-        btnGetAlarm.UseVisualStyleBackColor = true;
-        btnGetAlarm.Click += btnGetAlarm_Click;
-        // 
-        // btnGetAlarmExtended
-        // 
-        btnGetAlarmExtended.Location = new Point(316, 44);
-        btnGetAlarmExtended.Name = "btnGetAlarmExtended";
-        btnGetAlarmExtended.Size = new Size(160, 25);
-        btnGetAlarmExtended.TabIndex = 9;
-        btnGetAlarmExtended.Text = "Get alarm extended (HSES)";
-        btnGetAlarmExtended.UseVisualStyleBackColor = true;
-        btnGetAlarmExtended.Click += btnGetAlarmExtended_Click;
-        // 
-        // btnGetAlarmWithMessages
-        // 
-        btnGetAlarmWithMessages.Location = new Point(482, 44);
-        btnGetAlarmWithMessages.Name = "btnGetAlarmWithMessages";
-        btnGetAlarmWithMessages.Size = new Size(190, 25);
-        btnGetAlarmWithMessages.TabIndex = 10;
-        btnGetAlarmWithMessages.Text = "Get alarms (Host Control)";
-        btnGetAlarmWithMessages.UseVisualStyleBackColor = true;
-        btnGetAlarmWithMessages.Click += btnGetAlarmWithMessages_Click;
-        // 
-        // btnErrorCancel
-        // 
-        btnErrorCancel.Location = new Point(678, 44);
-        btnErrorCancel.Name = "btnErrorCancel";
-        btnErrorCancel.Size = new Size(135, 25);
-        btnErrorCancel.TabIndex = 11;
-        btnErrorCancel.Text = "Error cancel";
-        btnErrorCancel.UseVisualStyleBackColor = true;
-        btnErrorCancel.Click += btnErrorCancel_Click;
-        // 
-        // lblAlarmDetails
-        // 
-        lblAlarmDetails.AutoSize = true;
-        lblAlarmDetails.Dock = DockStyle.Top;
-        lblAlarmDetails.Location = new Point(0, 399);
-        lblAlarmDetails.Name = "lblAlarmDetails";
-        lblAlarmDetails.Size = new Size(85, 15);
-        lblAlarmDetails.TabIndex = 12;
-        lblAlarmDetails.Text = "Alarm details :";
-        // 
         // gridAlarm
         // 
         gridAlarm.Dock = DockStyle.Fill;
@@ -212,6 +178,16 @@ partial class AlarmControl
         gridAlarm.Size = new Size(819, 260);
         gridAlarm.TabIndex = 13;
         gridAlarm.ToolbarVisible = false;
+        // 
+        // lblAlarmDetails
+        // 
+        lblAlarmDetails.AutoSize = true;
+        lblAlarmDetails.Dock = DockStyle.Top;
+        lblAlarmDetails.Location = new Point(0, 399);
+        lblAlarmDetails.Name = "lblAlarmDetails";
+        lblAlarmDetails.Size = new Size(82, 15);
+        lblAlarmDetails.TabIndex = 12;
+        lblAlarmDetails.Text = "Alarm details :";
         // 
         // protocolSelector
         // 
@@ -239,6 +215,7 @@ partial class AlarmControl
         panel1.ResumeLayout(false);
         panel2.ResumeLayout(false);
         ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
@@ -257,8 +234,6 @@ partial class AlarmControl
     private System.Windows.Forms.ComboBox cbRecentAlarm;
     private System.Windows.Forms.Button btnGetAlarm;
     private System.Windows.Forms.Button btnGetAlarmExtended;
-    private System.Windows.Forms.Button btnGetAlarmWithMessages;
-    private System.Windows.Forms.Button btnErrorCancel;
     private System.Windows.Forms.PropertyGrid gridAlarm;
     private System.Windows.Forms.Label lblAlarmDetails;
     private ProtocolSelector protocolSelector;

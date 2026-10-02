@@ -16,10 +16,6 @@ public partial class PendantControl : UserControl, IUserControl, ISelectableCont
         _robot = Yaskawa;
         InitializeComponent();
 
-        foreach (var mode in Enum.GetValues(typeof(RobotMode)))
-            cbMode.Items.Add(mode);
-        cbMode.SelectedIndex = 0;
-
         foreach (var cycle in Enum.GetValues(typeof(RobotCycleType)))
             cbCycle.Items.Add(cycle);
         cbCycle.SelectedIndex = 0;
@@ -60,11 +56,6 @@ public partial class PendantControl : UserControl, IUserControl, ISelectableCont
     private void btnUnlock_Click(object sender, System.EventArgs e)
     {
         SelectedProtocol.SetTeachPendantLockState(false);
-    }
-
-    private void btnSetMode_Click(object sender, EventArgs e)
-    {
-        SelectedProtocol.SetMode((RobotMode)cbMode.SelectedItem);
     }
 
     private void btnSetCycle_Click(object sender, EventArgs e)

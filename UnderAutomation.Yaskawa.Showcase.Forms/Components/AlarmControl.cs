@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using UnderAutomation.Yaskawa;
 using UnderAutomation.Yaskawa.Common;
 using UnderAutomation.Yaskawa.HighSpeedEServer;
-using UnderAutomation.Yaskawa.HostControl.Internal;
 
 public partial class AlarmControl : UserControl, IUserControl, ISelectableControl<IAlarmReader>
 {
@@ -65,10 +64,6 @@ public partial class AlarmControl : UserControl, IUserControl, ISelectableContro
         cbRecentAlarm.Enabled = isHses;
         btnGetAlarm.Enabled = isHses;
         btnGetAlarmExtended.Enabled = isHses;
-
-        var hostControl = SelectedProtocol as HostControlClientBase;
-        btnGetAlarmWithMessages.Enabled = hostControl != null;
-        btnErrorCancel.Enabled = hostControl != null;
     }
     #endregion
 
@@ -96,17 +91,4 @@ public partial class AlarmControl : UserControl, IUserControl, ISelectableContro
         gridAlarm.SelectedObject = data;
         gridAlarm.ExpandAllGridItems();
     }
-
-    private void btnGetAlarmWithMessages_Click(object sender, EventArgs e)
-    {
-        var data = ((HostControlClientBase)SelectedProtocol).GetAlarmWithMessages();
-        gridAlarm.SelectedObject = data;
-        gridAlarm.ExpandAllGridItems();
-    }
-
-    private void btnErrorCancel_Click(object sender, EventArgs e)
-    {
-        ((HostControlClientBase)SelectedProtocol).ErrorCancel();
-    }
-
 }

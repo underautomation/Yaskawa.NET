@@ -29,21 +29,14 @@ partial class ConnectControl
     {
         tableLayoutPanel1 = new TableLayoutPanel();
         lblConnected = new Label();
-        chkHostControlSerial = new CheckBox();
         label1 = new Label();
         txtIP = new TextBox();
         panel1 = new Panel();
         btnConnect = new Button();
         btnDisconnect = new Button();
-        chkHostControlEthernet = new CheckBox();
         lblLicense = new Label();
         chkHSES = new CheckBox();
         lnkConfigureHSES = new LinkLabel();
-        label2 = new Label();
-        cbComPorts = new ComboBox();
-        chkEthernetServer = new CheckBox();
-        lnkConfigureHC = new LinkLabel();
-        lnkConfigureEthernetServer = new LinkLabel();
         chkHttp = new CheckBox();
         chkFtp = new CheckBox();
         label4 = new Label();
@@ -60,39 +53,25 @@ partial class ConnectControl
         tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 205F));
         tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 250F));
         tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-        tableLayoutPanel1.Controls.Add(lblConnected, 1, 18);
-        tableLayoutPanel1.Controls.Add(chkHostControlSerial, 1, 8);
+        tableLayoutPanel1.Controls.Add(lblConnected, 1, 11);
         tableLayoutPanel1.Controls.Add(label1, 0, 0);
         tableLayoutPanel1.Controls.Add(txtIP, 1, 0);
-        tableLayoutPanel1.Controls.Add(panel1, 1, 17);
-        tableLayoutPanel1.Controls.Add(chkHostControlEthernet, 1, 6);
-        tableLayoutPanel1.Controls.Add(lblLicense, 2, 17);
+        tableLayoutPanel1.Controls.Add(panel1, 1, 10);
+        tableLayoutPanel1.Controls.Add(lblLicense, 2, 10);
         tableLayoutPanel1.Controls.Add(chkHSES, 1, 2);
         tableLayoutPanel1.Controls.Add(lnkConfigureHSES, 2, 2);
-        tableLayoutPanel1.Controls.Add(label2, 0, 9);
-        tableLayoutPanel1.Controls.Add(cbComPorts, 1, 9);
-        tableLayoutPanel1.Controls.Add(chkEthernetServer, 1, 4);
-        tableLayoutPanel1.Controls.Add(lnkConfigureHC, 2, 6);
-        tableLayoutPanel1.Controls.Add(lnkConfigureEthernetServer, 2, 4);
-        tableLayoutPanel1.Controls.Add(chkHttp, 1, 11);
-        tableLayoutPanel1.Controls.Add(chkFtp, 1, 13);
-        tableLayoutPanel1.Controls.Add(label4, 0, 14);
-        tableLayoutPanel1.Controls.Add(label6, 0, 15);
-        tableLayoutPanel1.Controls.Add(cbFtpUser, 1, 14);
-        tableLayoutPanel1.Controls.Add(txtFtpPassword, 1, 15);
+        tableLayoutPanel1.Controls.Add(chkHttp, 1, 4);
+        tableLayoutPanel1.Controls.Add(chkFtp, 1, 6);
+        tableLayoutPanel1.Controls.Add(label4, 0, 7);
+        tableLayoutPanel1.Controls.Add(label6, 0, 8);
+        tableLayoutPanel1.Controls.Add(cbFtpUser, 1, 7);
+        tableLayoutPanel1.Controls.Add(txtFtpPassword, 1, 8);
         tableLayoutPanel1.Location = new Point(21, 32);
         tableLayoutPanel1.Margin = new Padding(4, 3, 4, 3);
         tableLayoutPanel1.Name = "tableLayoutPanel1";
-        tableLayoutPanel1.RowCount = 20;
+        tableLayoutPanel1.RowCount = 13;
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 69F));
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 17F));
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 17F));
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 17F));
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 17F));
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 17F));
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
@@ -117,18 +96,6 @@ partial class ConnectControl
         lblConnected.TabIndex = 19;
         lblConnected.Text = "______";
         lblConnected.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // chkHostControlSerial
-        // 
-        chkHostControlSerial.Anchor = AnchorStyles.Left;
-        chkHostControlSerial.AutoSize = true;
-        chkHostControlSerial.Location = new Point(209, 229);
-        chkHostControlSerial.Margin = new Padding(4, 3, 4, 3);
-        chkHostControlSerial.Name = "chkHostControlSerial";
-        chkHostControlSerial.Size = new Size(235, 19);
-        chkHostControlSerial.TabIndex = 4;
-        chkHostControlSerial.Text = "Enable Host Control (Serial - COM Port)";
-        chkHostControlSerial.UseVisualStyleBackColor = true;
         // 
         // label1
         // 
@@ -190,18 +157,6 @@ partial class ConnectControl
         btnDisconnect.UseVisualStyleBackColor = true;
         btnDisconnect.Click += btnDisconnect_Click;
         // 
-        // chkHostControlEthernet
-        // 
-        chkHostControlEthernet.Anchor = AnchorStyles.Left;
-        chkHostControlEthernet.AutoSize = true;
-        chkHostControlEthernet.Location = new Point(209, 183);
-        chkHostControlEthernet.Margin = new Padding(4, 3, 4, 3);
-        chkHostControlEthernet.Name = "chkHostControlEthernet";
-        chkHostControlEthernet.Size = new Size(187, 19);
-        chkHostControlEthernet.TabIndex = 4;
-        chkHostControlEthernet.Text = "Enable Host Control (Ethernet)";
-        chkHostControlEthernet.UseVisualStyleBackColor = true;
-        // 
         // lblLicense
         // 
         lblLicense.Anchor = AnchorStyles.Left;
@@ -236,64 +191,6 @@ partial class ConnectControl
         lnkConfigureHSES.TabStop = true;
         lnkConfigureHSES.Text = "See how to enable High Speed EServer";
         lnkConfigureHSES.LinkClicked += lnkConfigureHSES_LinkClicked;
-        // 
-        // label2
-        // 
-        label2.Anchor = AnchorStyles.Right;
-        label2.AutoSize = true;
-        label2.Cursor = Cursors.Help;
-        label2.Location = new Point(139, 260);
-        label2.Margin = new Padding(0);
-        label2.Name = "label2";
-        label2.Size = new Size(66, 15);
-        label2.TabIndex = 26;
-        label2.Text = "COM Port :";
-        label2.TextAlign = ContentAlignment.MiddleCenter;
-        // 
-        // cbComPorts
-        // 
-        cbComPorts.FormattingEnabled = true;
-        cbComPorts.Location = new Point(208, 256);
-        cbComPorts.Name = "cbComPorts";
-        cbComPorts.Size = new Size(121, 23);
-        cbComPorts.TabIndex = 27;
-        cbComPorts.DropDown += cbComPorts_DropDown;
-        // 
-        // chkEthernetServer
-        // 
-        chkEthernetServer.Anchor = AnchorStyles.Left;
-        chkEthernetServer.AutoSize = true;
-        chkEthernetServer.Location = new Point(209, 137);
-        chkEthernetServer.Margin = new Padding(4, 3, 4, 3);
-        chkEthernetServer.Name = "chkEthernetServer";
-        chkEthernetServer.Size = new Size(143, 19);
-        chkEthernetServer.TabIndex = 29;
-        chkEthernetServer.Text = "Enable Ethernet Server";
-        chkEthernetServer.UseVisualStyleBackColor = true;
-        // 
-        // lnkConfigureHC
-        // 
-        lnkConfigureHC.Anchor = AnchorStyles.Left;
-        lnkConfigureHC.AutoSize = true;
-        lnkConfigureHC.Location = new Point(458, 185);
-        lnkConfigureHC.Name = "lnkConfigureHC";
-        lnkConfigureHC.Size = new Size(174, 15);
-        lnkConfigureHC.TabIndex = 28;
-        lnkConfigureHC.TabStop = true;
-        lnkConfigureHC.Text = "See how to enable Host Control";
-        lnkConfigureHC.LinkClicked += lnkConfigureHC_LinkClicked;
-        // 
-        // lnkConfigureEthernetServer
-        // 
-        lnkConfigureEthernetServer.Anchor = AnchorStyles.Left;
-        lnkConfigureEthernetServer.AutoSize = true;
-        lnkConfigureEthernetServer.Location = new Point(458, 139);
-        lnkConfigureEthernetServer.Name = "lnkConfigureEthernetServer";
-        lnkConfigureEthernetServer.Size = new Size(185, 15);
-        lnkConfigureEthernetServer.TabIndex = 30;
-        lnkConfigureEthernetServer.TabStop = true;
-        lnkConfigureEthernetServer.Text = "See how to enable Ethernet Server";
-        lnkConfigureEthernetServer.LinkClicked += lnkConfigureEthernetServer_LinkClicked;
         // 
         // chkHttp
         // 
@@ -387,16 +284,9 @@ partial class ConnectControl
     private System.Windows.Forms.Panel panel1;
     private System.Windows.Forms.Button btnConnect;
     private System.Windows.Forms.Button btnDisconnect;
-    private System.Windows.Forms.CheckBox chkHostControlEthernet;
     private System.Windows.Forms.Label label3;
     private Label lblLicense;
     private LinkLabel lnkConfigureHSES;
-    private CheckBox chkHostControlSerial;
-    private Label label2;
-    private ComboBox cbComPorts;
-    private LinkLabel lnkConfigureHC;
-    private CheckBox chkEthernetServer;
-    private LinkLabel lnkConfigureEthernetServer;
     private CheckBox chkHttp;
     private CheckBox chkFtp;
     private Label label4;

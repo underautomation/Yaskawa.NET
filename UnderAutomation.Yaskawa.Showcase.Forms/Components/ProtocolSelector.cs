@@ -36,10 +36,7 @@ public partial class ProtocolSelector : UserControl
     {
         _protocols = new Dictionary<string, IYaskawaClient> {
             { "High Speed Ethernet Server", control.Robot.HighSpeedEServer },
-            { "Ethernet Server", control.Robot.EServer },
             { "HTTP", control.Robot.Http },
-            { "Host Control (Ethernet)", control.Robot.HostControlEthernet },
-            { "Host Control (Serial)", control.Robot.HostControlSerial },
             { "FTP", control.Robot.Ftp }
         };
 

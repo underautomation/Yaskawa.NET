@@ -36,6 +36,8 @@ partial class AlarmControl
         panel1 = new Panel();
         label1 = new Label();
         panel2 = new Panel();
+        btnErrorCancel = new Button();
+        btnGetAlarmWithMessages = new Button();
         btnGetAlarmExtended = new Button();
         btnGetAlarm = new Button();
         cbRecentAlarm = new ComboBox();
@@ -105,6 +107,8 @@ partial class AlarmControl
         // 
         // panel2
         // 
+        panel2.Controls.Add(btnErrorCancel);
+        panel2.Controls.Add(btnGetAlarmWithMessages);
         panel2.Controls.Add(btnGetAlarmExtended);
         panel2.Controls.Add(btnGetAlarm);
         panel2.Controls.Add(cbRecentAlarm);
@@ -116,6 +120,26 @@ partial class AlarmControl
         panel2.Name = "panel2";
         panel2.Size = new Size(819, 110);
         panel2.TabIndex = 2;
+        // 
+        // btnErrorCancel
+        // 
+        btnErrorCancel.Location = new Point(678, 44);
+        btnErrorCancel.Name = "btnErrorCancel";
+        btnErrorCancel.Size = new Size(135, 25);
+        btnErrorCancel.TabIndex = 11;
+        btnErrorCancel.Text = "Error cancel";
+        btnErrorCancel.UseVisualStyleBackColor = true;
+        btnErrorCancel.Click += btnErrorCancel_Click;
+        // 
+        // btnGetAlarmWithMessages
+        // 
+        btnGetAlarmWithMessages.Location = new Point(482, 44);
+        btnGetAlarmWithMessages.Name = "btnGetAlarmWithMessages";
+        btnGetAlarmWithMessages.Size = new Size(190, 25);
+        btnGetAlarmWithMessages.TabIndex = 10;
+        btnGetAlarmWithMessages.Text = "Get alarms (Host Control)";
+        btnGetAlarmWithMessages.UseVisualStyleBackColor = true;
+        btnGetAlarmWithMessages.Click += btnGetAlarmWithMessages_Click;
         // 
         // btnGetAlarmExtended
         // 
@@ -234,6 +258,8 @@ partial class AlarmControl
     private System.Windows.Forms.ComboBox cbRecentAlarm;
     private System.Windows.Forms.Button btnGetAlarm;
     private System.Windows.Forms.Button btnGetAlarmExtended;
+    private System.Windows.Forms.Button btnGetAlarmWithMessages;
+    private System.Windows.Forms.Button btnErrorCancel;
     private System.Windows.Forms.PropertyGrid gridAlarm;
     private System.Windows.Forms.Label lblAlarmDetails;
     private ProtocolSelector protocolSelector;

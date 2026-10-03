@@ -37,6 +37,8 @@ public partial class MainForm : Form
         AddNode(new MoveControl(_robot));
         AddNode(new OnlineKinematicsControl(_robot));
         AddNode(new OfflineKinematicsControl(_robot));
+        AddNode(new DiagnosticsControl(_robot));
+        AddNode(new UserFrameControl(_robot));
         AddNode(new ContactControl());
         AddNode(new LicenseControl());
 

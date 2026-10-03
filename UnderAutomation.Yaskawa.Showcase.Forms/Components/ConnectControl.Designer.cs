@@ -37,6 +37,8 @@ partial class ConnectControl
         lblLicense = new Label();
         chkHSES = new CheckBox();
         lnkConfigureHSES = new LinkLabel();
+        chkEthernetServer = new CheckBox();
+        lnkConfigureEthernetServer = new LinkLabel();
         chkHttp = new CheckBox();
         chkFtp = new CheckBox();
         label4 = new Label();
@@ -53,24 +55,28 @@ partial class ConnectControl
         tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 205F));
         tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 250F));
         tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-        tableLayoutPanel1.Controls.Add(lblConnected, 1, 11);
+        tableLayoutPanel1.Controls.Add(lblConnected, 1, 13);
         tableLayoutPanel1.Controls.Add(label1, 0, 0);
         tableLayoutPanel1.Controls.Add(txtIP, 1, 0);
-        tableLayoutPanel1.Controls.Add(panel1, 1, 10);
-        tableLayoutPanel1.Controls.Add(lblLicense, 2, 10);
+        tableLayoutPanel1.Controls.Add(panel1, 1, 12);
+        tableLayoutPanel1.Controls.Add(lblLicense, 2, 12);
         tableLayoutPanel1.Controls.Add(chkHSES, 1, 2);
         tableLayoutPanel1.Controls.Add(lnkConfigureHSES, 2, 2);
-        tableLayoutPanel1.Controls.Add(chkHttp, 1, 4);
-        tableLayoutPanel1.Controls.Add(chkFtp, 1, 6);
-        tableLayoutPanel1.Controls.Add(label4, 0, 7);
-        tableLayoutPanel1.Controls.Add(label6, 0, 8);
-        tableLayoutPanel1.Controls.Add(cbFtpUser, 1, 7);
-        tableLayoutPanel1.Controls.Add(txtFtpPassword, 1, 8);
+        tableLayoutPanel1.Controls.Add(chkEthernetServer, 1, 4);
+        tableLayoutPanel1.Controls.Add(lnkConfigureEthernetServer, 2, 4);
+        tableLayoutPanel1.Controls.Add(chkHttp, 1, 6);
+        tableLayoutPanel1.Controls.Add(chkFtp, 1, 8);
+        tableLayoutPanel1.Controls.Add(label4, 0, 9);
+        tableLayoutPanel1.Controls.Add(label6, 0, 10);
+        tableLayoutPanel1.Controls.Add(cbFtpUser, 1, 9);
+        tableLayoutPanel1.Controls.Add(txtFtpPassword, 1, 10);
         tableLayoutPanel1.Location = new Point(21, 32);
         tableLayoutPanel1.Margin = new Padding(4, 3, 4, 3);
         tableLayoutPanel1.Name = "tableLayoutPanel1";
-        tableLayoutPanel1.RowCount = 13;
+        tableLayoutPanel1.RowCount = 15;
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 69F));
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 17F));
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 17F));
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 29F));
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 17F));
@@ -192,6 +198,30 @@ partial class ConnectControl
         lnkConfigureHSES.Text = "See how to enable High Speed EServer";
         lnkConfigureHSES.LinkClicked += lnkConfigureHSES_LinkClicked;
         // 
+        // chkEthernetServer
+        // 
+        chkEthernetServer.Anchor = AnchorStyles.Left;
+        chkEthernetServer.AutoSize = true;
+        chkEthernetServer.Location = new Point(209, 137);
+        chkEthernetServer.Margin = new Padding(4, 3, 4, 3);
+        chkEthernetServer.Name = "chkEthernetServer";
+        chkEthernetServer.Size = new Size(143, 19);
+        chkEthernetServer.TabIndex = 29;
+        chkEthernetServer.Text = "Enable Ethernet Server";
+        chkEthernetServer.UseVisualStyleBackColor = true;
+        // 
+        // lnkConfigureEthernetServer
+        // 
+        lnkConfigureEthernetServer.Anchor = AnchorStyles.Left;
+        lnkConfigureEthernetServer.AutoSize = true;
+        lnkConfigureEthernetServer.Location = new Point(458, 139);
+        lnkConfigureEthernetServer.Name = "lnkConfigureEthernetServer";
+        lnkConfigureEthernetServer.Size = new Size(185, 15);
+        lnkConfigureEthernetServer.TabIndex = 30;
+        lnkConfigureEthernetServer.TabStop = true;
+        lnkConfigureEthernetServer.Text = "See how to enable Ethernet Server";
+        lnkConfigureEthernetServer.LinkClicked += lnkConfigureEthernetServer_LinkClicked;
+        // 
         // chkHttp
         // 
         chkHttp.Anchor = AnchorStyles.Left;
@@ -287,6 +317,8 @@ partial class ConnectControl
     private System.Windows.Forms.Label label3;
     private Label lblLicense;
     private LinkLabel lnkConfigureHSES;
+    private CheckBox chkEthernetServer;
+    private LinkLabel lnkConfigureEthernetServer;
     private CheckBox chkHttp;
     private CheckBox chkFtp;
     private Label label4;

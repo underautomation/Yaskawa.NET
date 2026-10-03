@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using UnderAutomation.Yaskawa;
 using UnderAutomation.Yaskawa.Common;
 using UnderAutomation.Yaskawa.HighSpeedEServer;
+using UnderAutomation.Yaskawa.HostControl.Internal;
 
 public partial class PendantControl : UserControl, IUserControl, ISelectableControl<IRobotControl>
 {
@@ -15,6 +16,10 @@ public partial class PendantControl : UserControl, IUserControl, ISelectableCont
     {
         _robot = Yaskawa;
         InitializeComponent();
+
+        foreach (var mode in Enum.GetValues(typeof(RobotMode)))
+            cbMode.Items.Add(mode);
+        cbMode.SelectedIndex = 0;
 
         foreach (var cycle in Enum.GetValues(typeof(RobotCycleType)))
             cbCycle.Items.Add(cycle);
@@ -39,7 +44,10 @@ public partial class PendantControl : UserControl, IUserControl, ISelectableCont
 
     public void PeriodicUpdate()
     {
-
+        // Mode switching is only available with Host Control
+        var supportsMode = SelectedProtocol is HostControlClientBase;
+        btnSetMode.Enabled = supportsMode;
+        cbMode.Enabled = supportsMode;
     }
     #endregion
 
@@ -56,6 +64,11 @@ public partial class PendantControl : UserControl, IUserControl, ISelectableCont
     private void btnUnlock_Click(object sender, System.EventArgs e)
     {
         SelectedProtocol.SetTeachPendantLockState(false);
+    }
+
+    private void btnSetMode_Click(object sender, EventArgs e)
+    {
+        ((HostControlClientBase)SelectedProtocol).SetMode((RobotMode)cbMode.SelectedItem);
     }
 
     private void btnSetCycle_Click(object sender, EventArgs e)

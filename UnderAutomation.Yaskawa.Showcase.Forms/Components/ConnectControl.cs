@@ -16,6 +16,8 @@ public partial class ConnectControl : UserControl, IUserControl
         txtIP.Text = parameters.IP ?? "192.168.0.1";
 
         chkHSES.Checked = parameters.HighSpeedEServer.Enable;
+
+        chkEthernetServer.Checked = parameters.EServer.Enable;
         chkHttp.Checked = parameters.Http.Enable;
 
         chkFtp.Checked = parameters.Ftp.Enable;
@@ -60,6 +62,7 @@ public partial class ConnectControl : UserControl, IUserControl
 
         parameters.IP = txtIP.Text;
         parameters.HighSpeedEServer.Enable = chkHSES.Checked;
+        parameters.EServer.Enable = chkEthernetServer.Checked;
         parameters.Http.Enable = chkHttp.Checked;
 
         parameters.Ftp.Enable = chkFtp.Checked;
@@ -91,5 +94,10 @@ public partial class ConnectControl : UserControl, IUserControl
     private void lnkConfigureHSES_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         MainForm.Instance.OpenUrl("https://underautomation.com/yaskawa/documentation/connect#prepare_the_controller");
+    }
+
+    private void lnkConfigureEthernetServer_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        MainForm.Instance.OpenUrl("https://underautomation.com/yaskawa/documentation/");
     }
 }

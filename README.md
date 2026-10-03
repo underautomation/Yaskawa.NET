@@ -11,10 +11,12 @@
 
 **UnderAutomation.Yaskawa** is a fully managed .NET SDK that communicates with Yaskawa Motoman robot
 controllers (**YRC1000 (micro)**, **MOTOMAN NEXT**, **DX100 / DX200**, **FS100**, **ERC / XRC / MRC**) through the **High Speed Ethernet Server** (HSES)
-of the controller, over UDP. Nothing is installed on the controller, no Yaskawa option is needed.
+of the controller, over UDP, and through the **Ethernet Server** (TCP), the **web server** (HTTP) and the
+**FTP server** of the controller. Nothing is installed on the controller.
 
 Use it to read the status, the alarms and the positions, move the robot, select and start jobs, read and
-write variables and I/O, and transfer files, from a normal .NET application.
+write variables and I/O, transfer files, and compute the forward and inverse kinematics of 169 robot models,
+from a normal .NET application.
 
 - Product page: [underautomation.com/yaskawa](https://underautomation.com/yaskawa)
 - Documentation: [underautomation.com/yaskawa/documentation](https://underautomation.com/yaskawa/documentation)
@@ -34,8 +36,18 @@ write variables and I/O, and transfer files, from a normal .NET application.
 - **Files:** list, download, upload and delete files, with a progress callback.
 - **System:** system information, management times (operating, servo and playback time), system
   parameters, message on the pendant.
+- **Ethernet Server:** the same kind of functions over TCP, with alarm texts, positions in a user or tool
+  frame, encoder temperatures, and a call that waits for the end of a job.
+- **FTP and HTTP:** download, upload and delete files over FTP, read files through the web server.
+- **Offline kinematics:** forward kinematics and every inverse kinematics solution of 169 Motoman arms and
+  cobots, on the PC, with DH parameters from a catalog or from the `ALL.PRM` file of the controller.
 
-The High Speed Ethernet Server uses the UDP ports 10040 (data) and 10041 (files) by default.
+| Protocol                   | Property of `YaskawaRobot` | Port                 | Enabled by default |
+| -------------------------- | -------------------------- | -------------------- | ------------------ |
+| High Speed Ethernet Server | `HighSpeedEServer`         | UDP 10040 and 10041  | Yes                |
+| Ethernet Server            | `EServer`                  | TCP 80               | No                 |
+| HTTP                       | `Http`                     | TCP 80               | No                 |
+| FTP                        | `Ftp`                      | TCP 21               | No                 |
 
 ## Example application
 
@@ -91,7 +103,8 @@ robot.Connect(parameters);
 
 ## Features
 
-Everything is reached through `robot.HighSpeedEServer`.
+The sections below use the High Speed Ethernet Server, through `robot.HighSpeedEServer`. The other
+protocols and the kinematics follow.
 
 ### Status and alarms
 
@@ -124,7 +137,7 @@ RobotAxisIntData torque = robot.HighSpeedEServer.GetTorque();
 The robot must be in remote mode, see "Configure the robot" below.
 
 ```csharp
-robot.HighSpeedEServer.ServoCommand(OnOffCommandType.Servo, true);
+robot.HighSpeedEServer.SetServo(true);
 
 // Cartesian move: mm and degrees, speed in mm/s, in the robot coordinate system
 robot.HighSpeedEServer.MoveCartesian(
@@ -210,6 +223,70 @@ Console.WriteLine($"{system.Name} {system.SoftwareVersion}");
 RobotManagementTimeData servoTime = robot.HighSpeedEServer.GetManagementTime(ManagementTimeType.ServoPowerOnTimeTotal);
 
 robot.HighSpeedEServer.Display("Hello from .NET");
+```
+
+### Ethernet Server
+
+Enable it with `EServer.Enable`. Commands refused by the controller throw a `HostControlException`.
+
+```csharp
+var parameters = new ConnectParameters("192.168.0.1");
+parameters.EServer.Enable = true;
+robot.Connect(parameters);
+
+HostControlStatusData status = robot.EServer.GetStatusInformation();
+HostControlAlarmStringData alarms = robot.EServer.GetAlarmWithMessages();
+HostControlCartesianPositionData tcp = robot.EServer.GetRobotCartesianPosition(HostControlCoordinateSystem.User1);
+
+robot.EServer.SelectJob("PICK", 0);
+robot.EServer.SetServo(true);
+robot.EServer.StartJob();
+bool completed = robot.EServer.WaitForJobCompletion(60); // blocks until the end of the job, 60 s at most
+```
+
+### FTP
+
+Enable it with `Ftp.Enable`. The `anonymous` account (default) can only download: use `ftp` to upload and
+delete. Every method also has an async version.
+
+```csharp
+var parameters = new ConnectParameters("192.168.0.1");
+parameters.Ftp.Enable = true;
+parameters.Ftp.FtpUser = "ftp";
+robot.Connect(parameters);
+
+FtpListItem[] jobs = robot.Ftp.GetListing("/JOB");
+robot.Ftp.DownloadFilesToLocal(new[] { "/JOB/TEST.JBI", "/DAT/VAR.DAT" }, @"C:\Backup");
+
+// The controller does not overwrite a job by FTP: delete it first
+if (robot.Ftp.FileExists("/JOB/PICK.JBI")) robot.Ftp.DeleteFile("PICK.JBI");
+robot.Ftp.UploadFileFromLocal(@"C:\Jobs\PICK.JBI");
+```
+
+### HTTP
+
+Enable it with `Http.Enable`. It reads files in any mode, without an account.
+
+```csharp
+foreach (FileDescription file in robot.Http.GetFileList(FileExtension.DAT))
+    Console.WriteLine($"{file.Name}: {file.Description}");
+
+string job = robot.Http.GetFile("TEST.JBI");
+```
+
+### Offline kinematics
+
+```csharp
+using UnderAutomation.Yaskawa.Common;
+using UnderAutomation.Yaskawa.Kinematics;
+
+DhParameters dh = DhParameters.FromArmKinematicModel(ArmKinematicModels.GP7); // or DhParameters.FromPrmFile("ALL.PRM")
+
+// Joint angles in degrees (S, L, U, R, B, T) to flange position in mm and degrees
+CartesianPosition flange = KinematicsUtils.ForwardKinematics(new JointsAngles(0, 0, 0, 0, -90, 0), dh);
+
+// Every joint solution for a flange position: up to 8, or 16 for the HC10 cobots
+JointsAngles[] solutions = KinematicsUtils.InverseKinematics(new CartesianPosition(400, 100, 300, 180, 0, 0), dh);
 ```
 
 ## Configure the robot

@@ -187,14 +187,14 @@ RobotExternalAxisVariableData externalPositions = robot.HighSpeedEServer.ReadExt
 ### Inputs / Outputs
 
 The first index selects the signal area, for example 1 to 512 for the robot user inputs, 1001 to 1512
-for the robot user outputs, 2701 to 2956 for the network inputs. Each index is one byte of 8 signals. The
-number of bytes is even: `ReadIO` rounds it up, `WriteIO` needs an even length.
+for the robot user outputs, 2701 to 2956 for the network inputs. Each index is one byte of 8 signals.
+`ReadIO` returns the number of bytes asked, `WriteIO` writes the bytes given.
 
 ```csharp
 RobotIOData outputs = robot.HighSpeedEServer.ReadIO(firstIndex: 1001, count: 4);
 Console.WriteLine(BitConverter.ToString(outputs.Value));
 
-robot.HighSpeedEServer.WriteIO(2701, new byte[] { 1, 0 });
+robot.HighSpeedEServer.WriteIO(2701, new byte[] { 1 });
 
 // Or by type and group
 RobotIOData inputs = robot.HighSpeedEServer.ReadIO(IOType.GeneralInput, 1, 2);

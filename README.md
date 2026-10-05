@@ -292,11 +292,28 @@ JointsAngles[] solutions = KinematicsUtils.InverseKinematics(new CartesianPositi
 ## Configure the robot
 
 The read methods work in any mode. The commands (servo, motion, job start, file write) need these
-settings on the controller.
+settings on the controller. Set the security mode to `MANAGEMENT` (default password `9999999999999999`).
+The [website](https://underautomation.com/yaskawa/documentation/connect#prepare_the_controller) shows
+every step with screenshots.
+
+### Enable the Ethernet function
+
+- Start the controller in maintenance mode: switch it on while you hold `MAIN MENU`.
+- Select `SYSTEM` > `SETUP` > `OPTION FUNCTION`.
+- In `LAN INTERFACE SETTING`, set the IP address of the controller.
+- In `NETWORK FUNCTION SETTING`, set `ETHERNET` to `USED`, `FTP` to `EXPANDED` and `ETHERNET SERVER` to
+  `EXPANDED`. If `ETHERNET` stays at `NOT USED`, ask the Yaskawa support to enable the function.
+- Restart the controller in normal mode.
+
+### Set the parameters
+
+- `PARAMETER` > `RS`: `RS000` = `2`, `RS005` = `1`, `RS007` = `2`, `RS022` = `1`, `RS029` = `1`.
+  Keep the timers `RS034` and `RS035` at `200` ms, their factory value.
+- To write the I/O and the variables in play mode: `S2C409` = `1` on DX100 and FS100, `S2C541` = `0` and
+  `S2C542` = `0` on DX200, YRC1000 and YRC1000micro.
 
 ### Enable the remote commands
 
-- Set the management mode to Security mode.
 - Select `IN/OUT` > `PSEUDO INPUT SIGNAL`.
 - Move the cursor to `#82015 CMD REMOTE SEL` and press `INTER LOCK` + `SELECT`.
 
@@ -311,7 +328,6 @@ The commands need the key of the pendant in the remote position.
 To use the key for the remote control, copy `#80011` (key in the remote position) to `#40042` (remote
 control enabled) with the ladder editor:
 
-- Set the management mode to Security mode.
 - Select `IN/OUT` > `LADDER EDITOR`.
 - Check that no other rung writes `#40042`, then add this rung:
 
@@ -319,7 +335,6 @@ control enabled) with the ladder editor:
 
 ### Allow the job selection
 
-- Set the management mode to Security mode.
 - Select `SETUP` > `FUNCTION ENABLE`.
 - Set `JOB SELECT WHEN REMOTE AND PLAY` to `PERMIT`. On the Smart Pendant, set `SC2 224` to `0`.
 
@@ -329,7 +344,6 @@ control enabled) with the ladder editor:
 
 To send a file that already exists on the controller:
 
-- Set the management mode to Security mode.
 - Select `PARAMETER` > `RS`.
 - Set `RS029` to `1` and `RS214` to `1`.
 

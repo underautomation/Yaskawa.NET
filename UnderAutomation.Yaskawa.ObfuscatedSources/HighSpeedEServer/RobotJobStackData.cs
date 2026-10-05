@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Contains the job call stack for a specific task on the robot controller.
 	/// Represents the current nesting of CALL instructions, from the outermost job to the currently executing one.

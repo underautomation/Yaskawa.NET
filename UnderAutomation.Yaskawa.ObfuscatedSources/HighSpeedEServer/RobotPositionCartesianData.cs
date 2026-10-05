@@ -2,13 +2,14 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
+using UnderAutomation.Yaskawa.Common;
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Represents Cartesian position data with coordinates in millimeters and degrees.
 	/// This class provides human-readable position data converted from the raw protocol values.
 	/// </summary>
-	public class RobotPositionCartesianData : RobotData {
+	public class RobotPositionCartesianData : RobotData, ICartesianPosition {
 
 		/// <summary>
 		/// Gets the robot posture (form) data defining the kinematic configuration.

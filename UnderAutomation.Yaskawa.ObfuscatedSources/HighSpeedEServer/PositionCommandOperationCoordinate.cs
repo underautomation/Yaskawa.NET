@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Specifies the coordinate system for position command interpretation.
 	/// Determines how X, Y, Z, Rx, Ry, Rz values are interpreted.

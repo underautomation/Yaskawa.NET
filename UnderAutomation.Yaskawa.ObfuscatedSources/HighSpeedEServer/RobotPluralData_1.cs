@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Represents a collection of data values returned from plural (batch) read operations.
 	/// Used for reading multiple variables, registers, or I/O points in a single request.

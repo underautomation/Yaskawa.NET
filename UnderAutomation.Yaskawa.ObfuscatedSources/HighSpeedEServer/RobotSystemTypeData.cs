@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Represents a system type and index combination for querying specific robot system components.
 	/// Used to specify which robot, station, or application to query in multi-robot configurations.

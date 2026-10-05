@@ -2,13 +2,14 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
+using UnderAutomation.Yaskawa.Common;
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Contains information about the currently executing job (program) on the robot controller.
 	/// Retrieved using the executing job information reading command.
 	/// </summary>
-	public class RobotJobData : RobotData {
+	public class RobotJobData : RobotData, IJobData {
 
 		/// <summary>
 		/// Gets the name of the currently selected/executing job.

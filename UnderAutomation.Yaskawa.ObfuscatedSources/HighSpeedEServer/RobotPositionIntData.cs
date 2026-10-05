@@ -3,14 +3,15 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 using System;
+using UnderAutomation.Yaskawa.Common;
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Represents robot position data with 32-bit integer axis values.
 	/// This is the primary type used for pulse-based position data from the High Speed Ethernet Server.
 	/// Axis values are in pulse units (encoder counts) or scaled coordinate values.
 	/// </summary>
-	public class RobotPositionIntData : RobotPositionData<int> {
+	public class RobotPositionIntData : RobotPositionData<int>, IJointPulses {
 
 		/// <summary>
 		/// Creates a blank instance of RobotPositionIntData
@@ -27,6 +28,16 @@ namespace HighSpeedEServer {
 		public RobotPositionIntData(RobotDataHeader header) : base(default)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// Converts a Cartesian position to millimeters and degrees.
+		/// </summary>
+		/// <returns>The position with X, Y, Z in millimeters and Rx, Ry, Rz in degrees, in the frame given by <see cref="UnderAutomation.Yaskawa.HighSpeedEServer.RobotPositionData`1.DataType"/>.</returns>
+		public RobotPositionCartesianData ToCartesian()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
 		}
 	}
 }

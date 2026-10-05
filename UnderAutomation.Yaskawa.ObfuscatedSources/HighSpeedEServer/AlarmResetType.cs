@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Specifies the type of alarm reset operation to perform.
 	/// </summary>

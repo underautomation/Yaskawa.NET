@@ -4,7 +4,7 @@
 
 using System;
 
-namespace License {
+namespace UnderAutomation.Yaskawa.License {
 	/// <summary>
 	/// Information about a license key
 	/// </summary>

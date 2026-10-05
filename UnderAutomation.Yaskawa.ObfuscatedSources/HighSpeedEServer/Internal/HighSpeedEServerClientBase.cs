@@ -2,16 +2,15 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using HighSpeedEServer;
-using Common;
+using UnderAutomation.Yaskawa.Common;
 using System;
 
-namespace HighSpeedEServer.Internal {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer.Internal {
 	/// <summary>
-	/// Base class implementing the High Speed Ethernet Server protocol for Yaskawa robot communication.
+	/// Base class of the High Speed Ethernet Server client of a Yaskawa robot controller.
 	/// Provides methods for reading robot status, positions, variables, and executing commands via UDP.
 	/// </summary>
-	public abstract class HighSpeedEServerClientBase {
+	public abstract class HighSpeedEServerClientBase : IRobotClient, IStatusReader, IPositionReader, IAlarmReader, IRobotControl, IIOAccess, IVariableAccess, ITorqueReader, IMotionControl, IFileManager, IFileReader, IFileWriter, IYaskawaClient {
 
 		/// <summary>
 		/// Delegate for receiving file download progress notifications.
@@ -203,7 +202,8 @@ namespace HighSpeedEServer.Internal {
 		/// <param name="command">Type of command (Hold, Servo, or HLock).</param>
 		/// <param name="value">True to enable (ON), false to disable (OFF).</param>
 		/// <returns>Response header indicating success.</returns>
-		public RobotDataHeader ServoCommand(OnOffCommandType command, bool value)
+		[Obsolete("Use SetServo, SetHold, or SetTeachPendantLockState instead.")]
+public RobotDataHeader ServoCommand(OnOffCommandType command, bool value)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
@@ -214,7 +214,8 @@ namespace HighSpeedEServer.Internal {
 		/// </summary>
 		/// <param name="command">Target execution mode.</param>
 		/// <returns>Response header indicating success.</returns>
-		public RobotDataHeader SwitchingCommand(SwitchingCommands command)
+		[Obsolete("Use SetCycle instead.")]
+public RobotDataHeader SwitchingCommand(SwitchingCommands command)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
@@ -299,10 +300,10 @@ namespace HighSpeedEServer.Internal {
 		/// <param name="type">Category of the system parameter.</param>
 		/// <param name="number">Parameter number within the category.</param>
 		/// <param name="group">Group number. Leave at 0 for types that do not require a group
-		/// (<xref href="UnderAutomation.Yaskawa.HighSpeedEServer.SystemParameterTypes.S2C" data-throw-if-not-resolved="false"></xref>, <xref href="UnderAutomation.Yaskawa.HighSpeedEServer.SystemParameterTypes.S3C" data-throw-if-not-resolved="false"></xref>,
-		/// <xref href="UnderAutomation.Yaskawa.HighSpeedEServer.SystemParameterTypes.S4C" data-throw-if-not-resolved="false"></xref>, <xref href="UnderAutomation.Yaskawa.HighSpeedEServer.SystemParameterTypes.RS" data-throw-if-not-resolved="false"></xref>).
-		/// Must be specified for types <xref href="UnderAutomation.Yaskawa.HighSpeedEServer.SystemParameterTypes.S1CG" data-throw-if-not-resolved="false"></xref>,
-		/// <xref href="UnderAutomation.Yaskawa.HighSpeedEServer.SystemParameterTypes.AP" data-throw-if-not-resolved="false"></xref>, and <xref href="UnderAutomation.Yaskawa.HighSpeedEServer.SystemParameterTypes.SE" data-throw-if-not-resolved="false"></xref>.</param>
+		/// (<see cref="UnderAutomation.Yaskawa.HighSpeedEServer.SystemParameterTypes.S2C"/>, <see cref="UnderAutomation.Yaskawa.HighSpeedEServer.SystemParameterTypes.S3C"/>,
+		/// <see cref="UnderAutomation.Yaskawa.HighSpeedEServer.SystemParameterTypes.S4C"/>, <see cref="UnderAutomation.Yaskawa.HighSpeedEServer.SystemParameterTypes.RS"/>).
+		/// Must be specified for types <see cref="UnderAutomation.Yaskawa.HighSpeedEServer.SystemParameterTypes.S1CG"/>,
+		/// <see cref="UnderAutomation.Yaskawa.HighSpeedEServer.SystemParameterTypes.AP"/>, and <see cref="UnderAutomation.Yaskawa.HighSpeedEServer.SystemParameterTypes.SE"/>.</param>
 		/// <returns>System parameter data containing the raw value.</returns>
 		public RobotSystemParamData GetSystemParameter(SystemParameterTypes type, int number, int group = 1)
 		{
@@ -529,9 +530,10 @@ namespace HighSpeedEServer.Internal {
 
 		/// <summary>
 		/// Reads multiple position variables (P variables) from the robot controller.
-		/// Position variables store complete robot poses including position, orientation, and configuration.
+		/// Each variable is a pulse position or a Cartesian position (base, robot, tool or user frame),
+		/// with its posture, tool number and user frame number.
 		/// </summary>
-		/// <param name="firstIndex">Starting position variable index.</param>
+		/// <param name="firstIndex">Index of the first position variable (0 to 127 with the standard settings, P000 is index 0).</param>
 		/// <param name="count">Number of position variables to read.</param>
 		/// <returns>Plural data containing array of position data.</returns>
 		public RobotPositionVariableData ReadPositionVariable(int firstIndex, int count)
@@ -554,9 +556,9 @@ namespace HighSpeedEServer.Internal {
 
 		/// <summary>
 		/// Reads multiple base position variables (BP variables) from the robot controller.
-		/// Base position variables define reference coordinate frames for robot operations.
+		/// Base position variables store the position of the base axes (travel axis) of a robot.
 		/// </summary>
-		/// <param name="firstIndex">Starting base position variable index.</param>
+		/// <param name="firstIndex">Index of the first base position variable (0 to 127 with the standard settings).</param>
 		/// <param name="count">Number of base position variables to read.</param>
 		/// <returns>Plural data containing array of base position data.</returns>
 		public RobotBasePositionVariableData ReadBasePosition(int firstIndex, int count)
@@ -579,9 +581,9 @@ namespace HighSpeedEServer.Internal {
 
 		/// <summary>
 		/// Reads multiple external axis variables (EX variables) from the robot controller.
-		/// External axis variables store positions for additional axes beyond the main robot arm.
+		/// External axis variables store the position of the station axes (positioner...), in encoder pulses.
 		/// </summary>
-		/// <param name="firstIndex">Starting external axis variable index.</param>
+		/// <param name="firstIndex">Index of the first external axis variable (0 to 127 with the standard settings).</param>
 		/// <param name="count">Number of external axis variables to read.</param>
 		/// <returns>Plural data containing array of external axis position data.</returns>
 		public RobotExternalAxisVariableData ReadExternalPosition(int firstIndex, int count)
@@ -757,6 +759,50 @@ namespace HighSpeedEServer.Internal {
 		/// </summary>
 		/// <param name="file">Controller backup file path for CMOS.BIN copy</param>
 		public RobotDataHeader BatchDataBackup(string file = "/SPDRV/CMOSBK.BIN")
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Enables or disables servo power.
+		/// </summary>
+		/// <param name="enable">True to enable servo power, false to disable.</param>
+		/// <returns>Response header indicating success.</returns>
+		public RobotDataHeader SetServo(bool enable)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Sets the hold state of the robot.
+		/// </summary>
+		/// <param name="enable">True to hold (pause), false to release hold.</param>
+		/// <returns>Response header indicating success.</returns>
+		public RobotDataHeader SetHold(bool enable)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Locks or unlocks the teach pendant.
+		/// </summary>
+		/// <param name="locked">True to lock, false to unlock.</param>
+		/// <returns>Response header indicating success.</returns>
+		public RobotDataHeader SetTeachPendantLockState(bool locked)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Sets the execution cycle type.
+		/// </summary>
+		/// <param name="cycle">Target cycle type.</param>
+		/// <returns>Response header indicating success.</returns>
+		public RobotDataHeader SetCycle(RobotCycleType cycle)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;

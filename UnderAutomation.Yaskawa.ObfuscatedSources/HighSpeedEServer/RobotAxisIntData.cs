@@ -4,7 +4,7 @@
 
 using System;
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Represents raw axis data with 32-bit integer values for up to 8 axes.
 	/// This is a concrete implementation commonly used for pulse-based position data.

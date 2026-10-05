@@ -4,7 +4,7 @@
 
 using System;
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Represents base position data for coordinated motion with travel units or external bases.
 	/// Base positions define the location of the robot's base in world coordinates or pulse values.
@@ -24,5 +24,11 @@ namespace HighSpeedEServer {
 		/// Gets the data type indicating whether values are pulse or coordinate values.
 		/// </summary>
 		public RobotBasePositionType DataType { get; }
+
+		/// <summary>
+		/// Gets whether the variable is taught on the controller. False for a variable read with
+		/// <see cref="UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.ReadBasePosition(System.Int32,System.Int32)"/> that is not defined: its values are then all 0.
+		/// </summary>
+		public bool IsDefined { get; }
 	}
 }

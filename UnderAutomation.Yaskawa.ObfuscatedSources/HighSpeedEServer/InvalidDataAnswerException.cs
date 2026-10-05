@@ -4,7 +4,7 @@
 
 using System.Runtime.Serialization;
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Exception thrown when the robot controller returns an error response to a High Speed Ethernet Server command.
 	/// This exception contains detailed status codes that help identify the specific error condition.

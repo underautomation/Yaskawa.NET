@@ -2,14 +2,15 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using HighSpeedEServer.Internal;
+using UnderAutomation.Yaskawa.HighSpeedEServer.Internal;
+using UnderAutomation.Yaskawa.Common;
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Main client class for communicating with Yaskawa Motoman industrial robots using the High Speed Ethernet Server protocol.
 	/// This class provides methods for reading robot status, positions, variables, and controlling robot operations via UDP.
 	/// </summary>
-	public class HighSpeedEServerClient : HighSpeedEServerClientBase {
+	public class HighSpeedEServerClient : HighSpeedEServerClientBase, IRobotClient, IStatusReader, IPositionReader, IAlarmReader, IRobotControl, IIOAccess, IVariableAccess, ITorqueReader, IMotionControl, IFileManager, IFileReader, IFileWriter, IYaskawaClient {
 
 		/// <summary>
 		/// Creates a new instance of HighSpeedEServerClient for robot communication.

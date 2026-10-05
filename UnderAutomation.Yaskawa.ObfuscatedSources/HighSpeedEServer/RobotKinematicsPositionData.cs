@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Base class for kinematic position data exchanged with the robot controller.
 	/// Contains coordinate type, posture flags, tool/user numbers, and the 8 raw axis values.

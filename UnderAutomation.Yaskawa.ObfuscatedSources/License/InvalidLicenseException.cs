@@ -4,7 +4,7 @@
 
 using System.Runtime.Serialization;
 
-namespace License {
+namespace UnderAutomation.Yaskawa.License {
 	/// <summary>
 	/// Exception thrown while using the product if the license is not valid.
 	/// </summary>

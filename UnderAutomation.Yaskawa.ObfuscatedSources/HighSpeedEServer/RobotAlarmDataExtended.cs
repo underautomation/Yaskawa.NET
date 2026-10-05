@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Contains extended information about a robot alarm, including sub-code details.
 	/// Provides more detailed diagnostic information than the basic RobotAlarmData.

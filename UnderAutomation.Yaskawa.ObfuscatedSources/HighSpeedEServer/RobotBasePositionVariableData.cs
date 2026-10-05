@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Represents data returned from reading multiple base position variables (BP variables) from the robot controller.
 	/// BP variables store base position information used for coordinated motion with external axes or travel units.

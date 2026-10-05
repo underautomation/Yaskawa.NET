@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Represents data returned from reading multiple I/O (Input/Output) points from the robot controller.
 	/// I/O addresses are organized in groups based on their function and accessibility.

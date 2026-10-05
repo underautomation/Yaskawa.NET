@@ -2,14 +2,15 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
+using UnderAutomation.Yaskawa.Common;
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Contains the current operational status of the robot controller.
 	/// Provides information about the robot's mode, running state, and safety conditions.
 	/// Retrieved using the status information reading command.
 	/// </summary>
-	public class RobotStatusData : RobotData {
+	public class RobotStatusData : RobotData, IStatusData {
 
 		/// <summary>
 		/// Gets whether the robot is in step (single-step) execution mode.

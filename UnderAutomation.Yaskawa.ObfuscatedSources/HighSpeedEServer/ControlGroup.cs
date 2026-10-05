@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Defines control group types for robot systems.
 	/// Control groups organize different motion units within the robot system.
@@ -21,9 +21,9 @@ namespace HighSpeedEServer {
 		BasePulseValue = 10,
 
 		/// <summary>
-		/// Station axes in pulse values. Valid index: 1-44.
+		/// Station axes in pulse values. Valid index: 1-24 (S1 to S24).
 		/// </summary>
-		StationPulseValue = 21,
+		StationPulseValue = 20,
 
 		/// <summary>
 		/// Robot axes in Cartesian coordinates. Valid index: 1-8.

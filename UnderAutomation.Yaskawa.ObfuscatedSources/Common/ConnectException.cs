@@ -4,7 +4,7 @@
 
 using System.Runtime.Serialization;
 
-namespace Common {
+namespace UnderAutomation.Yaskawa.Common {
 	/// <summary>
 	/// Exception thrown when connection to a Yaskawa robot fails
 	/// </summary>
@@ -16,7 +16,7 @@ namespace Common {
 		public string Service { get; }
 
 		/// <summary>
-		/// Address of the robot (IP:port or serial port name)
+		/// Address of the robot (IP:port)
 		/// </summary>
 		public string Address { get; }
 	}

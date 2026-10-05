@@ -4,10 +4,9 @@
 
 using System.Net;
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
-	/// Contains header information extracted from a High Speed Ethernet Server response packet.
-	/// Provides metadata about the communication including source address, data size, and transfer status.
+	/// Information about a response of the robot controller: the controller that answered, the size of the data, and the state of a transfer in several parts.
 	/// </summary>
 	public class RobotDataHeader {
 
@@ -24,21 +23,18 @@ namespace HighSpeedEServer {
 		public IPEndPoint IP { get; }
 
 		/// <summary>
-		/// Gets the size of the data payload in the response packet.
-		/// Does not include the header size.
+		/// Gets the size, in bytes, of the data returned by the controller in this response.
 		/// </summary>
 		public int DataSize { get; }
 
 		/// <summary>
-		/// Gets the block number for multi-block transfers.
-		/// The most significant bit (0x80000000) indicates this is the last block.
-		/// Used primarily for file transfer operations.
+		/// Gets the raw block number of a transfer in several parts, such as a file transfer.
+		/// Use <see cref="UnderAutomation.Yaskawa.HighSpeedEServer.RobotDataHeader.IsLastBlock"/> to know if this response is the last part.
 		/// </summary>
 		public int BlockNo { get; }
 
 		/// <summary>
-		/// Gets a value indicating whether this is the last block in a multi-block transfer.
-		/// Returns true when the MSB of BlockNo is set (0x80000000).
+		/// Gets a value indicating whether this response is the last part of a transfer in several parts.
 		/// </summary>
 		public bool IsLastBlock { get; }
 	}

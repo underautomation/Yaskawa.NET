@@ -4,14 +4,21 @@
 
 using System.Collections.Generic;
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Contains the content of a file downloaded from the robot controller.
 	/// Provides methods for parsing structured file content such as job files and parameter files.
 	/// </summary>
 	public class RobotFileContentData : RobotData {
 
-
+		/// <summary>
+		/// Extracts an integer parameter value from a structured file section.
+		/// Useful for reading values from parameter files and job data.
+		/// </summary>
+		/// <param name="section">The section name without the "///" prefix (e.g., "INST", "POS").</param>
+		/// <param name="parameterLine">Zero-based line number within the section.</param>
+		/// <param name="parameterColumn">Zero-based column number (comma-separated values).</param>
+		/// <returns>The integer value at the specified location.</returns>
 		public int GetParam(string section, int parameterLine, int parameterColumn)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...

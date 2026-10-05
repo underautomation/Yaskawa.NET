@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Specifies the type of management time data to retrieve.
 	/// Different metrics track various aspects of robot operation.
@@ -22,13 +22,13 @@ namespace HighSpeedEServer {
 
 		/// <summary>
 		/// Servo power on time for robots R1 through R8.
-		/// Add robot number (0-7) to get specific robot.
+		/// Pass the robot number (1 to 8) as index of GetManagementTime.
 		/// </summary>
 		ServoPowerOnTimR1ToR8 = 10,
 
 		/// <summary>
 		/// Servo power on time for stations S1 through S24.
-		/// Add station number (0-23) to get specific station.
+		/// Pass the station number (1 to 24) as index of GetManagementTime.
 		/// </summary>
 		ServoPowerOnTimeS1ToS24 = 20,
 
@@ -39,13 +39,13 @@ namespace HighSpeedEServer {
 
 		/// <summary>
 		/// Playback time for robots R1 through R8.
-		/// Add robot number (0-7) to get specific robot.
+		/// Pass the robot number (1 to 8) as index of GetManagementTime.
 		/// </summary>
 		PlayBackTimeR1ToR8 = 110,
 
 		/// <summary>
 		/// Playback time for stations S1 through S24.
-		/// Add station number (0-23) to get specific station.
+		/// Pass the station number (1 to 24) as index of GetManagementTime.
 		/// </summary>
 		PlayBackTimeS1ToS24 = 120,
 
@@ -56,15 +56,15 @@ namespace HighSpeedEServer {
 
 		/// <summary>
 		/// Motion time for robots R1 through R8.
-		/// Add robot number (0-7) to get specific robot.
+		/// Pass the robot number (1 to 8) as index of GetManagementTime.
 		/// </summary>
 		MotionTimeR1ToR8 = 210,
 
 		/// <summary>
 		/// Motion time for stations S1 through S24.
-		/// Add station number (0-23) to get specific station.
+		/// Pass the station number (1 to 24) as index of GetManagementTime.
 		/// </summary>
-		MotionTimeS1ToS24 = 221,
+		MotionTimeS1ToS24 = 220,
 
 		/// <summary>
 		/// Operation time for applications 1 through 8.

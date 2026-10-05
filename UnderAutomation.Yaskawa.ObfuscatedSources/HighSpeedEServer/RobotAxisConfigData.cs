@@ -4,7 +4,7 @@
 
 using System;
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Represents raw axis data with string values for axis configuration information.
 	/// Used to retrieve axis name/type information from the robot controller.

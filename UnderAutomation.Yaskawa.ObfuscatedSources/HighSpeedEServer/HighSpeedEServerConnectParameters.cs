@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Base class defining connection parameters for the High Speed Ethernet Server communication.
 	/// This class cannot be instantiated directly; use a derived class or use Connect with optional parameters.

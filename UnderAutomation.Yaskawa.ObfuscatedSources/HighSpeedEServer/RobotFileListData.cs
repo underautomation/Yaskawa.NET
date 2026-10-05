@@ -4,7 +4,7 @@
 
 using System.Collections.Generic;
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Contains the result of a file listing operation on the robot controller.
 	/// Returns an array of file names matching the specified pattern.

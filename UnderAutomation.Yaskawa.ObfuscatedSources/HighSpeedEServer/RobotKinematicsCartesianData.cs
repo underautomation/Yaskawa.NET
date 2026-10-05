@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Cartesian position result from a kinematics conversion.
 	/// Provides named X/Y/Z and orientation properties in engineering units in addition to the raw axis values.

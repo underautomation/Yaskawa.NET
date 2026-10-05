@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Represents generic robot position data with axis values of the specified type.
 	/// This class provides a flexible structure for storing position information that can be
@@ -43,5 +43,11 @@ namespace HighSpeedEServer {
 		/// User coordinates define custom reference frames for specific workpiece locations.
 		/// </summary>
 		public int UserCoordinateNumber { get; set; }
+
+		/// <summary>
+		/// Gets whether the variable is taught on the controller. False for a variable read with
+		/// <see cref="UnderAutomation.Yaskawa.HighSpeedEServer.Internal.HighSpeedEServerClientBase.ReadPositionVariable(System.Int32,System.Int32)"/> that is not defined: its values are then all 0.
+		/// </summary>
+		public bool IsDefined { get; }
 	}
 }

@@ -3,10 +3,9 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Contains a system parameter value read from the robot controller.
-	/// Retrieved using YERC command 0x039C.
 	/// </summary>
 	public class RobotSystemParamData : RobotData {
 

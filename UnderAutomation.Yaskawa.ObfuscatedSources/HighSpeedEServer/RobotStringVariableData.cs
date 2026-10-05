@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace HighSpeedEServer {
+namespace UnderAutomation.Yaskawa.HighSpeedEServer {
 	/// <summary>
 	/// Represents data returned from reading multiple string variables (S variables) from the robot controller.
 	/// S variables can be either 16-byte or 32-byte character strings depending on the command used.

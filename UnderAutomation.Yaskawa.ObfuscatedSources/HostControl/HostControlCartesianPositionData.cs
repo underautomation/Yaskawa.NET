@@ -41,9 +41,15 @@ namespace UnderAutomation.Yaskawa.HostControl {
 		public double Rz { get; }
 
 		/// <summary>
-		/// Gets or sets the Re (7th axis rotation) in degrees or millimeters.
+		/// Gets the elbow angle Re of a 7-axis robot, in degrees.
+		/// On a 6-axis robot, value of the 7th axis (degrees or millimeters) when the external axes are read, 0 otherwise.
 		/// </summary>
 		public double Re { get; }
+
+		/// <summary>
+		/// Gets the tool number (0 to 63) of the position.
+		/// </summary>
+		public int ToolNumber { get; }
 
 		/// <summary>
 		/// Gets or sets the 8th external axis value.
@@ -73,6 +79,7 @@ namespace UnderAutomation.Yaskawa.HostControl {
 		/// <summary>
 		/// Gets or sets the robot posture/configuration type.
 		/// Defines arm configuration (flip, upper/lower arm, front/back, etc.).
+		/// Use <see cref="UnderAutomation.Yaskawa.HostControl.HostControlCartesianPositionData.IsFlip"/>, <see cref="UnderAutomation.Yaskawa.HostControl.HostControlCartesianPositionData.IsUpperArm"/>, <see cref="UnderAutomation.Yaskawa.HostControl.HostControlCartesianPositionData.IsFront"/>... to read it.
 		/// </summary>
 		public int Type { get; }
 

@@ -317,7 +317,7 @@ public RobotDataHeader SwitchingCommand(SwitchingCommands command)
 		/// <param name="firstIndex">Starting I/O index. Valid ranges:
 		/// 
 		///             <ul><li>1-512: Robot user input signal</li><li>1001-1512: Robot user output signal</li><li>2001-2512: External input signal</li><li>2701-2956: Network input signal</li><li>3001-3512: External output signal</li><li>3701-3956: Network output signal</li><li>4001-4160: Robot system input signal</li><li>5001-5300: Robot system output signal</li><li>6001-6064: Interface panel input signal</li><li>7001-7999: Auxiliary relay signal</li><li>8001-8128: Robot control status signal</li></ul></param>
-		/// <param name="count">Number of bytes to read (will be rounded up to nearest even number).</param>
+		/// <param name="count">Number of bytes to read.</param>
 		/// <returns>Plural data containing array of I/O byte values.</returns>
 		public RobotIOData ReadIO(int firstIndex, int count)
 		{
@@ -329,7 +329,7 @@ public RobotDataHeader SwitchingCommand(SwitchingCommands command)
 		/// Writes I/O bytes to the robot controller starting at a specified index.
 		/// </summary>
 		/// <param name="firstIndex">Starting I/O index. See ReadIO for valid ranges.</param>
-		/// <param name="data">Data array to write (must contain an even number of elements).</param>
+		/// <param name="data">Data array to write.</param>
 		/// <returns>Response header indicating success.</returns>
 		public RobotDataHeader WriteIO(int firstIndex, byte[] data)
 		{
@@ -343,7 +343,7 @@ public RobotDataHeader SwitchingCommand(SwitchingCommands command)
 		/// </summary>
 		/// <param name="type">The I/O signal category.</param>
 		/// <param name="group">1-based group number within the I/O type.</param>
-		/// <param name="count">Number of bytes to read (will be rounded up to nearest even number).</param>
+		/// <param name="count">Number of bytes to read.</param>
 		/// <returns>Plural data containing array of I/O byte values.</returns>
 		public RobotIOData ReadIO(IOType type, ushort group, int count)
 		{
@@ -357,7 +357,7 @@ public RobotDataHeader SwitchingCommand(SwitchingCommands command)
 		/// </summary>
 		/// <param name="type">The I/O signal category.</param>
 		/// <param name="group">1-based group number within the I/O type.</param>
-		/// <param name="data">Data array to write (must contain an even number of elements).</param>
+		/// <param name="data">Data array to write.</param>
 		/// <returns>Response header indicating success.</returns>
 		public RobotDataHeader WriteIO(IOType type, ushort group, byte[] data)
 		{
@@ -369,7 +369,7 @@ public RobotDataHeader SwitchingCommand(SwitchingCommands command)
 		/// Writes network input bytes to the robot controller
 		/// </summary>
 		/// <param name="group">1-based group number within the Network Inputs.</param>
-		/// <param name="data">Data array to write (must contain an even number of elements).</param>
+		/// <param name="data">Data array to write.</param>
 		/// <returns>Response header indicating success.</returns>
 		public RobotDataHeader WriteIoNetworkInput(ushort group, byte[] data)
 		{
@@ -407,7 +407,7 @@ public RobotDataHeader SwitchingCommand(SwitchingCommands command)
 		/// Byte variables are 8-bit unsigned values used for compact data storage.
 		/// </summary>
 		/// <param name="firstIndex">Starting byte variable index.</param>
-		/// <param name="count">Number of bytes to read (will be rounded up to nearest even number).</param>
+		/// <param name="count">Number of byte variables to read.</param>
 		/// <returns>Plural data containing array of byte values.</returns>
 		public RobotByteVariableData ReadByte(int firstIndex, int count)
 		{
@@ -419,7 +419,7 @@ public RobotDataHeader SwitchingCommand(SwitchingCommands command)
 		/// Writes byte variables (B variables) to the robot controller.
 		/// </summary>
 		/// <param name="firstIndex">Starting byte variable index.</param>
-		/// <param name="data">Data to write (must contain an even number of elements).</param>
+		/// <param name="data">Data to write.</param>
 		/// <returns>Response header indicating success.</returns>
 		public RobotDataHeader WriteByte(int firstIndex, byte[] data)
 		{
@@ -674,7 +674,8 @@ public RobotDataHeader SwitchingCommand(SwitchingCommands command)
 		}
 
 		/// <summary>
-		/// Reads multiple 32-byte string variables (S variables) from the robot controller (DX200 only).
+		/// Reads multiple 32-byte string variables (S variables) from the robot controller.
+		/// Available on the controllers that store their S variables in 32 bytes (DX200, YRC1000...).
 		/// Extended string variables for longer text storage than 16-byte variants.
 		/// </summary>
 		/// <param name="firstIndex">Starting string variable index.</param>
